@@ -1,0 +1,26 @@
+<h2>Editar Jugador</h2>
+
+<form [formGroup]="form" (ngSubmit)="updateJugador()">
+  <input formControlName="nombre" placeholder="Nombre" />
+  <input formControlName="apellido1" placeholder="Apellido 1" />
+  <input formControlName="apellido2" placeholder="Apellido 2" />
+
+  <input type="number" formControlName="edad" placeholder="Edad" />
+  <input type="number" formControlName="estatura" placeholder="Estatura" />
+  <input type="number" formControlName="peso" placeholder="Peso" />
+
+  <input formControlName="posicion" placeholder="Posición" />
+
+  <input type="number" formControlName="goles" placeholder="Goles" />
+  <input type="number" formControlName="asistencias" placeholder="Asistencias" />
+
+  <input type="number" formControlName="valorMercado" placeholder="Valor mercado" />
+
+  <input formControlName="nacionalidad" placeholder="Nacionalidad" />
+  <input formControlName="fotoUrl" placeholder="Foto URL" />
+  @if (id == -1) {
+    <button type="button" (click)="createJugador()">Crear Jugador</button>
+  } @else {
+    <button type="submit">Guardar cambios</button>
+  }
+</form>

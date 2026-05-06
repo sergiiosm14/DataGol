@@ -1,0 +1,26 @@
+<h2>Equipos</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Nombre</th>
+    <th>País</th>
+    <th>Liga</th>
+    <th>Estadio</th>
+    <th>Fundación</th>
+    <th>Acciones</th>
+  </tr>
+
+  @for (equipo of equipos; track equipo.id) {
+    <tr>
+      <td>{{ equipo.nombre }}</td>
+      <td>{{ equipo.pais }}</td>
+      <td>{{ equipo.liga }}</td>
+      <td>{{ equipo.estadio }}</td>
+      <td>{{ equipo.fundacion }}</td>
+      <td>
+        <button (click)="deleteEquipo(equipo.id!)">Borrar</button>
+        <button (click)="editEquipo(equipo.id!)">Editar</button>
+      </td>
+    </tr>
+  }
+</table>

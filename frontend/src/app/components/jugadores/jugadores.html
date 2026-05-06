@@ -1,0 +1,21 @@
+<h2>Jugadores</h2>
+<button (click)="createJugador()">Crear Jugador</button>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Posición</th>
+    <th>Goles</th>
+    <th>Acciones</th>
+  </tr>
+  @for (jugador of jugadores; track jugador.id) {
+    <tr>
+      <td>{{ jugador.nombre }} {{ jugador.apellido1 }}</td>
+      <td>{{ jugador.posicion }}</td>
+      <td>{{ jugador.goles }}</td>
+      <td>
+        <button (click)="deleteJugador(jugador.id!)">Borrar</button>
+        <button (click)="editJugador(jugador.id!)">Editar</button>
+      </td>
+    </tr>
+  }
+</table>
