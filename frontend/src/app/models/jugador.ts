@@ -1,12 +1,12 @@
-import { Equipo } from "./equipo";
-export interface Jugador {
+import { Equipo } from './equipo';
 
-  id?: number;
+export interface Jugador {
+  id: number;
 
   // IDENTIDAD
   nombre: string;
   apellido1: string;
-  apellido2?: string;
+  apellido2: string;
 
   // FÍSICO
   edad: number;
@@ -22,11 +22,11 @@ export interface Jugador {
   valorMercado: number;
 
   // EXTRAS
-  nacionalidad?: string;
+  nacionalidad: string;
 
   // FOTO
-  fotoUrl?: string;
+  fotoUrl: string;
 
   // RELACIÓN
-  equipo?: Equipo;
+  equipo: Equipo | null;
 }

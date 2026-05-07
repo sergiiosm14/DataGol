@@ -1,93 +1,96 @@
 .home-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: white;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
 }
 
 /* HEADER */
-.header {
+.home-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-.header h1 {
-  font-size: 40px;
-  margin: 0;
+.home-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #38bdf8;
 }
 
-.header p {
-  color: #94a3b8;
+.home-header p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
 }
 
-/* STATS */
-.stats {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 30px;
+/* GRID */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
 }
 
-.stat-card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
+/* CARD */
+.home-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
   text-align: center;
-  width: 180px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-.stat-card h2 {
-  font-size: 16px;
-  color: #94a3b8;
+.home-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: #38bdf8;
 }
 
-.stat-card p {
-  font-size: 28px;
-  margin: 5px 0;
-}
-
-/* MENU */
-.menu {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  width: 200px;
-  text-align: center;
-}
-
-.card h3 {
+/* ICON */
+.icon {
+  font-size: 3rem;
   margin-bottom: 10px;
 }
 
-.card button {
-  background: #3b82f6;
-  border: none;
-  padding: 8px 15px;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
+/* TEXT */
+.home-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 
-.card button:hover {
-  background: #2563eb;
-}
-
-/* INFO */
-.info {
-  text-align: center;
-  margin-top: 20px;
+.home-card p {
   color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
 }
 
-.info ul {
-  list-style: none;
-  padding: 0;
+/* BUTTON */
+.btn-card {
+  background: #38bdf8;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-card:hover {
+  background: #0ea5e9;
+  transform: scale(1.05);
+}
+
+/* COLORES DIFERENTES */
+.players:hover {
+  border-color: #22c55e;
+}
+
+.teams:hover {
+  border-color: #f97316;
 }

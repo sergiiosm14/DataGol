@@ -1,11 +1,16 @@
 package com.datagol.datagol.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "equipos")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Equipo {
 
     @Id
@@ -13,39 +18,17 @@ public class Equipo {
     private Long id;
 
     private String nombre;
-
     private String pais;
-
     private String liga;
-
     private String estadio;
-
-    private int fundacion; // año de creación
-
+    private int fundacion;
     private String escudoUrl;
 
-    // Relación con jugadores (un equipo tiene muchos jugadores)
-    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
-    @JsonIgnore
+    @OneToMany(mappedBy = "equipo")
     private List<Jugador> jugadores;
 
-    // Constructor vacío
-    public Equipo() {
-    }
+    public Equipo() {}
 
-    // Constructor completo
-    public Equipo(String nombre, String pais, String liga,
-            String estadio, int fundacion, String escudoUrl) {
-
-        this.nombre = nombre;
-        this.pais = pais;
-        this.liga = liga;
-        this.estadio = estadio;
-        this.fundacion = fundacion;
-        this.escudoUrl = escudoUrl;
-    }
-
-    // GETTERS Y SETTERS
     public Long getId() {
         return id;
     }

@@ -2,14 +2,19 @@ import { Jugador } from './jugador';
 
 export interface Equipo {
 
-  id?: number;
+  id: number;
 
   nombre: string;
-  pais: string;
-  liga: string;
-  estadio?: string;
-  fundacion?: number;
-  escudoUrl?: string;
 
-  jugadores?: Jugador[];
+  pais: string;
+
+  liga: string;
+
+  estadio: string;
+
+  fundacion: number;
+
+  escudoUrl: string;
+
+  jugadores: Jugador[];
 }

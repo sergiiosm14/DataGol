@@ -1,0 +1,119 @@
+@if (jugador) {
+
+<div class="container py-4">
+
+  <!-- HEADER -->
+  <div class="d-flex align-items-center mb-4">
+
+    <button class="btn btn-outline-secondary me-3" (click)="back()">
+      ⬅ Volver
+    </button>
+
+    <div>
+      <h2 class="mb-0">
+        {{ jugador.nombre }} {{ jugador.apellido1 }}
+      </h2>
+
+      <span class="badge bg-primary">
+        {{ jugador.posicion }}
+      </span>
+    </div>
+
+  </div>
+
+  <!-- CARD PRINCIPAL -->
+  <div class="card shadow border-0">
+
+    <div class="row g-0">
+
+      <!-- IMAGEN -->
+      <div class="col-md-4 bg-light d-flex align-items-center justify-content-center p-3">
+        <img
+          class="img-fluid rounded"
+          style="max-height: 250px; object-fit: cover;"
+          [src]="jugador.fotoUrl"
+        />
+      </div>
+
+      <!-- INFO -->
+      <div class="col-md-8">
+        <div class="card-body">
+
+          <!-- INFO PERSONAL -->
+          <h5 class="mb-3">Información</h5>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <p><strong>Edad:</strong> {{ jugador.edad }}</p>
+              <p><strong>Nacionalidad:</strong> {{ jugador.nacionalidad }}</p>
+            </div>
+
+            <div class="col-md-6">
+              <p><strong>Altura:</strong> {{ jugador.estatura }} m</p>
+              <p><strong>Peso:</strong> {{ jugador.peso }} kg</p>
+            </div>
+          </div>
+
+          <!-- ESTADÍSTICAS -->
+          <h5 class="mb-3">Estadísticas</h5>
+
+          <div class="row">
+
+            <div class="col-md-4 mb-2">
+              <div class="card text-center">
+                <div class="card-body">
+                  ⚽ <strong>Goles</strong>
+                  <div class="fs-5 text-primary">{{ jugador.goles }}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-2">
+              <div class="card text-center">
+                <div class="card-body">
+                  🎯 <strong>Asistencias</strong>
+                  <div class="fs-5 text-primary">{{ jugador.asistencias }}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-2">
+              <div class="card text-center">
+                <div class="card-body">
+                  💰 <strong>Valor</strong>
+                  <div class="fs-5 text-primary">
+                    {{ jugador.valorMercado }} M€
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- EQUIPO -->
+          <h5 class="mt-3">Equipo</h5>
+
+          @if (jugador.equipo) {
+            <span class="badge bg-success fs-6">
+              {{ jugador.equipo.nombre }}
+            </span>
+          } @else {
+            <span class="text-muted">Sin equipo</span>
+          }
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+} @else {
+
+<div class="container text-center py-5">
+  <div class="spinner-border text-primary"></div>
+  <p class="mt-2">Cargando jugador...</p>
+</div>
+
+}

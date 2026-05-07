@@ -1,38 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Jugador } from '../models/jugador';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JugadorService {
 
-  private apiUrl = 'http://localhost:8080/api/jugadores';
+  private url = 'http://localhost:8080/api/jugadores';
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {}
-
-  // GET todos los jugadores
-  getJugadores(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getJugadores() {
+    return this.http.get<Jugador[]>(this.url);
   }
 
-  // GET jugador por id
-  getJugador(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${id}`);
+  getJugador(id: number) {
+    return this.http.get<Jugador>(`${this.url}/${id}`);
   }
 
-  // POST crear jugador
-  createJugador(jugador: any): Observable<any> {
-    return this.http.post(this.apiUrl, jugador);
+  createJugador(jugador: Jugador) {
+    return this.http.post<Jugador>(this.url, jugador);
   }
 
-  // PUT actualizar jugador
-  updateJugador(id: number, jugador: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, jugador);
+  updateJugador(jugador: Jugador) {
+    return this.http.put<Jugador>(`${this.url}/${jugador.id}`, jugador);
   }
 
-  // DELETE eliminar jugador
-  deleteJugador(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+
+  deleteJugador(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 }

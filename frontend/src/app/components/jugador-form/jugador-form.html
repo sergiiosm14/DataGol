@@ -1,0 +1,137 @@
+<div class="container py-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2 class="mb-0">
+      {{ form.value.id == -1 ? 'Nuevo jugador' : 'Editar jugador' }}
+    </h2>
+
+    <button class="btn btn-outline-secondary" (click)="back()">
+      ⬅ Back
+    </button>
+
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="card shadow border-0">
+      <div class="card-body">
+
+        <div class="row">
+
+          <!-- Nombre -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Nombre*</label>
+            <input class="form-control" formControlName="nombre">
+          </div>
+
+          <!-- Apellido 1 -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Apellido 1*</label>
+            <input class="form-control" formControlName="apellido1">
+          </div>
+
+          <!-- Apellido 2 -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Apellido 2</label>
+            <input class="form-control" formControlName="apellido2">
+          </div>
+
+          <!-- Edad -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Edad*</label>
+            <input type="number" class="form-control" formControlName="edad">
+          </div>
+
+          <!-- Estatura -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Estatura*</label>
+            <input type="number" class="form-control" formControlName="estatura">
+          </div>
+
+          <!-- Peso -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Peso*</label>
+            <input type="number" class="form-control" formControlName="peso">
+          </div>
+
+          <!-- Posición -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Posición*</label>
+            <select class="form-control" formControlName="posicion">
+              <option value="">Selecciona una posición</option>
+              @for (pos of posiciones; track pos.value) {
+                <option [value]="pos.value">
+                  {{ pos.viewValue }}
+                </option>
+              }
+            </select>
+          </div>
+
+          <!-- Goles -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Goles*</label>
+            <input type="number" class="form-control" formControlName="goles">
+          </div>
+
+          <!-- Asistencias -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Asistencias*</label>
+            <input type="number" class="form-control" formControlName="asistencias">
+          </div>
+
+          <!-- Valor -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Valor mercado (M€)*</label>
+            <input type="number" class="form-control" formControlName="valorMercado">
+          </div>
+
+          <!-- Nacionalidad -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Nacionalidad*</label>
+            <input class="form-control" formControlName="nacionalidad">
+          </div>
+
+           <div class="col-md-6 mb-3">
+            <label class="form-label">Equipo*</label>
+            <select class="form-control" formControlName="equipo">
+              <option value="">Selecciona un equipo</option>
+              @for (eq of equipos; track eq.id) {
+                <option [value]="eq.id">
+                  {{ eq.nombre }}
+                </option>
+              }</select>
+          </div>
+
+          <!-- Foto -->
+          <div class="col-12 mb-3">
+            <label class="form-label">Foto URL</label>
+            <input class="form-control" formControlName="fotoUrl">
+          </div>
+
+        </div>
+        @if (errorFormulario) {
+          <div class="alert alert-danger">
+            {{ errorFormulario }}
+          </div>
+        }
+
+        <!-- BOTONES -->
+        <div class="d-flex gap-2">
+
+          <button type="submit" class="btn btn-success">
+            Guardar
+          </button>
+
+          <button type="button" class="btn btn-secondary" (click)="back()">
+            Cancelar
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>

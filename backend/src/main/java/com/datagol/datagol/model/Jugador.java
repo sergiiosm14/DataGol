@@ -1,56 +1,49 @@
 package com.datagol.datagol.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "jugadores")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Jugador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // IDENTIDAD
     private String nombre;
     private String apellido1;
     private String apellido2;
 
-    // FÍSICO
     private int edad;
-    private double estatura; // en metros 
-    private double peso;     // en kg
+    private double estatura;
+    private double peso;
 
-    // FÚTBOL
     private String posicion;
     private int goles;
     private int asistencias;
 
-    // VALOR
-    private double valorMercado; // en millones €
+    private double valorMercado;
 
-    // EXTRAS
     private String nacionalidad;
-
-    // FOTO (URL mejor que guardar imagen en BD)
     private String fotoUrl;
 
     @ManyToOne
     @JoinColumn(name = "equipo_id")
-    @JsonIgnore
     private Equipo equipo;
 
-    // Constructor vacío (JPA)
-    public Jugador() {
-    }
+    public Jugador() {}
 
-    // Constructor completo
     public Jugador(String nombre, String apellido1, String apellido2,
-            int edad, double estatura, double peso,
-            String posicion, int goles, int asistencias,
-            double valorMercado, String nacionalidad,
-            String fotoUrl, Equipo equipo) {
+                   int edad, double estatura, double peso,
+                   String posicion, int goles, int asistencias,
+                   double valorMercado, String nacionalidad,
+                   String fotoUrl, Equipo equipo) {
 
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -67,7 +60,6 @@ public class Jugador {
         this.equipo = equipo;
     }
 
-    // GETTERS Y SETTERS
     public Long getId() {
         return id;
     }

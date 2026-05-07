@@ -1,21 +1,59 @@
-<h2>Jugadores</h2>
-<button (click)="createJugador()">Crear Jugador</button>
+<button (click)="crearJugador()">Crear Jugador</button>
 <table>
-  <tr>
-    <th>Nombre</th>
-    <th>Posición</th>
-    <th>Goles</th>
-    <th>Acciones</th>
-  </tr>
-  @for (jugador of jugadores; track jugador.id) {
+  <thead>
     <tr>
-      <td>{{ jugador.nombre }} {{ jugador.apellido1 }}</td>
-      <td>{{ jugador.posicion }}</td>
-      <td>{{ jugador.goles }}</td>
-      <td>
-        <button (click)="deleteJugador(jugador.id!)">Borrar</button>
-        <button (click)="editJugador(jugador.id!)">Editar</button>
-      </td>
+      <th>Nombre</th>
+      <th>Posición</th>
+      <th>Edad</th>
+      <th>Equipo</th>
+      <th>Detalles</th>
+      <th>Borrar</th>
+      <th>Editar</th>
     </tr>
-  }
+  </thead>
+
+  <tbody>
+    @for (jugador of jugadores; track jugador.id) {
+      <tr>
+        <!-- NOMBRE -->
+        <td>{{ jugador.nombre }} {{ jugador.apellido1 }}</td>
+
+        <!-- POSICIÓN -->
+        <td>
+          {{ jugador.posicion }}
+        </td>
+
+        <!-- EDAD -->
+        <td>
+          {{ jugador.edad }}
+        </td>
+
+        <!-- EQUIPO -->
+        <td>
+          @if (jugador.equipo) {
+            {{ jugador.equipo.nombre }}
+          } @else {
+            Sin equipo
+          }
+        </td>
+
+        <!-- BOTÓN -->
+        <td>
+          <button [routerLink]="['/jugador', jugador.id]">Ver detalles</button>
+        </td>
+
+        <!-- BOTÓN -->
+        <td>
+          <button (click)="borrarJugador(jugador.id)">Borrar</button>
+        </td>
+
+        <!-- BOTÓN -->
+        <td>
+          <button [routerLink]="['/jugador/add', jugador.id]">Editar</button>
+        </td>
+      </tr>
+    }
+  </tbody>
 </table>
+
+<button routerLink="/">Volver</button>

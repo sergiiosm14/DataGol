@@ -10,31 +10,31 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/equipos")
-@CrossOrigin(origins = "*") // necesario para Angular
+@CrossOrigin(origins = "*")
 public class EquipoController {
 
     @Autowired
     private EquipoRepository equipoRepository;
 
-    // GET - todos los equipos
+    // GET - Obtener todos los equipos
     @GetMapping
     public List<Equipo> getAllEquipos() {
         return equipoRepository.findAll();
     }
 
-    // GET - equipo por ID
+    // GET - Obtener equipo por ID
     @GetMapping("/{id}")
     public Optional<Equipo> getEquipoById(@PathVariable Long id) {
         return equipoRepository.findById(id);
     }
 
-    // POST - crear equipo
+    // POST - Crear equipo
     @PostMapping
     public Equipo createEquipo(@RequestBody Equipo equipo) {
         return equipoRepository.save(equipo);
     }
 
-    // PUT - actualizar equipo
+    // PUT - Actualizar equipo
     @PutMapping("/{id}")
     public Equipo updateEquipo(@PathVariable Long id, @RequestBody Equipo datos) {
 
@@ -52,7 +52,7 @@ public class EquipoController {
         return equipoRepository.save(equipo);
     }
 
-    // DELETE - borrar equipo
+    // DELETE - Borrar equipo
     @DeleteMapping("/{id}")
     public void deleteEquipo(@PathVariable Long id) {
         equipoRepository.deleteById(id);

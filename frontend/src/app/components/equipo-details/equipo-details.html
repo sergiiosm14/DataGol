@@ -1,0 +1,119 @@
+@if (equipo) {
+
+<div class="container py-4">
+
+  <!-- HEADER -->
+  <div class="d-flex align-items-center mb-4">
+
+    <button class="btn btn-outline-secondary me-3" (click)="back()">
+      ⬅ Volver
+    </button>
+
+    <div class="d-flex align-items-center gap-3">
+
+      <img
+        [src]="equipo.escudoUrl || 'https://via.placeholder.com/60'"
+        width="60"
+        height="60"
+        class="rounded"
+      />
+
+      <div>
+        <h2 class="mb-0">{{ equipo.nombre }}</h2>
+        <span class="badge bg-primary">{{ equipo.liga }}</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- INFO EQUIPO -->
+  <div class="card shadow border-0 mb-4">
+    <div class="card-body">
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <p><strong>País:</strong> {{ equipo.pais }}</p>
+          <p><strong>Estadio:</strong> {{ equipo.estadio }}</p>
+        </div>
+
+        <div class="col-md-6">
+          <p><strong>Fundación:</strong> {{ equipo.fundacion }}</p>
+          <p><strong>Jugadores:</strong> {{ equipo.jugadores.length || 0 }}</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JUGADORES DEL EQUIPO -->
+  <h4 class="mb-3">Plantilla</h4>
+
+  @if (equipo.jugadores && equipo.jugadores.length > 0) {
+
+    <div class="row">
+
+      @for (jugador of equipo.jugadores; track jugador.id) {
+
+        <div class="col-md-4 mb-3">
+
+          <div class="card shadow-sm h-100">
+
+            <div class="card-body text-center">
+
+              <img
+                [src]="jugador.fotoUrl || 'https://via.placeholder.com/80'"
+                width="80"
+                height="80"
+                class="rounded-circle mb-2"
+              />
+
+              <h5 class="mb-1">
+                {{ jugador.nombre }} {{ jugador.apellido1 }}
+              </h5>
+
+              <p class="text-muted mb-1">
+                {{ jugador.posicion }}
+              </p>
+
+              <span class="badge bg-success mb-2">
+                {{ jugador.valorMercado }} M€
+              </span>
+
+              <div>
+                <a class="btn btn-sm btn-primary"
+                   [routerLink]="['/jugador', jugador.id]">
+                  Ver
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  } @else {
+
+    <div class="alert alert-warning">
+      Este equipo no tiene jugadores registrados
+    </div>
+
+  }
+
+</div>
+
+} @else {
+
+<div class="container text-center py-5">
+  <div class="spinner-border text-primary"></div>
+  <p class="mt-2">Cargando equipo...</p>
+</div>
+
+}

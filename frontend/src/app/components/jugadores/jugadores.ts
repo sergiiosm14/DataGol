@@ -1,44 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { JugadorService } from '../../services/jugador-service';
+import { RouterLink, Router } from '@angular/router';
 import { Jugador } from '../../models/jugador';
+import { Location } from '@angular/common';
+import { EquipoService } from '../../services/equipo-service';
+import { Equipo } from '../../models/equipo';
+
 
 @Component({
   selector: 'app-jugadores',
-  templateUrl: './jugadores.html'
+  imports: [RouterLink],
+  templateUrl: './jugadores.html',
+  styleUrl: './jugadores.css',
 })
-export class Jugadores implements OnInit {
-
-  jugadores: Jugador[] = [];
-
+export class Jugadores {
+  public jugadores: Jugador[] = [];
+  public equipos: Equipo[] = []
   constructor(
+    private http: HttpClient,
     private jugadorService: JugadorService,
-    private router: Router
+    private location: Location,
+    private router: Router,private equipoService: EquipoService
   ) {}
 
-  ngOnInit(): void {
-    this.getJugadores();
-  }
-
-  createJugador() {
-    this.router.navigate(['/jugadores/create/-1']);
-  }
-
-  getJugadores() {
-    this.jugadorService.getJugadores().subscribe(data => {
+  ngOnInit() {
+    this.jugadorService.getJugadores().subscribe((data) => {
+      console.log('Jugadores', data);
       this.jugadores = data;
     });
   }
 
-  editJugador(id: number) {
-    this.router.navigate(['/jugadores/edit', id]);
+  crearJugador() {
+    this.router.navigate(['/jugador/add/-1']);
   }
-
-  deleteJugador(id: number) {
-    if (confirm('¿Estás seguro de que deseas eliminar este jugador?')) {
-      this.jugadorService.deleteJugador(id).subscribe(() => {
-        this.getJugadores();
+  borrarJugador(id: number) {
+    if (confirm('¿Estás seguro de que quieres borrar este jugador?')) {
+      this.jugadorService.deleteJugador(id).subscribe((data) => {
+        console.log('Jugador borrado', data);
+        this.ngOnInit();
       });
     }
   }
+ 
 }

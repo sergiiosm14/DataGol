@@ -1,59 +1,29 @@
 <div class="home-container">
 
   <!-- HEADER -->
-  <div class="header">
-    <h1>⚽ DataGol</h1>
-    <p>Gestión de equipos y jugadores de fútbol</p>
+  <div class="home-header">
+    <h1>⚽ Datagol</h1>
+    <p>Gestiona jugadores y equipos como en BeSoccer</p>
   </div>
 
-  <!-- STATS -->
-  <div class="stats">
+  <!-- CARDS -->
+  <div class="home-grid">
 
-    <div class="stat-card">
-      <h2>🏟 Equipos</h2>
-      <p>{{ equipos.length }}</p>
+    <!-- JUGADORES -->
+    <div class="home-card players" routerLink="/jugadores">
+      <div class="icon">👟</div>
+      <h2>Jugadores</h2>
+      <p>Consulta, crea y edita jugadores</p>
+      <button class="btn-card">Entrar</button>
     </div>
 
-    <div class="stat-card">
-      <h2>👟 Jugadores</h2>
-      <p>{{ jugadores.length }}</p>
+    <!-- EQUIPOS -->
+    <div class="home-card teams" routerLink="/equipos">
+      <div class="icon">🏟️</div>
+      <h2>Equipos</h2>
+      <p>Gestiona clubes y plantillas</p>
+      <button class="btn-card">Entrar</button>
     </div>
-
-    @if (getTopJugador()) {
-      <div class="stat-card">
-        <h2>⭐ Más valioso</h2>
-        <p>{{ getTopJugador().nombre }}</p>
-        <small>{{ getTopJugador().valorMercado }} M€</small>
-      </div>
-    }
-
-  </div>
-
-  <!-- ACCESOS -->
-  <div class="menu">
-
-    @for (equipo of equipos; track equipo.id) {
-      <div class="card">
-        <h3>🏟 {{ equipo.nombre }}</h3>
-        <p>{{ equipo.pais }} - {{ equipo.liga }}</p>
-        <button >Ver</button>
-      </div>
-    }
-
-  </div>
-
-  <!-- JUGADORES DESTACADOS -->
-  <div class="menu">
-
-    <h2 style="width: 100%; text-align:center;">👟 Jugadores destacados</h2>
-
-    @for (jugador of jugadores; track jugador.id) {
-      <div class="card">
-        <h3>{{ jugador.nombre }} {{ jugador.apellido1 }}</h3>
-        <p>{{ jugador.posicion }}</p>
-        <small>{{ jugador.valorMercado }} M€</small>
-      </div>
-    }
 
   </div>
 

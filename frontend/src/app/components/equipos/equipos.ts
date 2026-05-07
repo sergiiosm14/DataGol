@@ -1,36 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { EquipoService } from '../../services/equipoService';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { EquipoService } from '../../services/equipo-service';
+import { RouterLink, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { Equipo } from '../../models/equipo';
 
 @Component({
   selector: 'app-equipos',
-  templateUrl: './equipos.html'
+  imports: [RouterLink],
+  templateUrl: './equipos.html',
+  styleUrl: './equipos.css',
 })
-export class Equipos implements OnInit {
+export class Equipos {
+  public equipos: Equipo[] = [];
+  constructor(
+    private http: HttpClient,
+    private equipoService: EquipoService,
+    private location: Location,
+    private router: Router,
+  ) {}
 
-  equipos: Equipo[] = [];
-
-  constructor(private equipoService: EquipoService) {}
-
-  ngOnInit(): void {
-    this.getEquipos();
-  }
-
-  getEquipos() {
-    this.equipoService.getEquipos().subscribe(data => {
+  ngOnInit() {
+    this.equipoService.getEquipos().subscribe((data) => {
+      console.log('Equipos', data);
       this.equipos = data;
     });
   }
 
-  editEquipo(id: number) {
-    // Aquí podrías navegar a un componente de edición, por ejemplo:
-    // this.router.navigate(['/equipos/edit', id]);
-    alert('Función de edición no implementada');
+  crearEquipo() {
+    this.router.navigate(['/equipo/add/-1']);
+  }
+  borrarEquipo(id: number) {
+    if (confirm('¿Estás seguro de que quieres borrar este equipo?')) {
+      this.equipoService.deleteEquipo(id).subscribe((data) => {
+        console.log('Equipo borrado', data);
+        this.ngOnInit();
+      });
+    }
   }
   
-  deleteEquipo(id: number) {
-    this.equipoService.deleteEquipo(id).subscribe(() => {
-      this.getEquipos(); // recarga lista
-    });
-  }
 }

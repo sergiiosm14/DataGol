@@ -19,7 +19,9 @@ public class InitData {
         return args -> {
 
             // ❗ evitar duplicados
-         
+           if (equipoRepository.count() > 0 || jugadorRepository.count() > 0) {
+    return;
+}
 
             // ======================
             // EQUIPOS
@@ -58,7 +60,7 @@ public class InitData {
             pedri.setAsistencias(8);
             pedri.setValorMercado(80);
             pedri.setNacionalidad("España");
-            pedri.setFotoUrl("https://example.com/pedri.png");
+            pedri.setFotoUrl("https://assets.laliga.com/squad/2025/t178/p490541/2048x2048/p490541_t178_2025_1_002_000.jpg");
             pedri.setEquipo(barcelona);
 
             // ======================

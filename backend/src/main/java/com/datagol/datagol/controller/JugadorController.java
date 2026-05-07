@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/jugadores")
-@CrossOrigin(origins = "*") // para poder conectar Angular después
+@CrossOrigin(origins = "*")
 public class JugadorController {
 
     @Autowired
