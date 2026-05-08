@@ -1,59 +1,51 @@
-<button (click)="crearJugador()">Crear Jugador</button>
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Posición</th>
-      <th>Edad</th>
-      <th>Equipo</th>
-      <th>Detalles</th>
-      <th>Borrar</th>
-      <th>Editar</th>
-    </tr>
-  </thead>
+<div class="list-container">
+  
+  <div class="list-header">
+    <h2>Listado de Jugadores</h2>
+    <button class="btn-add" (click)="crearJugador()">+ Nuevo Jugador</button>
+  </div>
 
-  <tbody>
-    @for (jugador of jugadores; track jugador.id) {
-      <tr>
-        <!-- NOMBRE -->
-        <td>{{ jugador.nombre }} {{ jugador.apellido1 }}</td>
+  <div class="table-wrapper">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Jugador</th>
+          <th>Posición</th>
+          <th class="text-center">Edad</th>
+          <th>Club</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+      </thead>
 
-        <!-- POSICIÓN -->
-        <td>
-          {{ jugador.posicion }}
-        </td>
+      <tbody>
+        @for (jugador of jugadores; track jugador.id) {
+          <tr>
+            <td class="player-name">
+              <strong>{{ jugador.nombre }}</strong> {{ jugador.apellido1 }}
+            </td>
 
-        <!-- EDAD -->
-        <td>
-          {{ jugador.edad }}
-        </td>
+            <td><span class="pos-badge">{{ jugador.posicion }}</span></td>
 
-        <!-- EQUIPO -->
-        <td>
-          @if (jugador.equipo) {
-            {{ jugador.equipo.nombre }}
-          } @else {
-            Sin equipo
-          }
-        </td>
+            <td class="text-center">{{ jugador.edad }}</td>
 
-        <!-- BOTÓN -->
-        <td>
-          <button [routerLink]="['/jugador', jugador.id]">Ver detalles</button>
-        </td>
+            <td>
+              @if (jugador.equipo) {
+                <span class="team-name">{{ jugador.equipo.nombre }}</span>
+              } @else {
+                <span class="free-agent">Agente Libre</span>
+              }
+            </td>
 
-        <!-- BOTÓN -->
-        <td>
-          <button (click)="borrarJugador(jugador.id)">Borrar</button>
-        </td>
+            <td class="actions-cell">
+              <button class="btn-icon view" [routerLink]="['/jugador', jugador.id]" title="Ver detalles">👁️</button>
+              <button class="btn-icon edit" [routerLink]="['/jugador/add', jugador.id]" title="Editar">✏️</button>
+              <button class="btn-icon delete" (click)="borrarJugador(jugador.id)" title="Borrar">🗑️</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 
-        <!-- BOTÓN -->
-        <td>
-          <button [routerLink]="['/jugador/add', jugador.id]">Editar</button>
-        </td>
-      </tr>
-    }
-  </tbody>
-</table>
-
-<button routerLink="/">Volver</button>
+  <button class="btn-back" routerLink="/">← Volver al inicio</button>
+</div>

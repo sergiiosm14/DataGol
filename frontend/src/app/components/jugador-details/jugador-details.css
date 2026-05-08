@@ -1,103 +1,184 @@
-/* Fondo general tipo app deportiva */
-.container {
-  max-width: 1100px;
+.profile-wrapper {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* HEADER */
-h2 {
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.profile-nav {
+  margin-bottom: 20px;
 }
 
-.badge {
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 12px;
-}
-
-/* BOTÓN VOLVER */
-.btn-outline-secondary {
-  border-radius: 12px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.btn-outline-secondary:hover {
-  transform: scale(1.05);
-}
-
-/* CARD PRINCIPAL */
-.card {
-  border-radius: 18px;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-/* IMAGEN DEL JUGADOR */
-img {
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* SECCIÓN INFO */
-.card-body {
-  padding: 25px;
-}
-
-h5 {
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #222;
-}
-
-/* TEXTO INFO */
-p {
-  margin-bottom: 6px;
-  font-size: 15px;
-  color: #444;
-}
-
-/* ESTADÍSTICAS CARDS */
-.card .card {
-  border-radius: 14px;
+.btn-back-minimal {
+  background: none;
   border: none;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.btn-back-minimal:hover { color: #1a3a34; }
+
+/* La Tarjeta Principal */
+.player-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.card-header-main {
+  background: #1a3a34; /* El verde oscuro que venimos usando */
+  padding: 30px 40px;
+  color: white;
+}
+
+.player-full-name {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.badges-row {
+  display: flex;
+  gap: 10px;
+}
+
+.pos-tag, .team-tag, .free-tag {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pos-tag { background: #27ae60; }
+.team-tag { background: rgba(255,255,255,0.2); }
+.free-tag { background: #d35400; }
+
+/* Contenido */
+.card-content {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 0;
+}
+
+.image-section {
   background: #f8f9fa;
-  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
 }
 
-.card .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+.photo-frame {
+  width: 250px;
+  height: 320px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background: white;
 }
 
-/* ICONOS Y VALORES */
-.fs-5 {
+.player-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.data-section {
+  padding: 40px;
+}
+
+/* Rejilla de Bio */
+.bio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.bio-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.bio-item .label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #999;
   font-weight: 700;
 }
 
-/* COLORES TIPO APP DEPORTIVA */
-.text-primary {
-  color: #1f6feb !important;
+.bio-item .value {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
 }
 
-.bg-primary {
-  background: linear-gradient(135deg, #1f6feb, #4f8cff) !important;
+/* Bloques de Estadísticas */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
-/* EQUIPO */
-.badge.bg-success {
-  background: linear-gradient(135deg, #28a745, #20c997) !important;
-  padding: 8px 12px;
+.stat-box {
+  background: #f4f7f6;
+  padding: 20px;
   border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s;
 }
 
-/* LOADING */
-.spinner-border {
-  width: 3rem;
-  height: 3rem;
+.stat-box:hover { transform: translateY(-5px); }
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a3a34;
 }
 
-/* EFECTO APP MODERNA */
-body {
-  background: #f4f6f9;
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 700;
+}
+
+.market-value {
+  background: #eefaf3;
+  border: 1px solid #d4edda;
+}
+
+/* Spinner */
+.loading-state {
+  text-align: center;
+  padding: 100px;
+}
+
+.soccer-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #1a3a34;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Movil */
+@media (max-width: 768px) {
+  .card-content { grid-template-columns: 1fr; }
+  .image-section { padding: 20px; }
+  .bio-grid { gap: 15px; }
 }

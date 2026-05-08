@@ -1,15 +1,13 @@
 package com.datagol.datagol.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "jugadores")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Jugador {
 
     @Id
@@ -33,17 +31,19 @@ public class Jugador {
     private String nacionalidad;
     private String fotoUrl;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER) // Mejor para rendimiento
     @JoinColumn(name = "equipo_id")
+    @JsonIgnoreProperties("jugadores") // Evita bucle infinito
     private Equipo equipo;
 
-    public Jugador() {}
+    public Jugador() {
+    }
 
     public Jugador(String nombre, String apellido1, String apellido2,
-                   int edad, double estatura, double peso,
-                   String posicion, int goles, int asistencias,
-                   double valorMercado, String nacionalidad,
-                   String fotoUrl, Equipo equipo) {
+            int edad, double estatura, double peso,
+            String posicion, int goles, int asistencias,
+            double valorMercado, String nacionalidad,
+            String fotoUrl, Equipo equipo) {
 
         this.nombre = nombre;
         this.apellido1 = apellido1;

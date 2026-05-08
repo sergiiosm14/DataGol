@@ -69,7 +69,7 @@ export class EquipoForm {
 
     // EDITAR
     else {
-      this.equipoService.updateEquipo(equipo).subscribe(() => {
+      this.equipoService.updateEquipo(Number(idEquipo),equipo).subscribe(() => {
         this.router.navigate(['/equipos']);
       });
     }

@@ -23,7 +23,7 @@ export class EquipoService {
     return this.http.post<Equipo>(this.url, equipo);
   }
 
-  updateEquipo(equipo: Equipo) {
+  updateEquipo(id: number,equipo: Equipo) {
     return this.http.put<Equipo>(`${this.url}/${equipo.id}`, equipo);
   }
 

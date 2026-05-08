@@ -1,16 +1,14 @@
 package com.datagol.datagol.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "equipos")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Equipo {
 
     @Id
@@ -24,10 +22,12 @@ public class Equipo {
     private int fundacion;
     private String escudoUrl;
 
-    @OneToMany(mappedBy = "equipo")
+    @OneToMany(mappedBy = "equipo", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonIgnoreProperties("equipo") // Evita bucle infinito
     private List<Jugador> jugadores;
 
-    public Equipo() {}
+    public Equipo() {
+    }
 
     public Long getId() {
         return id;

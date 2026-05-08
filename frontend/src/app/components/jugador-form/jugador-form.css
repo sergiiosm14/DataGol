@@ -1,0 +1,138 @@
+.editor-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.editor-header h2 {
+  color: #1a3a34;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Tarjeta del Formulario */
+.form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #27ae60;
+  margin: 25px 0 15px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.form-section-title:first-child {
+  margin-top: 0;
+}
+
+/* Grid de Inputs */
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+  margin-top: 15px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+}
+
+.field input, .field select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.field input:focus, .field select:focus {
+  outline: none;
+  border-color: #27ae60;
+}
+
+/* Botones */
+.form-actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-save {
+  background: #1a3a34;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  flex: 2;
+}
+
+.btn-cancel {
+  background: #eee;
+  color: #666;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+.btn-minimal {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-error {
+  background: #fff5f5;
+  color: #c0392b;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: 600;
+  border-left: 4px solid #c0392b;
+}
+
+.stat-input {
+  background-color: #f9fdfc;
+  font-weight: bold;
+}

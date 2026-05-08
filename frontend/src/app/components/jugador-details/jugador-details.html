@@ -1,119 +1,82 @@
 @if (jugador) {
+<div class="profile-wrapper">
 
-<div class="container py-4">
-
-  <!-- HEADER -->
-  <div class="d-flex align-items-center mb-4">
-
-    <button class="btn btn-outline-secondary me-3" (click)="back()">
-      ⬅ Volver
+  <div class="profile-nav">
+    <button class="btn-back-minimal" (click)="back()">
+      <span class="arrow">←</span> Volver al listado
     </button>
-
-    <div>
-      <h2 class="mb-0">
-        {{ jugador.nombre }} {{ jugador.apellido1 }}
-      </h2>
-
-      <span class="badge bg-primary">
-        {{ jugador.posicion }}
-      </span>
-    </div>
-
   </div>
 
-  <!-- CARD PRINCIPAL -->
-  <div class="card shadow border-0">
-
-    <div class="row g-0">
-
-      <!-- IMAGEN -->
-      <div class="col-md-4 bg-light d-flex align-items-center justify-content-center p-3">
-        <img
-          class="img-fluid rounded"
-          style="max-height: 250px; object-fit: cover;"
-          [src]="jugador.fotoUrl"
-        />
-      </div>
-
-      <!-- INFO -->
-      <div class="col-md-8">
-        <div class="card-body">
-
-          <!-- INFO PERSONAL -->
-          <h5 class="mb-3">Información</h5>
-
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <p><strong>Edad:</strong> {{ jugador.edad }}</p>
-              <p><strong>Nacionalidad:</strong> {{ jugador.nacionalidad }}</p>
-            </div>
-
-            <div class="col-md-6">
-              <p><strong>Altura:</strong> {{ jugador.estatura }} m</p>
-              <p><strong>Peso:</strong> {{ jugador.peso }} kg</p>
-            </div>
-          </div>
-
-          <!-- ESTADÍSTICAS -->
-          <h5 class="mb-3">Estadísticas</h5>
-
-          <div class="row">
-
-            <div class="col-md-4 mb-2">
-              <div class="card text-center">
-                <div class="card-body">
-                  ⚽ <strong>Goles</strong>
-                  <div class="fs-5 text-primary">{{ jugador.goles }}</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 mb-2">
-              <div class="card text-center">
-                <div class="card-body">
-                  🎯 <strong>Asistencias</strong>
-                  <div class="fs-5 text-primary">{{ jugador.asistencias }}</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 mb-2">
-              <div class="card text-center">
-                <div class="card-body">
-                  💰 <strong>Valor</strong>
-                  <div class="fs-5 text-primary">
-                    {{ jugador.valorMercado }} M€
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- EQUIPO -->
-          <h5 class="mt-3">Equipo</h5>
-
+  <div class="player-card">
+    
+    <div class="card-header-main">
+      <div class="header-info">
+        <h2 class="player-full-name">{{ jugador.nombre }} {{ jugador.apellido1 }}</h2>
+        <div class="badges-row">
+          <span class="pos-tag">{{ jugador.posicion }}</span>
           @if (jugador.equipo) {
-            <span class="badge bg-success fs-6">
-              {{ jugador.equipo.nombre }}
-            </span>
+            <span class="team-tag">{{ jugador.equipo.nombre }}</span>
           } @else {
-            <span class="text-muted">Sin equipo</span>
+            <span class="free-tag">Agente Libre</span>
           }
+        </div>
+      </div>
+    </div>
 
+    <div class="card-content">
+      
+      <div class="image-section">
+        <div class="photo-frame">
+          <img [src]="jugador.fotoUrl" [alt]="jugador.nombre" class="player-photo">
         </div>
       </div>
 
+      <div class="data-section">
+        
+        <div class="bio-grid">
+          <div class="bio-item">
+            <span class="label">Nacionalidad</span>
+            <span class="value">{{ jugador.nacionalidad }}</span>
+          </div>
+          <div class="bio-item">
+            <span class="label">Edad</span>
+            <span class="value">{{ jugador.edad }} años</span>
+          </div>
+          <div class="bio-item">
+            <span class="label">Altura</span>
+            <span class="value">{{ jugador.estatura }} m</span>
+          </div>
+          <div class="bio-item">
+            <span class="label">Peso</span>
+            <span class="value">{{ jugador.peso }} kg</span>
+          </div>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-box">
+            <span class="stat-icon">⚽</span>
+            <span class="stat-value">{{ jugador.goles }}</span>
+            <span class="stat-label">Goles</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-icon">🎯</span>
+            <span class="stat-value">{{ jugador.asistencias }}</span>
+            <span class="stat-label">Asistencias</span>
+          </div>
+          <div class="stat-box market-value">
+            <span class="stat-icon">💎</span>
+            <span class="stat-value">{{ jugador.valorMercado }}M</span>
+            <span class="stat-label">Valor</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-
 </div>
-
 } @else {
-
-<div class="container text-center py-5">
-  <div class="spinner-border text-primary"></div>
-  <p class="mt-2">Cargando jugador...</p>
+<div class="loading-state">
+  <div class="soccer-spinner"></div>
+  <p>Localizando jugador en el campo...</p>
 </div>
-
 }

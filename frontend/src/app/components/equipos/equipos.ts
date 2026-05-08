@@ -30,6 +30,11 @@ export class Equipos {
   crearEquipo() {
     this.router.navigate(['/equipo/add/-1']);
   }
+
+  editarEquipo(id: number){
+
+    this.router.navigate(["/equipo/add/",id])
+  }
   borrarEquipo(id: number) {
     if (confirm('¿Estás seguro de que quieres borrar este equipo?')) {
       this.equipoService.deleteEquipo(id).subscribe((data) => {

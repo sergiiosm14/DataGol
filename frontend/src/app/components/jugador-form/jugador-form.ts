@@ -74,29 +74,44 @@ export class JugadorForm {
     });
   }
 
-  save() {
-    const idJugador = this.route.snapshot.paramMap.get('id');
+ save() {
+  const formValue = this.form.value;
+  
+  // IMPORTANTE: Spring espera un objeto para el campo 'equipo', no solo el ID
+  const jugadorParaEnviar = {
+    ...formValue,
+    equipo: { id: formValue.equipo } // Convertimos el ID del select en un objeto
+  };
 
-    const jugadorToSend = {
-      ...this.form.value,
-      equipo: this.form.value.equipo ? { id: this.form.value.equipo } : null // ← SOLO EL ID
-    };
-    console.log("Jugador enviar",jugadorToSend)
-
-    if (idJugador === '-1') {
-      delete jugadorToSend.id;
-      this.jugadorService.createJugador(jugadorToSend).subscribe(() => {
-        this.router.navigate(['/jugadores']);
-      });
-    } else {
-      jugadorToSend.id = Number(idJugador);
-      this.jugadorService.updateJugador(jugadorToSend).subscribe(() => {
-        this.router.navigate(['/jugadores']);
-      });
-    }
+  if (formValue.id === -1) {
+    // CREAR NUEVO JUGADOR
+    this.jugadorService.createJugador(jugadorParaEnviar).subscribe({
+      next: (res) => {
+        console.log('Jugador creado:', res);
+        this.back()
+      },
+      error: (err) => {
+        this.errorFormulario = "Error al crear el jugador";
+        console.error(err);
+      }
+    });
+  } else {
+    // ACTUALIZAR JUGADOR EXISTENTE
+    // Pasamos el ID y el objeto (asumiendo que tu servicio recibe ambos)
+    this.jugadorService.updateJugador(formValue.id, jugadorParaEnviar).subscribe({
+      next: (res) => {
+        console.log('Jugador actualizado:', res);
+        this.back()
+      },
+      error: (err) => {
+        this.errorFormulario = "Error al actualizar el jugador";
+        console.error(err);
+      }
+    });
   }
+ }
 
-  back() {
+ back() {
     this.location.back();
   }
 }

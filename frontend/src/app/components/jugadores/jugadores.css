@@ -1,116 +1,120 @@
-/* Contenedor general */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  font-family: Arial, Helvetica, sans-serif;
+.list-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Cabecera */
-thead {
-  background: linear-gradient(90deg, #1e3c72, #2a5298);
-  color: white;
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
-th {
-  padding: 14px 12px;
-  text-align: left;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+.list-header h2 {
+  color: #1a3a34;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
-/* Filas */
-td {
-  padding: 14px 12px;
+/* Tabla */
+.table-wrapper {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table thead {
+  background-color: #1a3a34;
+  color: white;
+}
+
+.data-table th {
+  padding: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.data-table td {
+  padding: 12px 15px;
   border-bottom: 1px solid #eee;
-  font-size: 14px;
-  color: #333;
+  color: #444;
 }
 
-/* Hover fila */
-tbody tr:hover {
-  background-color: #f4f7ff;
-  transition: 0.2s ease;
+.data-table tbody tr:hover {
+  background-color: #f9fdfc;
 }
 
-/* Botones generales */
-button {
-  padding: 6px 12px;
+/* Badges y estados */
+.pos-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.free-agent {
+  color: #d35400;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.team-name {
+  font-weight: 500;
+}
+
+/* Botones de acción */
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-icon {
   border: none;
+  background: #f0f0f0;
+  padding: 8px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 13px;
-  transition: 0.2s ease;
+  transition: 0.2s;
 }
 
-/* Botón crear */
-button:first-of-type {
-  background: #28a745;
+.btn-icon:hover { transform: scale(1.1); }
+.view:hover { background: #e3f2fd; }
+.edit:hover { background: #fff3e0; }
+.delete:hover { background: #ffebee; }
+
+/* Botones Generales */
+.btn-add {
+  background: #27ae60;
   color: white;
-  margin-bottom: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-button:first-of-type:hover {
-  background: #218838;
-}
-
-/* Botón ver detalles */
-button[routerLink*="jugador/"] {
-  background: #007bff;
-  color: white;
-}
-
-button[routerLink*="jugador/"]:hover {
-  background: #0069d9;
-}
-
-/* Botón editar */
-button[routerLink*="add"] {
-  background: #ffc107;
-  color: #000;
-}
-
-button[routerLink*="add"]:hover {
-  background: #e0a800;
-}
-
-/* Botón borrar */
-button[click*="borrar"] {
-  background: #dc3545;
-  color: white;
-}
-
-button[click*="borrar"]:hover {
-  background: #c82333;
-}
-
-/* Botón volver */
-button[routerLink="/"] {
+.btn-back {
   margin-top: 20px;
-  background: #6c757d;
-  color: white;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #666;
 }
 
-button[routerLink="/"]:hover {
-  background: #5a6268;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  table {
-    font-size: 12px;
-  }
-
-  th, td {
-    padding: 10px;
-  }
-
-  button {
-    font-size: 12px;
-    padding: 5px 10px;
-  }
-}
+.text-center { text-align: center; }
