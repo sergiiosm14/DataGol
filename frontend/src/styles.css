@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+/* Definición de colores por defecto (Modo Claro) */
+:root {
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-color: #1a2a3a;
+  --accent-color: #27ae60;
+  --table-header: #f8f9fa;
+}
+
+/* Colores para el Modo Oscuro */
+[data-theme='dark'] {
+  --bg-color: #0b1118;
+  --card-bg: #161f27;
+  --text-color: #ffffff;
+  --accent-color: #2ecc71;
+  --table-header: #1c2630;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}

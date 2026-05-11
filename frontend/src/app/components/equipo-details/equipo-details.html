@@ -1,97 +1,68 @@
 @if (equipo) {
 
-<div class="container py-4">
+<div class="team-wrapper">
 
   <!-- HEADER -->
-  <div class="d-flex align-items-center mb-4">
+  <div class="team-header">
 
-    <button class="btn btn-outline-secondary me-3" (click)="back()">
-      ⬅ Volver
+    <button class="back-btn" (click)="back()">
+      ← Volver
     </button>
 
-    <div class="d-flex align-items-center gap-3">
-
-      <img
-        [src]="equipo.escudoUrl"
-        width="60"
-        height="60"
-        class="rounded"
-      />
+    <div class="team-title">
+      <img [src]="equipo.escudoUrl" class="team-logo" />
 
       <div>
-        <h2 class="mb-0">{{ equipo.nombre }}</h2>
-        <span class="badge bg-primary">{{ equipo.liga }}</span>
+        <h1>{{ equipo.nombre }}</h1>
+        <span class="league-tag">{{ equipo.liga }}</span>
       </div>
-
     </div>
 
   </div>
 
-  <!-- INFO EQUIPO -->
-  <div class="card shadow border-0 mb-4">
-    <div class="card-body">
+  <!-- INFO -->
+  <div class="info-card">
 
-      <div class="row">
-
-        <div class="col-md-6">
-          <p><strong>País:</strong> {{ equipo.pais }}</p>
-          <p><strong>Estadio:</strong> {{ equipo.estadio }}</p>
-        </div>
-
-        <div class="col-md-6">
-          <p><strong>Fundación:</strong> {{ equipo.fundacion }}</p>
-          <p><strong>Jugadores:</strong> {{ equipo.jugadores.length || 0 }}</p>
-        </div>
-
+    <div class="info-grid">
+      <div>
+        <p><span>País:</span> {{ equipo.pais }}</p>
+        <p><span>Estadio:</span> {{ equipo.estadio }}</p>
       </div>
 
+      <div>
+        <p><span>Fundación:</span> {{ equipo.fundacion }}</p>
+        <p><span>Plantilla:</span> {{ equipo.jugadores.length || 0 }} jugadores</p>
+      </div>
     </div>
+
   </div>
 
-  <!-- JUGADORES DEL EQUIPO -->
-  <h4 class="mb-3">Plantilla</h4>
+  <!-- JUGADORES -->
+  <h2 class="section-title">Plantilla</h2>
 
-  @if (equipo.jugadores && equipo.jugadores.length > 0) {
+  @if (equipo.jugadores.length > 0) {
 
-    <div class="row">
+    <div class="players-grid">
 
       @for (jugador of equipo.jugadores; track jugador.id) {
 
-        <div class="col-md-4 mb-3">
+        <div class="player-card">
 
-          <div class="card shadow-sm h-100">
+          <img [src]="jugador.fotoUrl" class="player-img" />
 
-            <div class="card-body text-center">
+          <h3>{{ jugador.nombre }} {{ jugador.apellido1 }}</h3>
 
-              <img
-                [src]="jugador.fotoUrl"
-                width="80"
-                height="80"
-                class="rounded-circle mb-2"
-              />
+          <p class="position">{{ jugador.posicion }}</p>
 
-              <h5 class="mb-1">
-                {{ jugador.nombre }} {{ jugador.apellido1 }}
-              </h5>
-
-              <p class="text-muted mb-1">
-                {{ jugador.posicion }}
-              </p>
-
-              <span class="badge bg-success mb-2">
-                {{ jugador.valorMercado }} M€
-              </span>
-
-              <div>
-                <a class="btn btn-sm btn-primary"
-                   [routerLink]="['/jugador', jugador.id]">
-                  Ver
-                </a>
-              </div>
-
-            </div>
-
+          <div class="stats">
+            <span>⚽ {{ jugador.goles }}</span>
+            <span>🎯 {{ jugador.asistencias }}</span>
+            <span>💰 {{ jugador.valorMercado }}M</span>
           </div>
+
+          <a class="btn-view" [routerLink]="['/jugador', jugador.id]">
+            Ver jugador
+          </a>
 
         </div>
 
@@ -101,8 +72,8 @@
 
   } @else {
 
-    <div class="alert alert-warning">
-      Este equipo no tiene jugadores registrados
+    <div class="empty">
+      Este equipo aún no tiene jugadores
     </div>
 
   }
@@ -111,9 +82,9 @@
 
 } @else {
 
-<div class="container text-center py-5">
-  <div class="spinner-border text-primary"></div>
-  <p class="mt-2">Cargando equipo...</p>
+<div class="loading">
+  <div class="spinner"></div>
+  <p>Cargando equipo...</p>
 </div>
 
 }

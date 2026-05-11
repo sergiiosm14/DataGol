@@ -1,0 +1,141 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4f7f6, #e9eef2);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 900px;
+}
+
+/* ===================== */
+/* HEADER */
+/* ===================== */
+h2 {
+  font-weight: 800;
+  color: #1a2a3a;
+}
+
+button.btn-outline-secondary {
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 8px 14px;
+  transition: all 0.2s ease;
+}
+
+button.btn-outline-secondary:hover {
+  transform: translateX(-3px);
+}
+
+/* ===================== */
+/* CARD FORM */
+/* ===================== */
+.card {
+  border-radius: 20px !important;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  background: white;
+}
+
+.card-body {
+  padding: 35px;
+}
+
+/* ===================== */
+/* INPUTS */
+/* ===================== */
+.form-label {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  border-radius: 12px;
+  border: 1px solid #e0e6ed;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: #27ae60;
+  box-shadow: 0 0 0 3px rgba(39,174,96,0.15);
+}
+
+/* GRID spacing */
+.row > div {
+  margin-bottom: 10px;
+}
+
+/* ===================== */
+/* ERROR */
+/* ===================== */
+.alert-danger {
+  border-radius: 12px;
+  font-weight: 600;
+  background: #ffeaea;
+  color: #c0392b;
+  border: 1px solid #ffcccc;
+}
+
+/* ===================== */
+/* BUTTONS */
+/* ===================== */
+.btn-success {
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  border: none;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 18px rgba(39,174,96,0.25);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(39,174,96,0.35);
+}
+
+.btn-secondary {
+  background: #ecf0f1;
+  border: none;
+  color: #2c3e50;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 10px 20px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #dfe6e9;
+  transform: translateY(-2px);
+}
+
+/* ===================== */
+/* FORM LAYOUT EFFECT */
+/* ===================== */
+.card-body .row {
+  margin-bottom: 20px;
+}
+
+/* INPUT HOVER EFFECT */
+.form-control:hover {
+  border-color: #bdc3c7;
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}

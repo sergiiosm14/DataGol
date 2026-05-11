@@ -1,26 +1,99 @@
 <div class="main-wrapper">
-
+  <!-- HEADER -->
   <header class="app-header">
     <h1>⚽ Datagol</h1>
-    <p>Panel de administración deportiva</p>
+    <p>Sistema de Inteligencia Deportiva</p>
   </header>
 
-  <section class="menu-grid">
+  <div class="transfer-ticker">
+    <div class="ticker-content">
+      <span>🔥 ÚLTIMA HORA: Pedri González renueva con el Real Madrid</span>
+      <span class="separator">|</span>
+      <span>⚽ Pichichi: {{ pichichi }} lidera la tabla</span>
+      <span class="separator">|</span>
+      <span>🆕 Nuevo equipo registrado: FC Barcelona</span>
+      <span class="separator">|</span>
+      <span>🔥 ÚLTIMA HORA: Pedri González renueva con el Real Madrid</span>
+    </div>
+  </div>
 
+  <!-- STATS -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">👥</div>
+      <div class="stat-data">
+        <span class="stat-value">{{ jugadores.length || 0 }}</span>
+        <span class="stat-label">Jugadores</span>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">🏟️</div>
+      <div class="stat-data">
+        <span class="stat-value">{{ totalEquipos || 0 }}</span>
+        <span class="stat-label">Equipos</span>
+      </div>
+    </div>
+
+    <div class="stat-card highlight">
+      <div class="stat-icon">💎</div>
+      <div class="stat-data">
+        <span class="stat-value"> {{ valorMercadoTotal / 1000000 || 0 }}M€ </span>
+        <span class="stat-label">Valor mercado</span>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">🏆</div>
+
+      <div class="stat-data">
+        @if (pichichi) {
+          <span class="stat-value pichichi"> {{ pichichi.nombre }} ({{ pichichi.goles }}⚽) </span>
+        } @else {
+          <span class="stat-value pichichi"> Sin datos </span>
+        }
+
+        <span class="stat-label">Máximo goleador</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-grid">
     <div class="card item-players" routerLink="/jugadores">
-      <div class="visual">👟</div>
-      <h2>Plantilla</h2>
-      <p>Gestión de fichajes y perfiles</p>
-      <button class="action-btn">Gestionar</button>
+      <h2>👟 Gestión de Jugadores</h2>
+      <p>Fichajes, estadísticas y rendimiento</p>
+      <button class="btn-card">Explorar →</button>
     </div>
 
     <div class="card item-teams" routerLink="/equipos">
-      <div class="visual">🏟️</div>
-      <h2>Clubes</h2>
-      <p>Control de estadios y ligas</p>
-      <button class="action-btn">Gestionar</button>
+      <h2>🏟 Gestión de Equipos</h2>
+      <p>Clubs, estadios y ligas</p>
+      <button class="btn-card">Explorar →</button>
     </div>
 
+    <div class="card item-league" routerLink="/clasificacion">
+      <h2>🏆 Clasificación</h2>
+      <p>Tabla de liga con puntos</p>
+      <button class="btn-card">Ver →</button>
+    </div>
   </section>
 
+  <!-- TOP GOLEADORES -->
+  <section class="top-section">
+    <h2>🔥 Top Goleadores</h2>
+
+    @if (topJugadores.length > 0) {
+      <div class="top-grid">
+        @for (jugador of topJugadores; track jugador.id) {
+          <div class="top-card">
+            <div class="top-name">{{ jugador.nombre }} {{ jugador.apellido1 }}</div>
+            <div class="top-stats">⚽ {{ jugador.goles }} goles</div>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="empty">No hay jugadores disponibles</p>
+    }
+  </section>
 </div>

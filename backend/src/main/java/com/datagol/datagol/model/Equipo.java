@@ -21,6 +21,9 @@ public class Equipo {
     private String estadio;
     private int fundacion;
     private String escudoUrl;
+    private int puntos;
+    private int golesFavor;
+    private int golesContra;
 
     @OneToMany(mappedBy = "equipo", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnoreProperties("equipo") // Evita bucle infinito
@@ -79,6 +82,30 @@ public class Equipo {
 
     public void setEscudoUrl(String escudoUrl) {
         this.escudoUrl = escudoUrl;
+    }
+    
+      public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
+    public int getGolesFavor() {
+        return golesFavor;
+    }
+
+    public void setGolesFavor(int golesFavor) {
+        this.golesFavor = golesFavor;
+    }
+
+    public int getGolesContra() {
+        return golesContra;
+    }
+
+    public void setGolesContra(int golesContra) {
+        this.golesContra = golesContra;
     }
 
     public List<Jugador> getJugadores() {
