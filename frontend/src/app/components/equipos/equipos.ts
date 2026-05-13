@@ -43,5 +43,9 @@ export class Equipos {
       });
     }
   }
+
+  back(){
+    this.location.back()
+  }
   
 }

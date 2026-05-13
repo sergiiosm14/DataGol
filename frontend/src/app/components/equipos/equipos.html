@@ -1,9 +1,18 @@
 <div class="container py-4">
-  <!-- HEADER -->
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="mb-0">🏟 Equipos</h2>
 
-    <button class="btn btn-success" (click)="crearEquipo()">+ Nuevo equipo</button>
+  <!-- HEADER -->
+  <div class="header-bar mb-4">
+
+    <button class="btn-volver" (click)="back()">
+      ⬅ Volver
+    </button>
+
+    <h2>🏟 Equipos</h2>
+
+    <button class="btn btn-success" (click)="crearEquipo()">
+      + Nuevo equipo
+    </button>
+
   </div>
 
   <!-- LISTA -->
@@ -11,7 +20,7 @@
     @for (equipo of equipos; track equipo.id) {
       <div class="col-md-4 mb-4">
         <div class="card shadow border-0 h-100">
-          <!-- ESCUDO -->
+
           <div class="text-center p-3 bg-light">
             <img
               [src]="equipo.escudoUrl || 'https://via.placeholder.com/100'"
@@ -20,29 +29,16 @@
             />
           </div>
 
-          <!-- INFO -->
           <div class="card-body text-center">
-            <h5 class="card-title mb-1">
-              {{ equipo.nombre }}
-            </h5>
-
-            <p class="text-muted mb-1">
-              {{ equipo.liga }}
-            </p>
-
-            <small class="text-muted">
-              {{ equipo.pais }}
-            </small>
-
+            <h5 class="card-title">{{ equipo.nombre }}</h5>
+            <p class="text-muted">{{ equipo.liga }}</p>
+            <small class="text-muted">{{ equipo.pais }}</small>
             <hr />
-
-            <p class="mb-1">🏟 {{ equipo.estadio }}</p>
-
-            <p class="mb-3">📅 Fundado en {{ equipo.fundacion }}</p>
+            <p>🏟 {{ equipo.estadio }}</p>
+            <p>📅 Fundado en {{ equipo.fundacion }}</p>
           </div>
 
-          <!-- BOTONES -->
-          <div class="card-footer bg-white border-0 d-flex justify-content-between">
+          <div class="card-footer d-flex justify-content-between">
             <button class="btn btn-outline-primary btn-sm" [routerLink]="['/equipo', equipo.id]">
               Ver
             </button>
@@ -50,18 +46,21 @@
             <button class="btn btn-outline-secondary btn-sm" (click)="editarEquipo(equipo.id)">
               Editar
             </button>
+
             <button class="btn btn-outline-danger btn-sm" (click)="borrarEquipo(equipo.id)">
               Borrar
             </button>
           </div>
+
         </div>
       </div>
     }
   </div>
 
-  <!-- SI NO HAY -->
   @if (equipos.length === 0) {
-    <div class="text-center text-muted mt-5">No hay equipos disponibles</div>
+    <div class="text-center text-muted mt-5">
+      No hay equipos disponibles
+    </div>
   }
-  <button routerLink="/">Volver</button>
+
 </div>

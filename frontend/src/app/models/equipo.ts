@@ -16,5 +16,11 @@ export interface Equipo {
 
   escudoUrl: string;
 
+  puntos: number;
+
+  golesFavor: number;
+
+  golesContra: number;
+
   jugadores: Jugador[];
 }

@@ -1,141 +1,160 @@
-:host {
-  display: block;
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+/* =========================
+   CONTENEDOR
+========================= */
+.page-wrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f4f7f6, #e9eef2);
-  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  padding: 30px;
+
+  font-family: "Roboto Condensed", sans-serif;
+
+  color: white;
+
+  background:
+    radial-gradient(circle at top, rgba(255,45,85,0.25), transparent 40%),
+    radial-gradient(circle at bottom, rgba(255,140,0,0.25), transparent 50%),
+    linear-gradient(135deg, #0b1220, #111827);
 }
 
-/* CONTAINER */
-.container {
-  max-width: 900px;
-}
-
-/* ===================== */
-/* HEADER */
-/* ===================== */
+/* =========================
+   HEADER
+========================= */
 h2 {
-  font-weight: 800;
-  color: #1a2a3a;
+  font-family: "Teko", sans-serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+
+  background: linear-gradient(90deg, #ff2d55, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-button.btn-outline-secondary {
-  border-radius: 10px;
-  font-weight: 600;
-  padding: 8px 14px;
-  transition: all 0.2s ease;
-}
+/* BOTÓN BACK */
+.btn-outline-secondary {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
 
-button.btn-outline-secondary:hover {
-  transform: translateX(-3px);
-}
-
-/* ===================== */
-/* CARD FORM */
-/* ===================== */
-.card {
-  border-radius: 20px !important;
-  overflow: hidden;
-  border: none !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  background: white;
-}
-
-.card-body {
-  padding: 35px;
-}
-
-/* ===================== */
-/* INPUTS */
-/* ===================== */
-.form-label {
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 6px;
-}
-
-.form-control {
+  color: white;
   border-radius: 12px;
-  border: 1px solid #e0e6ed;
+
   padding: 10px 14px;
-  transition: all 0.2s ease;
-  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.btn-outline-secondary:hover {
+  background: rgba(255, 45, 85, 0.25);
+  transform: translateX(-4px);
+}
+
+/* =========================
+   CARD FORM
+========================= */
+.card {
+  background: rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(12px);
+
+  border-radius: 18px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+
+  color: white;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* =========================
+   LABELS
+========================= */
+.form-label {
+  font-weight: 600;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* =========================
+   INPUTS
+========================= */
+.form-control {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  color: white;
+  border-radius: 12px;
+
+  padding: 10px 12px;
+
+  transition: 0.2s ease;
 }
 
 .form-control:focus {
-  border-color: #27ae60;
-  box-shadow: 0 0 0 3px rgba(39,174,96,0.15);
+  border-color: #ff2d55;
+  box-shadow: 0 0 12px rgba(255,45,85,0.3);
+
+  background: rgba(255,255,255,0.08);
+  color: white;
 }
 
-/* GRID spacing */
-.row > div {
-  margin-bottom: 10px;
+/* PLACEHOLDER */
+.form-control::placeholder {
+  color: rgba(255,255,255,0.4);
 }
 
-/* ===================== */
-/* ERROR */
-/* ===================== */
-.alert-danger {
-  border-radius: 12px;
-  font-weight: 600;
-  background: #ffeaea;
-  color: #c0392b;
-  border: 1px solid #ffcccc;
-}
-
-/* ===================== */
-/* BUTTONS */
-/* ===================== */
+/* =========================
+   BOTÓN GUARDAR
+========================= */
 .btn-success {
-  background: linear-gradient(135deg, #27ae60, #1e8449);
+  background: linear-gradient(135deg, #ff2d55, #ff8c00);
   border: none;
-  font-weight: 700;
-  padding: 10px 20px;
+
+  font-weight: bold;
+  padding: 10px 16px;
+
   border-radius: 12px;
-  transition: all 0.2s ease;
-  box-shadow: 0 8px 18px rgba(39,174,96,0.25);
+  color: white;
+
+  box-shadow: 0 10px 25px rgba(255,45,85,0.25);
+
+  transition: 0.2s ease;
 }
 
 .btn-success:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(39,174,96,0.35);
+  transform: scale(1.05);
 }
 
+/* =========================
+   CANCELAR
+========================= */
 .btn-secondary {
-  background: #ecf0f1;
-  border: none;
-  color: #2c3e50;
-  font-weight: 600;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  color: white;
   border-radius: 12px;
-  padding: 10px 20px;
-  transition: all 0.2s ease;
+
+  padding: 10px 16px;
+
+  transition: 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: #dfe6e9;
-  transform: translateY(-2px);
+  background: rgba(255,45,85,0.2);
 }
 
-/* ===================== */
-/* FORM LAYOUT EFFECT */
-/* ===================== */
-.card-body .row {
-  margin-bottom: 20px;
+/* =========================
+   ERROR
+========================= */
+.alert-danger {
+  background: rgba(255,45,85,0.15);
+  border: 1px solid #ff2d55;
+  color: #ff6b6b;
+
+  border-radius: 12px;
 }
 
-/* INPUT HOVER EFFECT */
-.form-control:hover {
-  border-color: #bdc3c7;
-}
-
-/* ===================== */
-/* RESPONSIVE */
-/* ===================== */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
-  .card-body {
-    padding: 20px;
-  }
-
   h2 {
-    font-size: 1.4rem;
+    font-size: 32px;
   }
 }

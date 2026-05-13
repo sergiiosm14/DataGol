@@ -42,5 +42,9 @@ export class Jugadores {
       });
     }
   }
+
+  back(){
+    this.location.back()
+  }
  
 }

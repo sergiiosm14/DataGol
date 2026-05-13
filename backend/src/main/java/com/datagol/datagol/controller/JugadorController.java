@@ -43,7 +43,6 @@ public class JugadorController {
 
         jugador.setNombre(jugadorDetails.getNombre());
         jugador.setApellido1(jugadorDetails.getApellido1());
-        jugador.setApellido2(jugadorDetails.getApellido2());
         jugador.setEdad(jugadorDetails.getEdad());
         jugador.setEstatura(jugadorDetails.getEstatura());
         jugador.setPeso(jugadorDetails.getPeso());

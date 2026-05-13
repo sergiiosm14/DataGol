@@ -44,7 +44,6 @@ export class JugadorForm {
       id: [-1],
       nombre: ['', Validators.required],
       apellido1: ['', Validators.required],
-      apellido2: ['', Validators.required],
       edad: [0, Validators.required],
       estatura: [0, Validators.required],
       peso: [0, Validators.required],

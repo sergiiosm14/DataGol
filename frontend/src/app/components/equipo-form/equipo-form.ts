@@ -36,6 +36,11 @@ export class EquipoForm {
       estadio: ['', Validators.required],
       fundacion: [0, Validators.required],
       escudoUrl: ['', Validators.required],
+      puntos: [0, Validators.required],
+      golesFavor: [0, Validators.required],
+      golesContra: [0, Validators.required],
+      jugadores: [[]]
+
     });
   }
 
@@ -46,6 +51,10 @@ export class EquipoForm {
     if (idEquipo && idEquipo !== '-1') {
       this.equipoService.getEquipo(Number(idEquipo)).subscribe((data: Equipo) => {
         this.form.patchValue(data);
+
+        this.form.patchValue({
+          jugadores: data.jugadores
+        })
       });
     }
   }
@@ -58,7 +67,7 @@ export class EquipoForm {
       return;
     }
 
-    const equipo: Equipo = this.form.value;
+    const {jugadores, ...equipo} = this.form.value;
 
     // CREAR
     if (idEquipo === '-1' || idEquipo === null) {

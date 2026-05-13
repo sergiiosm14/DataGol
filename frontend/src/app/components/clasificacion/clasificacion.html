@@ -1,0 +1,48 @@
+<div class="tabla-container">
+
+  <div class="header">
+    <button class="btn-volver" (click)="back()">← Volver</button>
+
+    <h2>🏆 Clasificación LaLiga</h2>
+  </div>
+
+  <table class="tabla-clasificacion">
+
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Equipo</th>
+        <th>Escudo</th>
+        <th>PJ</th>
+        <th>GF</th>
+        <th>GC</th>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (equipo of equipos; track equipo.id; let i = $index) {
+        <tr>
+          <td class="pos">{{ i + 1 }}</td>
+
+          <td class="team">{{ equipo.nombre }}</td>
+
+          <td>
+            @if (equipo.escudoUrl) {
+              <img [src]="equipo.escudoUrl" class="escudo" />
+            } @else {
+              <span>Sin escudo</span>
+            }
+          </td>
+
+          <td>36</td>
+          <td>{{ equipo.golesFavor }}</td>
+          <td>{{ equipo.golesContra }}</td>
+
+          <td class="puntos">{{ equipo.puntos }}</td>
+        </tr>
+      }
+    </tbody>
+
+  </table>
+</div>

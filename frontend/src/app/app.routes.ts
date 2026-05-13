@@ -6,6 +6,10 @@ import { JugadorForm } from './components/jugador-form/jugador-form';
 import { Equipos } from './components/equipos/equipos';
 import { EquipoForm } from './components/equipo-form/equipo-form';
 import { EquipoDetails } from './components/equipo-details/equipo-details';
+import { Clasificacion } from './components/clasificacion/clasificacion';
+import { LaLiga } from './components/la-liga/la-liga';
+import { PremierLeague } from './components/premier-league/premier-league';
+import { Rankings } from './components/rankings/rankings';
 
 export const routes: Routes = [
     {
@@ -34,5 +38,20 @@ export const routes: Routes = [
     },{
         path: 'equipo/:id',
         component: EquipoDetails
+    },
+    {
+        path: 'clasificacion',
+        component: Clasificacion
+    },
+    {
+        path: 'laliga',
+        component: LaLiga
+    },{
+        path: 'PremierLeague',
+        component: PremierLeague
+    },
+    {
+        path: 'rankings',
+        component: Rankings
     }
 ];

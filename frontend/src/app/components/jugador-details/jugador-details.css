@@ -1,184 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+/* =========================
+   WRAPPER GENERAL
+========================= */
 .profile-wrapper {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 30px;
+
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+
+  background:
+    radial-gradient(circle at top, rgba(255,45,85,0.25), transparent 45%),
+    radial-gradient(circle at bottom, rgba(255,140,0,0.25), transparent 55%),
+    linear-gradient(135deg, #0b1220, #0f172a);
 }
 
+/* =========================
+   NAV BACK
+========================= */
 .profile-nav {
   margin-bottom: 20px;
 }
 
 .btn-back-minimal {
-  background: none;
-  border: none;
-  color: #666;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.2s;
-}
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
 
-.btn-back-minimal:hover { color: #1a3a34; }
-
-/* La Tarjeta Principal */
-.player-card {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  overflow: hidden;
-  border: 1px solid #eee;
-}
-
-.card-header-main {
-  background: #1a3a34; /* El verde oscuro que venimos usando */
-  padding: 30px 40px;
   color: white;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn-back-minimal:hover {
+  background: rgba(255,45,85,0.25);
+  transform: translateX(-5px);
+}
+
+.arrow {
+  margin-right: 5px;
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+.player-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 22px;
+
+  padding: 25px;
+
+  box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+}
+
+/* =========================
+   HEADER
+========================= */
+.card-header-main {
+  margin-bottom: 20px;
 }
 
 .player-full-name {
-  font-size: 32px;
-  font-weight: 800;
-  margin: 0 0 10px 0;
-  letter-spacing: -0.5px;
+  font-family: "Teko", sans-serif;
+  font-size: 44px;
+
+  margin: 0;
+
+  background: linear-gradient(90deg, #ff2d55, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .badges-row {
+  margin-top: 10px;
   display: flex;
   gap: 10px;
 }
 
-.pos-tag, .team-tag, .free-tag {
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
+/* BADGES */
+.pos-tag,
+.team-tag,
+.free-tag {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+
+  font-weight: bold;
 }
 
-.pos-tag { background: #27ae60; }
-.team-tag { background: rgba(255,255,255,0.2); }
-.free-tag { background: #d35400; }
+/* POS */
+.pos-tag {
+  background: rgba(255, 140, 0, 0.2);
+  color: #ff8c00;
+}
 
-/* Contenido */
+/* TEAM */
+.team-tag {
+  background: rgba(255, 45, 85, 0.2);
+  color: #ff2d55;
+}
+
+/* FREE */
+.free-tag {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* =========================
+   CONTENT LAYOUT
+========================= */
 .card-content {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 0;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
 }
 
-.image-section {
-  background: #f8f9fa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-}
-
+/* =========================
+   IMAGE
+========================= */
 .photo-frame {
-  width: 250px;
-  height: 320px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .player-photo {
-  width: 100%;
-  height: 100%;
+  width: 180px;
+  height: 180px;
+
   object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 3px solid #ff2d55;
+
+  box-shadow: 0 0 25px rgba(255,45,85,0.25);
 }
 
-.data-section {
-  padding: 40px;
-}
-
-/* Rejilla de Bio */
+/* =========================
+   BIO GRID
+========================= */
 .bio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  margin-bottom: 40px;
+  gap: 15px;
+
+  margin-bottom: 20px;
 }
 
 .bio-item {
-  display: flex;
-  flex-direction: column;
+  background: rgba(255,255,255,0.05);
+
+  padding: 12px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .bio-item .label {
+  display: block;
   font-size: 12px;
-  text-transform: uppercase;
-  color: #999;
-  font-weight: 700;
+
+  color: rgba(255,255,255,0.6);
 }
 
 .bio-item .value {
-  font-size: 18px;
-  color: #333;
-  font-weight: 600;
+  font-weight: bold;
+  color: white;
 }
 
-/* Bloques de Estadísticas */
+/* =========================
+   STATS
+========================= */
 .stats-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 15px;
 }
 
 .stat-box {
-  background: #f4f7f6;
-  padding: 20px;
-  border-radius: 12px;
+  flex: 1;
+
+  background: rgba(255,255,255,0.05);
+
+  border-radius: 16px;
+
+  padding: 15px;
+
   text-align: center;
-  transition: transform 0.2s;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.2s ease;
 }
 
-.stat-box:hover { transform: translateY(-5px); }
+.stat-box:hover {
+  transform: translateY(-5px);
+}
 
-.stat-value {
+/* ICON */
+.stat-icon {
+  font-size: 20px;
   display: block;
-  font-size: 24px;
-  font-weight: 800;
-  color: #1a3a34;
+  margin-bottom: 5px;
 }
 
+/* VALUE */
+.stat-value {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* LABEL */
 .stat-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #777;
-  font-weight: 700;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
 }
 
+/* MARKET VALUE SPECIAL */
 .market-value {
-  background: #eefaf3;
-  border: 1px solid #d4edda;
+  background: linear-gradient(135deg, rgba(255,45,85,0.2), rgba(255,140,0,0.2));
+  border: 1px solid rgba(255,45,85,0.3);
 }
 
-/* Spinner */
+/* =========================
+   LOADING
+========================= */
 .loading-state {
-  text-align: center;
-  padding: 100px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
 }
 
 .soccer-spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #1a3a34;
+  width: 45px;
+  height: 45px;
+
   border-radius: 50%;
+
+  border: 4px solid rgba(255,255,255,0.2);
+  border-top: 4px solid #ff2d55;
+
   animation: spin 1s linear infinite;
-  margin: 0 auto 20px;
+  margin-bottom: 10px;
 }
 
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-/* Movil */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
-  .card-content { grid-template-columns: 1fr; }
-  .image-section { padding: 20px; }
-  .bio-grid { gap: 15px; }
+  .card-content {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .player-full-name {
+    font-size: 34px;
+  }
 }

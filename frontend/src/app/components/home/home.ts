@@ -8,10 +8,9 @@ import { RouterLink } from '@angular/router';
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
-  imports: [RouterLink]
+  imports: [RouterLink],
 })
 export class Home implements OnInit {
-
   jugadores: Jugador[] = [];
   totalEquipos: number = 0;
   valorMercadoTotal: number = 0;
@@ -21,43 +20,38 @@ export class Home implements OnInit {
 
   constructor(
     private jugadorService: JugadorService,
-    private equipoService: EquipoService
+    private equipoService: EquipoService,
   ) {}
 
   ngOnInit(): void {
-
-    this.jugadorService.getJugadores().subscribe(data => {
+    this.jugadorService.getJugadores().subscribe((data) => {
       this.jugadores = data;
 
       this.calcularEstadisticas();
       this.calcularTopJugadores();
     });
 
-    this.equipoService.getEquipos().subscribe(data => {
+    this.equipoService.getEquipos().subscribe((data) => {
       this.totalEquipos = data.length;
     });
   }
 
   calcularEstadisticas() {
-
     if (this.jugadores.length > 0) {
-
       // 💰 valor total mercado
       this.valorMercadoTotal = this.jugadores.reduce(
-        (acc, j) => acc + (j.valorMercado || 0),
-        0
+        (acc, j) => acc + (Number(j.valorMercado) || 0),
+        0,
       );
 
       // 🏆 pichichi
       this.pichichi = this.jugadores.reduce((max, jugador) =>
-        jugador.goles > max.goles ? jugador : max
+        jugador.goles > max.goles ? jugador : max,
       );
     }
   }
 
   calcularTopJugadores() {
-    this.topJugadores = [...this.jugadores]
-      .sort((a, b) => b.goles - a.goles)
-      .slice(0, 5);
+    this.topJugadores = [...this.jugadores].sort((a, b) => b.goles - a.goles).slice(0, 5);
   }
 }
