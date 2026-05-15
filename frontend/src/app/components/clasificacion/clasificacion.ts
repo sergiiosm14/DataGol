@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { EquipoService } from '../../services/equipo-service';
 import { Equipo } from '../../models/equipo';
 import { Location } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-clasificacion',
-  imports: [],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './clasificacion.html',
   styleUrl: './clasificacion.css',
 })

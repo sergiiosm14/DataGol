@@ -1,26 +1,23 @@
-<div class="liga-menu">
+<div class="liga-navbar">
 
-  <h2>🏆 Menú de LaLiga</h2>
-  <p>Selecciona una sección</p>
+  <div class="nav-item" routerLink="/clasificacion">
+    <i class="bi bi-trophy"></i>
+    <span>Clasificación</span>
+  </div>
 
-  <div class="buttons-grid">
+  <div class="nav-item" routerLink="/rankings">
+    <i class="bi bi-bar-chart-line"></i>
+    <span>Rankings</span>
+  </div>
 
-    <button routerLink="/clasificacion" class="btn clasificacion">
-      🏆 Clasificación
-    </button>
+  <div class="nav-item" routerLink="/jugadores">
+    <i class="bi bi-people"></i>
+    <span>Jugadores</span>
+  </div>
 
-    <button routerLink="/rankings" class="btn rankings">
-      📊 Rankings
-    </button>
-
-    <button routerLink="/jugadores" class="btn jugadores">
-      👟 Jugadores
-    </button>
-
-    <button routerLink="/equipos" class="btn equipos">
-      🏟 Equipos
-    </button>
-
+  <div class="nav-item" routerLink="/equipos">
+    <i class="bi bi-shield-shaded"></i>
+    <span>Equipos</span>
   </div>
 
 </div>

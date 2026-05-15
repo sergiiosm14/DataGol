@@ -1,7 +1,33 @@
-<div class="container py-4">
+<!-- NAVBAR GLOBAL -->
+<div class="liga-navbar">
+
+  <div class="nav-item" routerLink="/clasificacion" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-trophy"></i>
+    <span>Clasificación</span>
+  </div>
+
+  <div class="nav-item" routerLink="/rankings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-bar-chart-line"></i>
+    <span>Rankings</span>
+  </div>
+
+  <div class="nav-item" routerLink="/jugadores" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-people"></i>
+    <span>Jugadores</span>
+  </div>
+
+  <div class="nav-item" routerLink="/equipos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-shield-shaded"></i>
+    <span>Equipos</span>
+  </div>
+
+</div>
+
+<!-- CONTENIDO -->
+<div class="container-fluid">
 
   <!-- HEADER -->
-  <div class="header-bar mb-4">
+  <div class="header-bar">
 
     <button class="btn-volver" (click)="back()">
       ⬅ Volver
@@ -19,26 +45,30 @@
   <div class="row">
     @for (equipo of equipos; track equipo.id) {
       <div class="col-md-4 mb-4">
+
         <div class="card shadow border-0 h-100">
 
           <div class="text-center p-3 bg-light">
             <img
               [src]="equipo.escudoUrl || 'https://via.placeholder.com/100'"
-              class="img-fluid"
-              style="max-height: 100px"
+              class="img-fluid escudo"
             />
           </div>
 
           <div class="card-body text-center">
             <h5 class="card-title">{{ equipo.nombre }}</h5>
+
             <p class="text-muted">{{ equipo.liga }}</p>
             <small class="text-muted">{{ equipo.pais }}</small>
+
             <hr />
+
             <p>🏟 {{ equipo.estadio }}</p>
             <p>📅 Fundado en {{ equipo.fundacion }}</p>
           </div>
 
           <div class="card-footer d-flex justify-content-between">
+
             <button class="btn btn-outline-primary btn-sm" [routerLink]="['/equipo', equipo.id]">
               Ver
             </button>
@@ -50,9 +80,11 @@
             <button class="btn btn-outline-danger btn-sm" (click)="borrarEquipo(equipo.id)">
               Borrar
             </button>
+
           </div>
 
         </div>
+
       </div>
     }
   </div>

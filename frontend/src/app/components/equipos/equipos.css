@@ -1,205 +1,278 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
 
-/* =========================
-   CONTENEDOR GENERAL
-========================= */
-.container {
-  min-height: 100vh;
-  padding: 30px;
+/* ================= NAVBAR (Blanca y limpia como la oficial) ================= */
+.liga-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-  font-family: "Roboto Condensed", sans-serif;
-  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-  background:
-    radial-gradient(circle at top, rgba(255,45,85,0.25), transparent 40%),
-    radial-gradient(circle at bottom, rgba(255,140,0,0.25), transparent 50%),
-    linear-gradient(135deg, #0b1220, #111827);
+  height: 70px;
+  padding: 8px 10px;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
-/* =========================
-   HEADER
-========================= */
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+
+  color: #64748b; /* Gris apagado por defecto */
+
+  font-size: 13px;
+  font-weight: 700; /* Un poco más de grosor estilo LaLiga */
+  text-transform: uppercase; /* Mayúsculas tipo app deportiva */
+  position: relative; /* Necesario para posicionar la línea inferior */
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.nav-item i {
+  font-size: 18px;
+  color: #64748b; /* Icono gris por defecto */
+  transition: color 0.2s ease;
+}
+
+/* Efecto hover rápido */
+.nav-item:hover {
+  color: #1e293b;
+}
+.nav-item:hover i {
+  color: #1e293b;
+}
+
+/* 🔥 ESTADO ACTIVADO (Cuando Angular mete la clase .active) */
+.nav-item.active {
+  color: #1e293b !important; /* El texto pasa a negro/oscuro como en la app oficial */
+}
+
+.nav-item.active i {
+  color: #ff4a38 !important; /* ¡El icono se enciende con el Rojo Coral de LaLiga! */
+}
+
+/* 🟥 La línea indicadora debajo del botón (Clonada de la app oficial) */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0px; /* Se pega al borde inferior del navbar */
+  width: 45px; /* Ancho de la línea roja */
+  height: 3px; /* Grosor de la línea */
+  background-color: #ff4a38; /* Rojo Coral LaLiga */
+  border-radius: 3px 3px 0 0; /* Bordes ligeramente suavizados arriba */
+  animation: entradaLinea 0.25s ease-out; /* Animación sutil al cambiar de pestaña */
+}
+
+
+/* ================= CONTENEDOR (Ocupa toda la pantalla) ================= */
+.container {
+  min-height: 100vh;
+  padding: 40px 30px;
+
+  font-family: "Roboto Condensed", sans-serif;
+  color: #1e293b;
+
+  background-color: #f4f4f6;
+
+  /* 🔥 Forzamos a que rompa los márgenes de Bootstrap y use todo el ancho */
+  width: 100% !important;
+  max-width: 100% !important; 
+}
+
+/* ================= HEADER ================= */
 .header-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin-bottom: 25px;
+  margin-bottom: 35px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 15px;
 }
 
 .header-bar h2 {
   font-family: "Teko", sans-serif;
-  font-size: 44px;
-  letter-spacing: 2px;
-
-  background: linear-gradient(90deg, #ff2d55, #ff8c00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 48px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-/* =========================
-   BOTÓN VOLVER
-========================= */
+/* ================= BOTONES ================= */
 .btn-volver {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
 
-  color: white;
-  padding: 10px 14px;
-
+  padding: 8px 16px;
   border-radius: 12px;
-  cursor: pointer;
+  font-weight: 600;
 
+  cursor: pointer;
   transition: 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .btn-volver:hover {
-  background: rgba(255, 45, 85, 0.25);
   transform: translateX(-5px);
+  background: #f8fafc;
+  color: #1e293b;
+  border-color: #94a3b8;
 }
 
-/* =========================
-   BOTÓN NUEVO EQUIPO
-========================= */
+/* Botón Nuevo Equipo - Rojo Coral LaLiga */
 .btn-success {
-  background: linear-gradient(135deg, #ff2d55, #ff8c00);
+  background: #ff4a38;
   border: none;
-
-  font-weight: bold;
-  padding: 10px 14px;
-  border-radius: 12px;
-
   color: white;
 
-  box-shadow: 0 10px 25px rgba(255,45,85,0.25);
-  transition: 0.2s ease;
+  padding: 10px 20px;
+  border-radius: 12px;
+
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  box-shadow: 0 4px 14px rgba(255, 74, 56, 0.3);
 }
 
 .btn-success:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  background: #e03524;
+  box-shadow: 0 6px 20px rgba(255, 74, 56, 0.4);
 }
 
-/* =========================
-   GRID CARDS
-========================= */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* =========================
-   CARD
-========================= */
+/* ================= CARDS (Estilo resultados/calendario) ================= */
 .card {
-  background: rgba(255,255,255,0.06) !important;
-  backdrop-filter: blur(12px);
-
-  border-radius: 18px !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
   overflow: hidden;
 
-  color: white;
+  color: #1e293b;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
 
-  border: 1px solid rgba(255,255,255,0.08) !important;
-
-  transition: 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(255,45,85,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(255, 74, 56, 0.3) !important;
 }
 
-/* ESCUDO */
-.card img {
+/* Contenedor del escudo */
+.bg-light {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.escudo {
+  max-height: 90px;
+  object-fit: contain;
   transition: 0.3s ease;
 }
 
-.card:hover img {
-  transform: scale(1.1);
+.card:hover .escudo {
+  transform: scale(1.08);
 }
 
-/* BODY */
-.card-body {
-  padding: 18px;
-}
-
+/* ================= TEXTO DENTRO DE CARDS ================= */
 .card-title {
   font-family: "Teko", sans-serif;
-  font-size: 24px;
-
-  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 2px;
+  text-transform: uppercase;
 }
 
 .text-muted {
-  color: rgba(255,255,255,0.6) !important;
+  color: #64748b !important;
+  font-weight: 500;
 }
 
-/* SEPARADOR */
 hr {
-  border-color: rgba(255,255,255,0.1);
+  border-color: #f1f5f9;
+  opacity: 1;
+  margin: 15px 0;
 }
 
-/* =========================
-   FOOTER BOTONES
-========================= */
+.card-body p {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #334155;
+}
+
+/* ================= FOOTER DE CARDS ================= */
 .card-footer {
-  background: transparent !important;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+  padding: 12px 15px !important;
 }
 
-.btn {
-  border-radius: 10px;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-/* VER */
+/* Botones de acción unificados con los colores de la web oficial */
 .btn-outline-primary {
-  border-color: #ff8c00;
-  color: #ff8c00;
+  border-color: #1e293b;
+  color: #1e293b;
+  font-weight: 600;
 }
 
 .btn-outline-primary:hover {
-  background: #ff8c00;
-  color: black;
+  background: #1e293b;
+  color: white;
 }
 
-/* EDITAR */
 .btn-outline-secondary {
-  border-color: #ff2d55;
-  color: #ff2d55;
+  border-color: #64748b;
+  color: #64748b;
+  font-weight: 600;
 }
 
 .btn-outline-secondary:hover {
-  background: #ff2d55;
+  background: #64748b;
   color: white;
 }
 
-/* BORRAR */
 .btn-outline-danger {
-  border-color: #ff4d6d;
-  color: #ff4d6d;
+  border-color: #ff4a38;
+  color: #ff4a38;
+  font-weight: 600;
 }
 
 .btn-outline-danger:hover {
-  background: #ff4d6d;
+  background: #ff4a38;
   color: white;
 }
 
-/* =========================
-   EMPTY STATE
-========================= */
+/* ================= EMPTY STATE ================= */
 .text-center.text-muted {
-  color: rgba(255,255,255,0.5) !important;
+  color: #94a3b8 !important;
   font-size: 18px;
+  font-weight: 500;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .header-bar {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    text-align: center;
   }
 }

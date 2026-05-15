@@ -1,199 +1,287 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
 
 /* =========================
-   CONTENEDOR GENERAL
+   NAVBAR GLOBAL (Blanca y limpia como la oficial)
+========================= */
+.liga-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 70px;
+  padding: 8px 10px;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+
+  color: #64748b; /* Gris apagado por defecto */
+
+  font-size: 13px;
+  font-weight: 700; /* Un poco más de grosor estilo LaLiga */
+  text-transform: uppercase; /* Mayúsculas tipo app deportiva */
+  position: relative; /* Necesario para posicionar la línea inferior */
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.nav-item i {
+  font-size: 18px;
+  color: #64748b; /* Icono gris por defecto */
+  transition: color 0.2s ease;
+}
+
+/* Efecto hover rápido */
+.nav-item:hover {
+  color: #1e293b;
+}
+.nav-item:hover i {
+  color: #1e293b;
+}
+
+/* 🔥 ESTADO ACTIVADO (Cuando Angular mete la clase .active) */
+.nav-item.active {
+  color: #1e293b !important; /* El texto pasa a negro/oscuro como en la app oficial */
+}
+
+.nav-item.active i {
+  color: #ff4a38 !important; /* ¡El icono se enciende con el Rojo Coral de LaLiga! */
+}
+
+/* 🟥 La línea indicadora debajo del botón (Clonada de la app oficial) */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0px; /* Se pega al borde inferior del navbar */
+  width: 45px; /* Ancho de la línea roja */
+  height: 3px; /* Grosor de la línea */
+  background-color: #ff4a38; /* Rojo Coral LaLiga */
+  border-radius: 3px 3px 0 0; /* Bordes ligeramente suavizados arriba */
+  animation: entradaLinea 0.25s ease-out; /* Animación sutil al cambiar de pestaña */
+}
+
+
+
+/* =========================
+   CONTENEDOR GENERAL (Gris claro de la App)
 ========================= */
 .list-container {
   min-height: 100vh;
-  padding: 30px;
+  padding: 40px 20px;
 
   font-family: "Roboto Condensed", sans-serif;
-  color: white;
+  color: #1e293b; /* Texto oscuro principal */
 
-  background:
-    radial-gradient(circle at top, rgba(255,45,85,0.25), transparent 40%),
-    radial-gradient(circle at bottom, rgba(255,140,0,0.25), transparent 50%),
-    linear-gradient(135deg, #0b1220, #111827);
+  background-color: #f4f4f6;
 }
 
 /* =========================
-   HEADER
+   HEADER LISTA
 ========================= */
 .list-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 15px;
 }
 
 .list-header h2 {
   font-family: "Teko", sans-serif;
-  font-size: 42px;
-  letter-spacing: 2px;
-
-  background: linear-gradient(90deg, #ff2d55, #ff8c00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* BOTÓN NUEVO JUGADOR */
-.btn-add {
-  background: linear-gradient(135deg, #ff2d55, #ff8c00);
-  color: white;
-
-  padding: 10px 14px;
-  border: none;
-  border-radius: 12px;
-
-  font-weight: bold;
-  cursor: pointer;
-
-  transition: 0.2s ease;
-  box-shadow: 0 10px 25px rgba(255,45,85,0.25);
-}
-
-.btn-add:hover {
-  transform: translateY(-3px);
+  font-size: 44px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 /* =========================
-   TABLA
+   BOTONES
+========================= */
+/* Botón Nuevo Jugador - Rojo Coral LaLiga */
+.btn-add {
+  background: #ff4a38;
+  color: white;
+
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+  box-shadow: 0 4px 14px rgba(255, 74, 56, 0.3);
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  background: #e03524;
+  box-shadow: 0 6px 18px rgba(255, 74, 56, 0.4);
+}
+
+.btn-back {
+  padding: 8px 16px;
+
+  background: #ffffff;
+  color: #64748b;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.btn-back:hover {
+  background: #f8fafc;
+  color: #1e293b;
+  border-color: #94a3b8;
+  transform: translateX(-5px);
+}
+
+/* =========================
+   TABLA (Estilo tabla de estadísticas oficial)
 ========================= */
 .table-wrapper {
   overflow-x: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .data-table {
   width: 100%;
   border-collapse: collapse;
-
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-
-  border-radius: 16px;
-  overflow: hidden;
-
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-/* HEADER TABLA */
 .data-table thead {
-  background: linear-gradient(90deg, #ff2d55, #ff8c00);
+  background: #1e293b; /* Encabezado oscuro premium, muy común en tablas de datos */
   font-family: "Teko", sans-serif;
 }
 
 .data-table th {
-  padding: 14px;
+  padding: 16px;
+  color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
 }
 
-/* FILAS */
+.data-table th.text-center {
+  text-align: center;
+}
+
 .data-table td {
-  padding: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .data-table tbody tr {
-  transition: 0.2s ease;
+  transition: background-color 0.15s ease;
 }
 
 .data-table tbody tr:hover {
-  background: rgba(255,255,255,0.10);
-  transform: scale(1.01);
+  background: #f8fafc; /* Iluminación suave al pasar el ratón */
 }
 
 /* =========================
-   JUGADOR
+   JUGADOR & DETALLES
 ========================= */
 .player-name strong {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .player-name {
-  font-weight: 600;
+  font-size: 16px;
 }
 
-/* POSICIÓN */
+/* Badge de posición con el gris/azul corporativo secundario */
 .pos-badge {
-  padding: 5px 10px;
-  border-radius: 8px;
+  padding: 4px 10px;
+  border-radius: 6px;
 
-  background: rgba(255,140,0,0.2);
-  border: 1px solid #ff8c00;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
 
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-/* EQUIPO */
 .team-name {
-  color: #00ff88;
-  font-weight: 600;
+  color: #0f172a;
+  font-weight: 700;
 }
 
 .free-agent {
-  color: #ff6b6b;
+  color: #94a3b8;
   font-style: italic;
 }
 
 /* =========================
-   ACCIONES
+   ACCIONES (Botones limpios estilo App)
 ========================= */
 .actions-cell {
   text-align: center;
 }
 
 .btn-icon {
-  border: none;
-  padding: 6px 10px;
+  border: 1px solid #e2e8f0;
+  padding: 6px 12px;
   margin: 0 3px;
   border-radius: 8px;
+  background: #ffffff;
 
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: all 0.15s ease;
 }
 
-/* VER */
-.view {
-  background: rgba(52, 152, 219, 0.2);
+.view:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
 }
 
-/* EDITAR */
-.edit {
-  background: rgba(255, 140, 0, 0.2);
+.edit:hover {
+  background: #fffbeb;
+  border-color: #f59e0b;
 }
 
-/* BORRAR */
-.delete {
-  background: rgba(255, 45, 85, 0.2);
+.delete:hover {
+  background: #fef2f2;
+  border-color: #ff4a38;
 }
 
 .btn-icon:hover {
-  transform: scale(1.15);
-}
-
-/* =========================
-   BACK BUTTON
-========================= */
-.btn-back {
-  margin-top: 20px;
-  padding: 10px 14px;
-
-  background: rgba(255,255,255,0.08);
-  color: white;
-
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-.btn-back:hover {
-  background: rgba(255,45,85,0.2);
-  transform: translateX(-5px);
+  transform: translateY(-2px);
 }

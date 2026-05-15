@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JugadorService } from '../../services/jugador-service';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink, Router, RouterLinkActive } from '@angular/router';
 import { Jugador } from '../../models/jugador';
 import { Location } from '@angular/common';
 import { EquipoService } from '../../services/equipo-service';
@@ -10,7 +10,7 @@ import { Equipo } from '../../models/equipo';
 
 @Component({
   selector: 'app-jugadores',
-  imports: [RouterLink],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './jugadores.html',
   styleUrl: './jugadores.css',
 })

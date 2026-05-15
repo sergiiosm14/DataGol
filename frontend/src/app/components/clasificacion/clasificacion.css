@@ -1,142 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+:root {
+  --coral: #ff4d6d;
+  --black: #111111;
+  --beige: #f5f1e8;
+  --white: #ffffff;
+  --turquoise: #2dd4bf;
+  --purple: #a78bfa;
+}
 
-/* =========================
-   CONTENEDOR
-========================= */
+/* ================= NAVBAR ================= */
+.liga-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 70px;
+  padding: 8px 10px;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+
+  color: #64748b; /* Gris apagado por defecto */
+
+  font-size: 13px;
+  font-weight: 700; /* Un poco más de grosor estilo LaLiga */
+  text-transform: uppercase; /* Mayúsculas tipo app deportiva */
+  position: relative; /* Necesario para posicionar la línea inferior */
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.nav-item i {
+  font-size: 18px;
+  color: #64748b; /* Icono gris por defecto */
+  transition: color 0.2s ease;
+}
+
+/* Efecto hover rápido */
+.nav-item:hover {
+  color: #1e293b;
+}
+.nav-item:hover i {
+  color: #1e293b;
+}
+
+/* 🔥 ESTADO ACTIVADO (Cuando Angular mete la clase .active) */
+.nav-item.active {
+  color: #1e293b !important; /* El texto pasa a negro/oscuro como en la app oficial */
+}
+
+.nav-item.active i {
+  color: #ff4a38 !important; /* ¡El icono se enciende con el Rojo Coral de LaLiga! */
+}
+
+/* 🟥 La línea indicadora debajo del botón (Clonada de la app oficial) */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0px; /* Se pega al borde inferior del navbar */
+  width: 45px; /* Ancho de la línea roja */
+  height: 3px; /* Grosor de la línea */
+  background-color: #ff4a38; /* Rojo Coral LaLiga */
+  border-radius: 3px 3px 0 0; /* Bordes ligeramente suavizados arriba */
+  animation: entradaLinea 0.25s ease-out; /* Animación sutil al cambiar de pestaña */
+}
+
+/* ================= CONTENIDO ================= */
 .tabla-container {
   min-height: 100vh;
-  padding: 30px;
-  font-family: "Roboto Condensed", sans-serif;
+  padding: 20px;
 
-  background: linear-gradient(135deg, #0b1220, #111827);
-  color: white;
+  /* 🔥 fondo LaLiga suave */
+  background: linear-gradient(
+    180deg,
+    var(--beige) 0%,
+    #ffffff 60%,
+    #ffe4ea 100%
+  );
+
+  color: var(--black);
+  font-family: Arial, sans-serif;
 }
 
 /* HEADER */
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-h2 {
-  font-family: "Teko", sans-serif;
-  font-size: 42px;
-  letter-spacing: 2px;
-  color: white;
+.header h2 {
+  font-size: 26px;
+  margin: 0;
+  color: var(--coral);
 }
 
-/* =========================
-   BOTÓN VOLVER LALIGA
-========================= */
-.btn-volver {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 12px;
-
-  background: linear-gradient(135deg, #ff2d55, #ff8c00);
-  color: white;
-
-  font-weight: 700;
-  cursor: pointer;
-
-  box-shadow: 0 10px 25px rgba(255,45,85,0.25);
-  transition: 0.25s ease;
-}
-
-.btn-volver:hover {
-  transform: translateX(-6px);
-  box-shadow: 0 15px 35px rgba(255,140,0,0.35);
-}
-
-/* =========================
-   TABLA
-========================= */
+/* ================= TABLA ================= */
 .tabla-clasificacion {
   width: 100%;
-  max-width: 1100px;
-  margin: auto;
-
   border-collapse: collapse;
 
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-
-  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
   overflow: hidden;
 
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
-/* HEADER TABLE */
+/* HEADER TABLA */
 thead {
-  background: linear-gradient(90deg, #ff2d55, #ff8c00);
-  font-family: "Teko", sans-serif;
-  font-size: 18px;
-  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--coral), #ff7a8a);
+  color: white;
 }
 
-th {
-  padding: 14px;
-  text-transform: uppercase;
-}
-
-/* ROWS */
-td {
+th, td {
   padding: 12px;
   text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* HOVER */
+/* FILAS */
 tbody tr {
-  transition: 0.2s ease;
+  transition: 0.2s;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 tbody tr:hover {
-  background: rgba(255,255,255,0.10);
-  transform: scale(1.01);
-}
-
-/* =========================
-   POSICIÓN
-========================= */
-.pos {
-  font-weight: bold;
-  color: #ffd60a;
-}
-
-/* EQUIPO */
-.team {
-  font-weight: 700;
+  background: rgba(255, 77, 109, 0.08);
 }
 
 /* ESCUDO */
 .escudo {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 
 /* PUNTOS */
 .puntos {
   font-weight: bold;
-  color: #00ff88;
-  font-size: 16px;
+  color: var(--turquoise);
 }
 
-/* =========================
-   TOP / DESCENSO (extra pro)
-========================= */
-tbody tr:nth-child(-n+5) {
-  border-left: 3px solid #1d4ed8; /* champions */
-}
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .nav-item span {
+    font-size: 11px;
+  }
 
-tbody tr:nth-child(6) {
-  border-left: 3px solid #f59e0b; /* europa */
-}
+  .nav-item i {
+    font-size: 18px;
+  }
 
-tbody tr:nth-last-child(-n+3) {
-  border-left: 3px solid #ff2d55; /* descenso */
+  th, td {
+    font-size: 12px;
+    padding: 8px;
+  }
 }

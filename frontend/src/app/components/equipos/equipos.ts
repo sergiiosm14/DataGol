@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EquipoService } from '../../services/equipo-service';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink, Router, RouterLinkActive } from '@angular/router';
 import { Location } from '@angular/common';
 import { Equipo } from '../../models/equipo';
 
 @Component({
   selector: 'app-equipos',
-  imports: [RouterLink],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './equipos.html',
   styleUrl: './equipos.css',
 })

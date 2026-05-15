@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+/* =========================
+   NAVBAR GLOBAL
+========================= */
+.liga-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 70px;
+  padding: 8px 10px;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+
+  color: #64748b; /* Gris apagado por defecto */
+
+  font-size: 13px;
+  font-weight: 700; /* Un poco más de grosor estilo LaLiga */
+  text-transform: uppercase; /* Mayúsculas tipo app deportiva */
+  position: relative; /* Necesario para posicionar la línea inferior */
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.nav-item i {
+  font-size: 18px;
+  color: #64748b; /* Icono gris por defecto */
+  transition: color 0.2s ease;
+}
+
+/* Efecto hover rápido */
+.nav-item:hover {
+  color: #1e293b;
+}
+.nav-item:hover i {
+  color: #1e293b;
+}
+
+/* 🔥 ESTADO ACTIVADO (Cuando Angular mete la clase .active) */
+.nav-item.active {
+  color: #1e293b !important; /* El texto pasa a negro/oscuro como en la app oficial */
+}
+
+.nav-item.active i {
+  color: #ff4a38 !important; /* ¡El icono se enciende con el Rojo Coral de LaLiga! */
+}
+
+/* 🟥 La línea indicadora debajo del botón (Clonada de la app oficial) */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0px; /* Se pega al borde inferior del navbar */
+  width: 45px; /* Ancho de la línea roja */
+  height: 3px; /* Grosor de la línea */
+  background-color: #ff4a38; /* Rojo Coral LaLiga */
+  border-radius: 3px 3px 0 0; /* Bordes ligeramente suavizados arriba */
+  animation: entradaLinea 0.25s ease-out; /* Animación sutil al cambiar de pestaña */
+}
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.liga-menu {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px 25px;
+
+  font-family: "Roboto Condensed", sans-serif;
+  color: #0f172a; /* Texto principal oscuro */
+
+  /* El fondo unificado de LaLiga */
+  background:
+    radial-gradient(circle at top right, rgba(255, 74, 56, 0.22), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.04), transparent 45%),
+    linear-gradient(135deg, #ffffff 60%, #f4f4f6 100%);
+}
+
+/* =========================
+   BOTÓN VOLVER
+========================= */
+.back-container {
+  width: 100%;
+  max-width: 1260px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+}
+
+.btn-volver {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 14px;
+
+  font-family: "Teko", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+
+  color: #475569;
+
+  padding: 8px 24px;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.btn-volver:hover {
+  color: #fff;
+  background: #ff4a38;
+  border-color: #ff4a38;
+  transform: translateX(-5px);
+  box-shadow: 0 6px 15px rgba(255, 74, 56, 0.25);
+}
+
+/* =========================
+   TÍTULOS
+========================= */
+.liga-menu h2 {
+  font-family: "Teko", sans-serif;
+  font-size: 64px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  margin-top: 0;
+  font-weight: 700;
+  color: #0f172a; /* Título sólido y limpio, estilo web oficial */
+}
+
+.liga-menu p {
+  color: #475569;
+  margin-bottom: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* =========================
+   GRID
+========================= */
+.rankings-container {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap: 30px;
+  width: 100%;
+  max-width: 1260px;
+  justify-content: center;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+.ranking-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 24px;
+
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(15px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ranking-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* HEADER DE TARJETAS */
+.card-header {
+  font-family: "Teko", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 18px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+/* Unificamos las cabeceras usando variantes elegantes en base al Rojo Corporativo y tonos oscuros de la marca */
+.goles-header { 
+  background: linear-gradient(135deg, #ff4a38, #e03524); 
+}
+.asistencias-header { 
+  background: linear-gradient(135deg, #0f172a, #1e293b); 
+}
+.valor-header { 
+  background: linear-gradient(135deg, #475569, #64748b); 
+}
+
+/* LISTA */
+.ranking-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* FILA */
+.player-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+
+  background: #f8fafc; /* Gris ultra-suave de fondo para las filas */
+  border: 1px solid rgba(15, 23, 42, 0.02);
+  border-radius: 16px;
+
+  transition: all 0.2s ease;
+}
+
+.player-row:hover {
+  background: #ffffff;
+  border-color: rgba(255, 74, 56, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+/* TOP 1 (Destacado sutil con borde coral) */
+.player-row.top-1 {
+  background: #ffffff;
+  border: 1px solid rgba(255, 74, 56, 0.25);
+  box-shadow: 0 4px 15px rgba(255, 74, 56, 0.05);
+}
+
+.position {
+  width: 35px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #64748b;
+}
+
+.player-row.top-1 .position {
+  color: #ff4a38; /* El número 1 se tiñe de color corporativo */
+}
+
+/* FOTO */
+.player-photo-container {
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.player-row.top-1 .player-photo-container {
+  border-color: rgba(255, 74, 56, 0.4);
+}
+
+.player-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* NOMBRE */
+.player-name {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ESTADÍSTICAS */
+.stat-value {
+  font-family: "Teko", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #0f172a;
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  line-height: 1;
+}
+
+.player-row.top-1 .stat-value {
+  color: #ff4a38; /* El valor del líder destaca en coral */
+}
+
+.stat-value small {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1300px) {
+  .rankings-container {
+    grid-template-columns: repeat(2, 400px);
+  }
+}
+
+@media (max-width: 900px) {
+  .rankings-container {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .liga-menu h2 {
+    font-size: 48px;
+  }
+}

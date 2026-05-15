@@ -2,41 +2,41 @@
 
   <!-- HEADER -->
   <header class="app-header">
-    <h1>⚽ Datagol</h1>
-    <p>Selecciona una liga</p>
+    <img 
+      class="logo"
+      src="https://assets.laliga.com/assets/logos/LL_RGB_h_color/LL_RGB_h_color.png"
+      alt="LaLiga"
+    />
+
+    <h1>LaLiga</h1>
+    <p>Centro de información oficial</p>
   </header>
 
-  <!-- LIGAS -->
-  <section class="leagues-grid">
+  <!-- CARDS -->
+  <section class="menu-grid">
 
-    <!-- LALIGA -->
-    <div class="league-card laliga" routerLink="/laliga">
-      
-      <div class="league-header">
-        <img 
-          src="https://assets.laliga.com/assets/logos/LL_RGB_h_color/LL_RGB_h_color.png" 
-          alt="LaLiga logo"
-        />
-        <h2>LaLiga</h2>
-      </div>
-
-      <p>Primera división de España</p>
-      <button>Entrar →</button>
+    <div class="menu-card" routerLink="/clasificacion">
+      <i class="bi bi-trophy-fill"></i>
+      <h3>Clasificación</h3>
+      <p>Tabla de posiciones</p>
     </div>
 
-    <!-- PREMIER -->
-    <div class="league-card premier" routerLink="/premierLeague">
+    <div class="menu-card" routerLink="/jugadores">
+      <i class="bi bi-calendar-event"></i>
+      <h3>Jugadores</h3>
+      <p>Todos los jugadores</p>
+    </div>
 
-      <div class="league-header">
-        <img 
-          src="https://logodownload.org/wp-content/uploads/2016/03/premier-league-5.png" 
-          alt="Premier League logo"
-        />
-        <h2>Premier League</h2>
-      </div>
+    <div class="menu-card" routerLink="/equipos">
+      <i class="bi bi-shield-fill"></i>
+      <h3>Equipos</h3>
+      <p>Todos los clubes</p>
+    </div>
 
-      <p>Primera división de Inglaterra</p>
-      <button>Entrar →</button>
+    <div class="menu-card" routerLink="/rankings">
+      <i class="bi bi-graph-up-arrow"></i>
+      <h3>Estadísticas</h3>
+      <p>Datos de la liga</p>
     </div>
 
   </section>

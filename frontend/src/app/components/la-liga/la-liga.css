@@ -1,131 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap');
+.liga-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-/* =========================
-   CONTENEDOR GENERAL
-========================= */
-.liga-menu {
-  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 70px;
+
+  padding: 8px 10px;
+
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= ITEM ================= */
+.nav-item {
+  flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  font-family: "Roboto Condensed", sans-serif;
-  color: white;
+  gap: 4px;
 
-  /* 🔥 COLORES OFICIALES LALIGA */
-  background:
-    radial-gradient(circle at top, rgba(255,45,85,0.25), transparent 40%),
-    radial-gradient(circle at bottom, rgba(255,140,0,0.25), transparent 50%),
-    linear-gradient(135deg, #0b1220, #111827);
-}
-
-/* =========================
-   TITULO
-========================= */
-.liga-menu h2 {
-  font-family: "Teko", sans-serif;
-  font-size: 58px;
-  letter-spacing: 2px;
-
-  background: linear-gradient(90deg, #ff2d55, #ff8c00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  margin-bottom: 5px;
-}
-
-/* SUBTITULO */
-.liga-menu p {
-  opacity: 0.7;
-  margin-bottom: 40px;
-  font-size: 18px;
-}
-
-/* =========================
-   GRID BOTONES
-========================= */
-.buttons-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 280px);
-  gap: 25px;
-}
-
-/* =========================
-   BOTONES BASE LALIGA
-========================= */
-.btn {
-  padding: 24px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.08);
-
-  font-size: 18px;
-  font-weight: 700;
-
-  color: white;
   cursor: pointer;
 
-  transition: all 0.25s ease;
+  color: #9ca3af;
 
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-  backdrop-filter: blur(12px);
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+
+  padding: 6px 0;
+
+  border-radius: 10px;
 }
 
-.btn:hover {
-  transform: translateY(-10px) scale(1.04);
-  box-shadow: 0 20px 50px rgba(255,45,85,0.25);
+/* ICONO */
+.nav-item i {
+  font-size: 20px;
+  transition: 0.2s ease;
 }
 
-/* =========================
-   COLORES OFICIALES LALIGA
-========================= */
-
-/* Clasificación */
-.clasificacion {
-  background: linear-gradient(135deg, #ff2d55, #ff8c00);
+/* HOVER */
+.nav-item:hover {
+  color: white;
+  transform: translateY(-2px);
 }
 
-/* Rankings */
-.rankings {
-  background: linear-gradient(135deg, #ff8c00, #ffd60a);
+.nav-item:hover i {
+  color: #ffffff;
 }
 
-/* Jugadores */
-.jugadores {
-  background: linear-gradient(135deg, #ff2d55, #ff4d6d);
+/* ACTIVO (Angular routerLinkActive) */
+.nav-item.active {
+  color: #ff8c00;
 }
 
-/* Equipos */
-.equipos {
-  background: linear-gradient(135deg, #ff8c00, #ff6b00);
+.nav-item.active i {
+  color: #ff8c00;
 }
 
-/* =========================
-   EFECTO “LALIGA GLOW”
-========================= */
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  opacity: 0;
-  transition: 0.3s ease;
+/* EFECTO CLICK */
+.nav-item:active {
+  transform: scale(0.95);
 }
 
-.btn:hover::after {
-  opacity: 1;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-  .buttons-grid {
-    grid-template-columns: 1fr;
-    width: 90%;
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .liga-navbar {
+    height: 65px;
   }
 
-  .liga-menu h2 {
-    font-size: 42px;
+  .nav-item span {
+    font-size: 11px;
+  }
+
+  .nav-item i {
+    font-size: 18px;
   }
 }

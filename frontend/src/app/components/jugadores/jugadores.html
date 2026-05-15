@@ -1,5 +1,31 @@
+<!-- NAVBAR GLOBAL -->
+<div class="liga-navbar">
+
+  <div class="nav-item" routerLink="/clasificacion" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-trophy"></i>
+    <span>Clasificación</span>
+  </div>
+
+  <div class="nav-item" routerLink="/rankings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-bar-chart-line"></i>
+    <span>Rankings</span>
+  </div>
+
+  <div class="nav-item" routerLink="/jugadores" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-people"></i>
+    <span>Jugadores</span>
+  </div>
+
+  <div class="nav-item" routerLink="/equipos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-shield-shaded"></i>
+    <span>Equipos</span>
+  </div>
+
+</div>
+
+<!-- CONTENIDO -->
 <div class="list-container">
-  
+
   <div class="list-header">
     <button class="btn-back" (click)="back()">← Volver al inicio</button>
     <h2>Listado de Jugadores</h2>
@@ -8,6 +34,7 @@
 
   <div class="table-wrapper">
     <table class="data-table">
+
       <thead>
         <tr>
           <th>Jugador</th>
@@ -21,6 +48,7 @@
       <tbody>
         @for (jugador of jugadores; track jugador.id) {
           <tr>
+
             <td class="player-name">
               <strong>{{ jugador.nombre }}</strong> {{ jugador.apellido1 }}
             </td>
@@ -38,15 +66,16 @@
             </td>
 
             <td class="actions-cell">
-              <button class="btn-icon view" [routerLink]="['/jugador', jugador.id]" title="Ver detalles">👁️</button>
-              <button class="btn-icon edit" [routerLink]="['/jugador/add', jugador.id]" title="Editar">✏️</button>
-              <button class="btn-icon delete" (click)="borrarJugador(jugador.id)" title="Borrar">🗑️</button>
+              <button class="btn-icon view" [routerLink]="['/jugador', jugador.id]">👁️</button>
+              <button class="btn-icon edit" [routerLink]="['/jugador/add', jugador.id]">✏️</button>
+              <button class="btn-icon delete" (click)="borrarJugador(jugador.id)">🗑️</button>
             </td>
+
           </tr>
         }
       </tbody>
+
     </table>
   </div>
 
-  
 </div>

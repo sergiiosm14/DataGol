@@ -1,1 +1,139 @@
-<p>rankings works!</p>
+<!-- NAVBAR GLOBAL -->
+<div class="liga-navbar">
+
+  <div class="nav-item" routerLink="/clasificacion" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-trophy"></i>
+    <span>Clasificación</span>
+  </div>
+
+  <div class="nav-item" routerLink="/rankings" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-bar-chart-line"></i>
+    <span>Rankings</span>
+  </div>
+
+  <div class="nav-item" routerLink="/jugadores" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-people"></i>
+    <span>Jugadores</span>
+  </div>
+
+  <div class="nav-item" routerLink="/equipos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <i class="bi bi-shield-shaded"></i>
+    <span>Equipos</span>
+  </div>
+
+</div>
+
+<!-- CONTENIDO -->
+<div class="liga-menu">
+
+
+  <h2>
+    <i class="bi bi-bar-chart-line"></i> RANKINGS LALIGA
+  </h2>
+
+  <p>Los líderes estadísticos de la competición</p>
+
+  <div class="rankings-container">
+
+    <!-- GOLEADORES -->
+    <div class="ranking-card">
+      <div class="card-header goles-header">
+        <i class="bi bi-fire"></i> MÁXIMOS GOLEADORES
+      </div>
+
+      <div class="ranking-list">
+        @for (jugador of goles | slice: 0 : 5; track jugador.id; let i = $index) {
+          <div class="player-row" [class.top-1]="i === 0" [class.minor]="i > 2">
+
+            <span class="position">{{ i + 1 }}</span>
+
+            <div class="player-photo-container">
+              <img
+                [src]="jugador.fotoUrl || 'assets/default-avatar.png'"
+                class="player-photo"
+              />
+            </div>
+
+            <span class="player-name">{{ jugador.nombre }}</span>
+
+            <span class="stat-value">
+              {{ jugador.goles }}
+              <small>Goles</small>
+            </span>
+
+          </div>
+        } @empty {
+          <div class="player-row minor">Cargando estadísticas...</div>
+        }
+      </div>
+    </div>
+
+    <!-- ASISTENCIAS -->
+    <div class="ranking-card">
+      <div class="card-header asistencias-header">
+        <i class="bi bi-magic"></i> MÁXIMOS ASISTENTES
+      </div>
+
+      <div class="ranking-list">
+        @for (jugador of asistencias | slice: 0 : 5; track jugador.id; let i = $index) {
+          <div class="player-row" [class.top-1]="i === 0" [class.minor]="i > 2">
+
+            <span class="position">{{ i + 1 }}</span>
+
+            <div class="player-photo-container">
+              <img
+                [src]="jugador.fotoUrl || 'assets/default-avatar.png'"
+                class="player-photo"
+              />
+            </div>
+
+            <span class="player-name">{{ jugador.nombre }}</span>
+
+            <span class="stat-value">
+              {{ jugador.asistencias }}
+              <small>Asist.</small>
+            </span>
+
+          </div>
+        } @empty {
+          <div class="player-row minor">Cargando estadísticas...</div>
+        }
+      </div>
+    </div>
+
+    <!-- VALOR -->
+    <div class="ranking-card">
+      <div class="card-header valor-header">
+        <i class="bi bi-cash-coin"></i> VALOR DE MERCADO
+      </div>
+
+      <div class="ranking-list">
+        @for (jugador of valorMercado | slice: 0 : 5; track jugador.id; let i = $index) {
+          <div class="player-row" [class.top-1]="i === 0" [class.minor]="i > 2">
+
+            <span class="position">{{ i + 1 }}</span>
+
+            <div class="player-photo-container">
+              <img
+                [src]="jugador.fotoUrl || 'assets/default-avatar.png'"
+                class="player-photo"
+              />
+            </div>
+
+            <span class="player-name">{{ jugador.nombre }}</span>
+
+            <span class="stat-value">
+              {{ jugador.valorMercado }}
+              <small>M €</small>
+            </span>
+
+          </div>
+        } @empty {
+          <div class="player-row minor">Cargando estadísticas...</div>
+        }
+      </div>
+
+    </div>
+
+  </div>
+</div>

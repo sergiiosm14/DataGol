@@ -8,7 +8,6 @@ import { EquipoForm } from './components/equipo-form/equipo-form';
 import { EquipoDetails } from './components/equipo-details/equipo-details';
 import { Clasificacion } from './components/clasificacion/clasificacion';
 import { LaLiga } from './components/la-liga/la-liga';
-import { PremierLeague } from './components/premier-league/premier-league';
 import { Rankings } from './components/rankings/rankings';
 
 export const routes: Routes = [
@@ -46,9 +45,6 @@ export const routes: Routes = [
     {
         path: 'laliga',
         component: LaLiga
-    },{
-        path: 'PremierLeague',
-        component: PremierLeague
     },
     {
         path: 'rankings',

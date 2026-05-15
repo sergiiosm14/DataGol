@@ -3,85 +3,94 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f172a, #111827);
-  color: white;
+
+  /* 🔥 Fondo oficial unificado: 
+    Toque coral arriba a la derecha, base limpia que pasa de blanco a gris suave 
+  */
+  background:
+    radial-gradient(circle at top right, rgba(255, 74, 56, 0.22), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.04), transparent 45%),
+    linear-gradient(135deg, #ffffff 60%, #f4f4f6 100%);
+
+  padding: 40px 20px;
+  color: #0f172a; /* Un color oscuro más premium para los textos principales */
 }
 
 /* HEADER */
 .app-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 40px; /* Un poco más de aire con el grid */
+}
+
+.logo {
+  width: 90px; /* Ligeramente más grande para que luzca el logo de LaLiga */
+  margin-bottom: 12px;
 }
 
 .app-header h1 {
-  font-size: 42px;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 800;
+  color: #ff4a38; /* El rojo coral corporativo exacto */
+  text-transform: uppercase; /* Estilo deportivo característico */
+  letter-spacing: -0.5px;
+}
+
+.app-header p {
+  margin: 5px 0 0 0;
+  font-size: 15px;
+  color: #475569;
+  font-weight: 500;
 }
 
 /* GRID */
-.leagues-grid {
+.menu-grid {
   display: grid;
-  grid-template-columns: repeat(2, 320px);
-  gap: 30px;
+  grid-template-columns: repeat(2, 175px);
+  gap: 20px;
 }
 
 /* CARD */
-.league-card {
-  padding: 30px;
-  border-radius: 18px;
-  cursor: pointer;
+.menu-card {
+  background: rgba(255, 255, 255, 0.9); /* Más opaco para que destaque sobre el nuevo fondo */
+  border: 1px solid rgba(255, 74, 56, 0.12); /* Ajustado al color oficial */
+  border-radius: 16px;
+  padding: 24px 16px;
+
   text-align: center;
-  transition: 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-.league-card:hover {
-  transform: translateY(-8px);
-}
-
-/* HEADER INTERNO (LOGO + TEXTO) */
-.league-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-/* IMAGENES */
-.league-header img {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
-}
-
-/* TITULO */
-.league-header h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-/* DESCRIPCIÓN */
-.league-card p {
-  opacity: 0.85;
-  margin-bottom: 15px;
-}
-
-/* BOTÓN */
-.league-card button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más fluida */
+
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  backdrop-filter: blur(8px);
 }
 
-/* COLORES */
-.laliga {
-  background: linear-gradient(135deg, #0b0f19, #111827);
-  border: 1px solid rgba(255, 45, 85, 0.4);
+.menu-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 74, 56, 0.4);
+  box-shadow: 0 12px 24px rgba(255, 74, 56, 0.1);
 }
-.premier {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+
+/* ICONOS */
+.menu-card i {
+  font-size: 32px; /* Un pelín más grandes para ganar impacto visual */
+  color: #ff4a38; /* El rojo coral corporativo exacto */
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* TEXTOS */
+.menu-card h3 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.menu-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 400;
 }
