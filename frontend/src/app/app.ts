@@ -1,20 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Topbar } from './layout/topbar/topbar';
+import { Sidebar } from './layout/sidebar/sidebar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,Topbar,Sidebar],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('datagol');
-
-  isDarkMode = false;
-
-  toggleDarkMode() {
-    this.isDarkMode = !this.isDarkMode;
-    const theme = this.isDarkMode ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-  }
+  protected readonly title = signal('datagolV.2');
 }

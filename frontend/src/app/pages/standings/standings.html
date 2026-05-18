@@ -1,0 +1,74 @@
+<div class="standings-page">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div>
+      <h2>
+        <i class="bi bi-trophy"></i>
+        Clasificación
+      </h2>
+      <p>Tabla general de equipos</p>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="standings-card">
+
+    <!-- HEADER -->
+    <div class="standings-header">
+      <div>#</div>
+      <div>Equipo</div>
+      <div>Pts</div>
+      <div>PJ</div>
+      <div>GF</div>
+      <div>GC</div>
+      <div>DG</div>
+    </div>
+
+    <!-- ROWS -->
+    @for (team of equipos; let i = $index; track team.id) {
+
+      <div class="standings-row"
+           [ngClass]="{
+             'champions': i < 4,
+             'europa': i >= 4 && i < 6,
+             'conference': i === 6,
+             'relegation': i >= equipos.length - 3
+           }">
+
+        <!-- POS -->
+        <div class="pos">{{ i + 1 }}</div>
+
+        <!-- TEAM -->
+        <div class="team-cell">
+
+          <img class="team-logo"
+               [src]="team.escudoUrl || 'assets/default-team.png'">
+
+          <span>{{ team.nombre }}</span>
+        </div>
+
+        <!-- STATS -->
+        <div class="cell">{{ team.puntos }}</div>
+        <div class="cell">{{ 36 }}</div>
+        <div class="cell">{{ team.golesFavor }}</div>
+        <div class="cell">{{team.golesContra}}</div>
+        <div class="cell">{{team.golesFavor - team.golesContra}}</div>
+
+      </div>
+
+    }
+
+  </div>
+
+  <!-- LEYENDA -->
+  <div class="legend">
+
+    <div><span class="dot champions"></span> Champions League</div>
+    <div><span class="dot europa"></span> Europa League</div>
+    <div><span class="dot conference"></span> Conference League</div>
+    <div><span class="dot relegation"></span> Descenso</div>
+
+  </div>
+
+</div>

@@ -1,0 +1,132 @@
+<div class="dashboard-header">
+  <h2>
+    <i class="bi bi-speedometer2"></i>
+    Dashboard
+  </h2>
+  <p>Resumen general de equipos y jugadores</p>
+</div>
+
+@if (loading) {
+  <div class="loading-box">
+    <i class="bi bi-arrow-repeat spin"></i>
+    Cargando datos...
+  </div>
+}
+
+@if (!loading) {
+
+  <!-- STATS -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <div class="icon">
+        <i class="bi bi-shield"></i>
+      </div>
+      <div class="stat-value">{{ equipos.length }}</div>
+      <div class="stat-label">Equipos</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="icon">
+        <i class="bi bi-person"></i>
+      </div>
+      <div class="stat-value">{{ players.length }}</div>
+      <div class="stat-label">Jugadores</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="icon">
+        <i class="bi bi-trophy"></i>
+      </div>
+      <div class="stat-value">{{ equipos.length * 2 }}</div>
+      <div class="stat-label">Partidos estimados</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="icon">
+        <i class="bi bi-lightning"></i>
+      </div>
+      <div class="stat-value">{{ players.length * 3 }}</div>
+      <div class="stat-label">Goles estimados</div>
+    </div>
+
+  </div>
+
+  <!-- GRID -->
+  <div class="dashboard-grid">
+
+    <!-- EQUIPOS -->
+    <div class="card">
+
+      <div class="card-header">
+        <h3>
+          <i class="bi bi-shield"></i>
+          Equipos recientes
+        </h3>
+      </div>
+
+      <div class="card-body">
+
+        @for (team of equipos.slice(0, 5); track team.id) {
+          <div class="list-item">
+
+            <img
+              class="avatar-img"
+              [src]="team.escudoUrl || 'https://via.placeholder.com/40'"
+              alt="player"
+            />
+
+            <div>
+              <div class="item-title">{{ team.nombre }}</div>
+              <div class="item-sub">
+                <i class="bi bi-hash"></i> ID: {{ team.id }}
+              </div>
+            </div>
+
+          </div>
+        }
+
+      </div>
+    </div>
+
+    <!-- JUGADORES -->
+    <div class="card">
+
+      <div class="card-header">
+        <h3>
+          <i class="bi bi-people"></i>
+          Jugadores recientes
+        </h3>
+      </div>
+
+      <div class="card-body">
+
+        @for (player of players.slice(0, 5); track player.id) {
+          <div class="list-item">
+
+            <img
+              class="avatar-img"
+              [src]="player.fotoUrl || 'https://via.placeholder.com/40'"
+              alt="player"
+            />
+
+            <div>
+              <div class="item-title">
+                <i class="bi bi-person"></i>
+                {{ player.nombre }}
+              </div>
+
+              <div class="item-sub">
+                <i class="bi bi-diagram-3"></i>
+                {{ player.posicion }} - {{ player.equipo?.nombre }}
+              </div>
+            </div>
+
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </div>
+}

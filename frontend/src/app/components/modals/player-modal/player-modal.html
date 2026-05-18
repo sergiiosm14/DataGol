@@ -1,0 +1,130 @@
+<div class="modal-overlay">
+
+  <div class="modal-container">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+
+      <div>
+        <h2>
+          <i class="bi bi-person-plus-fill"></i>
+          {{ form.value.id === -1 ? 'Crear jugador' : 'Editar jugador' }}
+        </h2>
+        <p>Gestión de jugadores del sistema</p>
+      </div>
+
+      <button class="close-btn" (click)="back()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+    </div>
+
+    <!-- ERROR -->
+    @if (errorMessage) {
+      <div class="error-box">
+        <i class="bi bi-exclamation-triangle"></i>
+        {{ errorMessage }}
+      </div>
+    }
+
+    <!-- FORM -->
+    <form [formGroup]="form" (ngSubmit)="save()" class="form-grid">
+
+      <!-- NOMBRE -->
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre">
+      </div>
+
+      <!-- APELLIDO -->
+      <div class="form-group">
+        <label>Apellido</label>
+        <input type="text" formControlName="apellido1">
+      </div>
+
+      <!-- EDAD -->
+      <div class="form-group">
+        <label>Edad</label>
+        <input type="number" formControlName="edad">
+      </div>
+
+      <!-- POSICIÓN -->
+      <div class="form-group">
+        <label>Posición</label>
+        <select formControlName="posicion">
+          <option value="">Selecciona posición</option>
+
+          @for (pos of positions; track pos) {
+            <option [value]="pos">{{ pos }}</option>
+          }
+
+        </select>
+      </div>
+
+      <!-- EQUIPO -->
+      <div class="form-group">
+        <label>Equipo</label>
+        <select formControlName="equipo">
+          <option value="">Selecciona equipo</option>
+
+          @for (team of teams; track team.id) {
+            <option [value]="team.id">
+              {{ team.nombre }}
+            </option>
+          }
+
+        </select>
+      </div>
+
+      <!-- FOTO -->
+      <div class="form-group">
+        <label>Foto URL</label>
+        <input type="text" formControlName="fotoUrl">
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+
+        <div class="form-group">
+          <label>Goles</label>
+          <input type="number" formControlName="goles">
+        </div>
+
+        <div class="form-group">
+          <label>Asistencias</label>
+          <input type="number" formControlName="asistencias">
+        </div>
+
+        <div class="form-group">
+          <label>Valor (€M)</label>
+          <input type="number" formControlName="valorMercado">
+        </div>
+
+      </div>
+
+      <!-- NACIONALIDAD -->
+      <div class="form-group full">
+        <label>Nacionalidad</label>
+        <input type="text" formControlName="nacionalidad">
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="actions">
+
+        <button type="button" class="btn-cancel" (click)="back()">
+          <i class="bi bi-arrow-left"></i>
+          Cancelar
+        </button>
+
+        <button type="submit" class="btn-save" [disabled]="loading">
+          <i class="bi bi-check-circle"></i>
+          {{ loading ? 'Guardando...' : 'Guardar' }}
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
