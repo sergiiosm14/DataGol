@@ -1,0 +1,137 @@
+.player-details {
+  padding: 20px;
+  color: var(--text-primary);
+}
+
+.top-bar {
+  margin-bottom: 15px;
+}
+
+.btn-back {
+  background: #1e293b;
+  color: #f1f5f9;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  padding: 8px 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-back:hover {
+  background: #334155;
+  transform: translateX(-3px);
+}
+
+/* HEADER */
+.player-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* AVATAR */
+.player-avatar {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 3px solid var(--border-color);
+}
+
+/* INFO */
+.player-info h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 6px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-info p {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BADGES */
+.badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #1e293b;
+  padding: 6px 10px;
+  border-radius: 10px;
+
+  font-size: 12px;
+  color: #f1f5f9;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* STATS GRID */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+/* STAT CARD */
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  padding: 18px;
+  text-align: center;
+
+  transition: 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+}
+
+.stat-card i {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--accent-blue);
+}
+
+.stat-card .value {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.stat-card .label {
+  font-size: 12px;
+  color: var(--text-muted);
+}

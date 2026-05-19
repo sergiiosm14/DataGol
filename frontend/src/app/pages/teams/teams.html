@@ -2,17 +2,26 @@
 
   <!-- HEADER -->
   <div class="page-header">
-
     <div>
       <h2>Equipos</h2>
       <p>Gestión de equipos</p>
     </div>
 
-    <button class="btn-create" routerLink="/team/{{-1}}">
+    <button class="btn-create" routerLink="/team/{{ -1 }}">
       <i class="bi bi-plus-circle"></i>
       Crear equipo
     </button>
+  </div>
 
+  <!-- SEARCH -->
+  <div class="search-bar">
+    <i class="bi bi-search"></i>
+
+    <input
+      type="text"
+      placeholder="Buscar equipo por nombre..."
+      [(ngModel)]="searchText"
+    />
   </div>
 
   <!-- LOADING -->
@@ -27,35 +36,41 @@
   <div class="teams-grid">
 
     @for (team of equipos; track team.id) {
-      <div class="team-card">
 
-        <div class="team-logo">
-          <img [src]="team.escudoUrl || 'assets/default.png'">
+      @if (team.nombre.toLowerCase().includes(searchText.toLowerCase())) {
+
+        <div class="team-card">
+
+          <div class="team-logo">
+            <img [src]="team.escudoUrl || 'assets/default.png'" />
+          </div>
+
+          <div class="team-info">
+            <h3>{{ team.nombre }}</h3>
+            <span>ID: {{ team.id }}</span>
+          </div>
+
+          <div class="team-actions">
+
+            <button class="btn-view" routerLink="/team-details/{{ team.id }}">
+              <i class="bi bi-eye"></i>
+            </button>
+
+            <button class="btn-edit" routerLink="/team/{{ team.id }}">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button class="btn-delete" (click)="deleteTeam(team.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+
+          </div>
+
         </div>
 
-        <div class="team-info">
-          <h3>{{ team.nombre }}</h3>
-          <span>ID: {{ team.id }}</span>
-        </div>
+      }
 
-        <!-- BOTONES -->
-        <div class="team-actions">
-
-          <button class="btn-edit" routerLink="/team/{{team.id}}">
-            <i class="bi bi-pencil-square"></i>
-            Editar
-          </button>
-
-          <button class="btn-delete" (click)="deleteTeam(team.id)">
-            <i class="bi bi-trash"></i>
-            Eliminar
-          </button>
-
-        </div>
-
-      </div>
     }
 
   </div>
-
 </div>

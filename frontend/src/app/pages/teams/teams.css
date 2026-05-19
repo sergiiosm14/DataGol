@@ -29,10 +29,13 @@
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
+
+  transition: 0.2s;
 }
 
 .btn-create:hover {
   background: var(--accent-green-dark);
+  transform: translateY(-2px);
 }
 
 /* GRID */
@@ -77,40 +80,95 @@
   color: var(--text-muted);
 }
 
-/* BOTONES */
+/* ACTIONS */
 .team-actions {
   display: flex;
-  justify-content: center;
   gap: 8px;
   margin-top: 12px;
 }
 
-.btn-edit,
-.btn-delete {
-  border: none;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 12px;
-  cursor: pointer;
-  font-weight: 600;
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 15px 0;
+  padding: 10px 14px;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
 }
 
+.search-bar i {
+  color: var(--text-muted);
+}
+
+.search-bar input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: white;
+  font-size: 14px;
+}
+
+/* BOTONES BASE */
+.btn-view,
+.btn-edit,
+.btn-delete {
+  flex: 1;
+
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  transition: 0.2s;
+}
+
+/* VIEW */
+.btn-view {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-view:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* EDIT */
 .btn-edit {
   background: var(--accent-blue);
   color: white;
 }
 
+.btn-edit:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* DELETE */
 .btn-delete {
   background: var(--accent-red);
   color: white;
 }
 
-.btn-edit:hover {
-  opacity: 0.85;
-}
-
 .btn-delete:hover {
   opacity: 0.85;
+  transform: translateY(-2px);
 }
 
 /* LOADING */

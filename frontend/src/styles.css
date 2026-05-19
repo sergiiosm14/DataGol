@@ -1,23 +1,17 @@
 :root {
   --bg-primary: #0a0e17;
   --bg-secondary: #111827;
-  --bg-tertiary: #1a2235;
-  --bg-card: #151d2e;
-  --bg-card-hover: #1c2740;
+  --border-color: #1e293b;
 
   --accent-green: #00d26a;
-  --accent-blue: #3b82f6;
-  --accent-gold: #f5a623;
-  --accent-red: #ef4444;
 
   --text-primary: #f1f5f9;
   --text-muted: #64748b;
-
-  --border-color: #1e293b;
-
-  --radius-lg: 14px;
 }
 
+/* =========================
+   BASE (SUAVE, SIN OVERLOAD)
+========================= */
 body {
   margin: 0;
   font-family: Inter, sans-serif;
@@ -25,7 +19,9 @@ body {
   color: var(--text-primary);
 }
 
-/* LAYOUT GLOBAL */
+/* =========================
+   SIDEBAR (entrada suave)
+========================= */
 app-sidebar {
   position: fixed;
   top: 0;
@@ -35,9 +31,24 @@ app-sidebar {
   background: var(--bg-secondary);
   border-right: 1px solid var(--border-color);
   z-index: 1000;
+
+  animation: slideLeft 0.4s ease;
 }
 
-/* MAIN CONTENT (CLAVE) */
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
 .main-content {
   margin-left: 260px;
   min-height: 100vh;
@@ -45,14 +56,143 @@ app-sidebar {
   flex-direction: column;
 }
 
-/* TOPBAR */
+/* =========================
+   TOPBAR (fade suave)
+========================= */
 app-topbar {
   position: sticky;
   top: 0;
   z-index: 900;
+
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+
+  animation: fadeDown 0.35s ease;
 }
 
-/* PAGE CONTENT */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   PAGE CONTENT (entrada elegante)
+========================= */
 .page-content {
+  flex: 1;
   padding: 24px;
+
+  animation: pageIn 0.35s ease;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* =========================
+   CARDS (HOVER MÁS PRO)
+========================= */
+.team-card,
+.player-card {
+  border-radius: 12px;
+
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  animation: cardFade 0.4s ease both;
+}
+
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.team-card:hover,
+.player-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   BOTONES (microinteracción real)
+========================= */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   LINKS SIDEBAR (fluidez)
+========================= */
+app-sidebar a {
+  display: block;
+  transition: all 0.25s ease;
+}
+
+app-sidebar a:hover {
+  transform: translateX(6px);
+  color: var(--accent-green);
+}
+
+/* =========================
+   LOADING (más moderno)
+========================= */
+.loading {
+  animation: softPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   FOOTER (entrada suave)
+========================= */
+app-footer {
+  margin-top: auto;
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

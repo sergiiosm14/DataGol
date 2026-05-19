@@ -52,6 +52,10 @@ public class EquipoController {
                     equipo.setEstadio(datos.getEstadio());
                     equipo.setFundacion(datos.getFundacion());
                     equipo.setEscudoUrl(datos.getEscudoUrl());
+                    equipo.setPuntos(datos.getPuntos());
+                    equipo.setGolesFavor(datos.getGolesFavor());
+                    equipo.setGolesContra(datos.getGolesContra());
+
                     // No solemos actualizar la lista de jugadores directamente desde aquí
                     // para evitar errores de integridad, pero si lo necesitas:
                     if (datos.getJugadores() != null) {

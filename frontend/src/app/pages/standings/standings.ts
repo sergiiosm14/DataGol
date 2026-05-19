@@ -17,7 +17,7 @@ export class Standings {
   
     ngOnInit(){
       this.equipoService.getEquipos().subscribe( data => {
-        this.equipos = data
+        this.equipos = data.sort((a, b) => b.puntos - a.puntos);
       })
     }
 }

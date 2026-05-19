@@ -4,13 +4,16 @@ import { Rankings } from './pages/rankings/rankings';
 import { Standings } from './pages/standings/standings';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Teams } from './pages/teams/teams';
+import { Home } from './components/home/home';
 import { Players } from './pages/players/players';
 import { PlayerModal } from './components/modals/player-modal/player-modal';
 import { TeamModal } from './components/modals/team-modal/team-modal';
+import { TeamDetails } from './components/modals/team-details/team-details';
+import { PlayerDetails } from './components/modals/player-details/player-details';
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', component:Home },
 
   { path: 'dashboard', component: Dashboard },
   { path: 'teams', component: Teams },
@@ -20,5 +23,12 @@ export const routes: Routes = [
   {
     path: 'player/:id', component: PlayerModal
   },
-  {path: 'team/:id',component: TeamModal}
+  {path: 'team/:id',component: TeamModal},
+  {
+    path: 'team-details/:id',
+    component: TeamDetails
+  },{
+    path: 'player-details/:id',
+    component: PlayerDetails
+  }
 ];

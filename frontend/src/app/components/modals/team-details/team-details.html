@@ -1,0 +1,105 @@
+<div class="team-details">
+  <div class="top-bar">
+    <button class="btn-back" (click)="back()">
+      <i class="bi bi-arrow-left"></i>
+      Volver
+    </button>
+  </div>
+
+  <!-- CONTENIDO -->
+  @if (equipo) {
+    <!-- HEADER -->
+    <div class="team-header">
+      <div class="team-logo">
+        <img [src]="equipo.escudoUrl || 'assets/default.png'" />
+      </div>
+
+      <div class="team-info">
+        <h2>
+          <i class="bi bi-shield"></i>
+          {{ equipo.nombre }}
+        </h2>
+
+        <p>
+          <i class="bi bi-trophy"></i>
+          {{ equipo.liga }} • {{ equipo.pais }}
+        </p>
+
+        <div class="team-badges">
+          <span class="badge">
+            <i class="bi bi-building"></i>
+            {{ equipo.estadio }}
+          </span>
+
+          <span class="badge">
+            <i class="bi bi-calendar"></i>
+            {{ equipo.fundacion }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <i class="bi bi-trophy"></i>
+        <div class="stat-value">{{ equipo.puntos }}</div>
+        <div class="stat-label">Puntos</div>
+      </div>
+
+      <div class="stat-card">
+        <i class="bi bi-graph-up-arrow"></i>
+        <div class="stat-value">{{ equipo.golesFavor }}</div>
+        <div class="stat-label">Goles a favor</div>
+      </div>
+
+      <div class="stat-card">
+        <i class="bi bi-graph-down-arrow"></i>
+        <div class="stat-value">{{ equipo.golesContra }}</div>
+        <div class="stat-label">Goles en contra</div>
+      </div>
+
+      <div class="stat-card">
+        <i class="bi bi-people"></i>
+        <div class="stat-value">{{ equipo.jugadores?.length || 0 }}</div>
+        <div class="stat-label">Jugadores</div>
+      </div>
+    </div>
+
+    <!-- JUGADORES -->
+    <div class="card">
+      <div class="card-header">
+        <h3>
+          <i class="bi bi-person-lines-fill"></i>
+          Jugadores del equipo
+        </h3>
+      </div>
+
+      <div class="card-body">
+        @for (player of equipo.jugadores; track player.id) {
+          <div class="player-row">
+            <img class="avatar" [src]="player.fotoUrl || 'https://via.placeholder.com/40'" />
+
+            <div class="info">
+              <div class="name">
+                <i class="bi bi-person"></i>
+                {{ player.nombre }} {{ player.apellido1 }}
+              </div>
+
+              <div class="sub">
+                <i class="bi bi-diagram-3"></i>
+                {{ player.posicion }} • {{ player.nacionalidad }}
+              </div>
+            </div>
+
+            <div class="stats">
+              <i class="bi bi-activity"></i> {{ player.goles }}
+              &nbsp; | &nbsp;
+              <i class="bi bi-flag"></i> {{ player.asistencias }}
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

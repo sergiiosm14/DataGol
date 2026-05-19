@@ -22,5 +22,5 @@ export interface Team {
 
   golesContra: number;
 
-  jugadores: Player[];
+  jugadores?: Player[];
 }

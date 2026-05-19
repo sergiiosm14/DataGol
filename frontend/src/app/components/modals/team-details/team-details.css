@@ -1,0 +1,209 @@
+.team-details {
+  padding: 20px;
+  color: var(--text-primary);
+}
+
+.top-bar {
+  margin-bottom: 15px;
+}
+
+.btn-back {
+  background: #1e293b;
+  color: #f1f5f9;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  padding: 8px 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-back:hover {
+  background: #334155;
+  transform: translateX(-3px);
+}
+
+/* =========================
+   HEADER
+========================= */
+.team-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.team-logo img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.team-info h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.team-info p {
+  color: var(--text-muted);
+  margin: 4px 0 10px;
+  font-size: 13px;
+}
+
+/* BADGES */
+.team-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #1e293b;
+  color: #f1f5f9;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  border: 1px solid var(--border-color);
+}
+
+/* =========================
+   STATS GRID
+========================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  padding: 18px;
+  text-align: center;
+
+  transition: 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  background: var(--bg-card-hover);
+}
+
+.stat-card i {
+  font-size: 20px;
+  color: var(--accent-green);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* =========================
+   CARD GENERAL
+========================= */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card-body {
+  padding: 10px 16px;
+}
+
+/* =========================
+   PLAYER ROW
+========================= */
+.player-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.player-row:last-child {
+  border-bottom: none;
+}
+
+.player-row .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.player-row .info {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.player-row .name {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.player-row .sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.player-row .stats {
+  font-size: 12px;
+  color: var(--accent-blue);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* =========================
+   LOADING (si lo usas luego)
+========================= */
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+}

@@ -1,96 +1,93 @@
-.main-wrapper {
-  min-height: 100vh;
+.home {
+  height: 100vh;
+  width: 100%;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
-  font-family: Arial, sans-serif;
+  justify-content: center;
 
-  /* 🔥 Fondo oficial unificado: 
-    Toque coral arriba a la derecha, base limpia que pasa de blanco a gris suave 
-  */
-  background:
-    radial-gradient(circle at top right, rgba(255, 74, 56, 0.22), transparent 50%),
-    radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.04), transparent 45%),
-    linear-gradient(135deg, #ffffff 60%, #f4f4f6 100%);
+  position: relative;
 
-  padding: 40px 20px;
-  color: #0f172a; /* Un color oscuro más premium para los textos principales */
+  background: url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1920")
+    center/cover no-repeat;
+
+  overflow: hidden;
 }
 
-/* HEADER */
-.app-header {
+/* OSCURECER FONDO */
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(10, 14, 23, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+/* CARD CENTRAL */
+.home-card {
+  position: relative;
+  z-index: 2;
+
   text-align: center;
-  margin-bottom: 40px; /* Un poco más de aire con el grid */
+
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid #1e293b;
+
+  padding: 40px;
+  border-radius: 18px;
+
+  width: 420px;
+
+  animation: fadeIn 0.6s ease;
 }
 
-.logo {
-  width: 90px; /* Ligeramente más grande para que luzca el logo de LaLiga */
-  margin-bottom: 12px;
+/* TITULO */
+.home-card h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+  color: #00d26a;
 }
 
-.app-header h1 {
-  margin: 0;
-  font-size: 36px;
-  font-weight: 800;
-  color: #ff4a38; /* El rojo coral corporativo exacto */
-  text-transform: uppercase; /* Estilo deportivo característico */
-  letter-spacing: -0.5px;
-}
-
-.app-header p {
-  margin: 5px 0 0 0;
+/* TEXTO */
+.home-card p {
+  color: #e2e8f0;
   font-size: 15px;
-  color: #475569;
-  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-/* GRID */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 175px);
-  gap: 20px;
-}
-
-/* CARD */
-.menu-card {
-  background: rgba(255, 255, 255, 0.9); /* Más opaco para que destaque sobre el nuevo fondo */
-  border: 1px solid rgba(255, 74, 56, 0.12); /* Ajustado al color oficial */
-  border-radius: 16px;
-  padding: 24px 16px;
-
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más fluida */
-
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
-  backdrop-filter: blur(8px);
-}
-
-.menu-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 74, 56, 0.4);
-  box-shadow: 0 12px 24px rgba(255, 74, 56, 0.1);
-}
-
-/* ICONOS */
-.menu-card i {
-  font-size: 32px; /* Un pelín más grandes para ganar impacto visual */
-  color: #ff4a38; /* El rojo coral corporativo exacto */
-  margin-bottom: 12px;
+.home-card span {
   display: block;
-}
-
-/* TEXTOS */
-.menu-card h3 {
-  margin: 0 0 4px 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.menu-card p {
-  margin: 0;
-  font-size: 13px;
   color: #64748b;
-  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+/* BOTON */
+.home-card button {
+  background: #00d26a;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.home-card button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

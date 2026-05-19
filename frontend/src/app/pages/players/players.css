@@ -35,10 +35,12 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  transition: 0.2s;
 }
 
 .btn-create:hover {
   background: var(--accent-green-dark);
+  transform: translateY(-2px);
 }
 
 /* LOADING */
@@ -102,31 +104,89 @@
 /* ACTIONS */
 .player-actions {
   display: flex;
-  justify-content: center;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 15px 0;
+  padding: 10px 14px;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.search-bar i {
+  color: var(--text-muted);
+}
+
+.search-bar input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: white;
+  font-size: 14px;
+}
+
+/* BOTONES BASE */
+.btn-view,
 .btn-edit,
 .btn-delete {
+  flex: 1;
+
   border: none;
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 9px 12px;
+  border-radius: 10px;
+
   cursor: pointer;
+
   color: white;
+  font-size: 13px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  transition: 0.2s;
 }
 
+/* VIEW */
+.btn-view {
+  background: #2563eb;
+}
+
+.btn-view:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* EDIT */
 .btn-edit {
   background: var(--accent-blue);
 }
 
+.btn-edit:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* DELETE */
 .btn-delete {
   background: var(--accent-red);
 }
 
-.btn-edit:hover,
 .btn-delete:hover {
   opacity: 0.85;
+  transform: translateY(-2px);
 }
 
 /* SPIN */

@@ -1,0 +1,75 @@
+<div class="player-details">
+  <div class="top-bar">
+    <button class="btn-back" (click)="back()">
+      <i class="bi bi-arrow-left"></i>
+      Volver
+    </button>
+  </div>
+  <!-- HEADER -->
+  <div class="player-header">
+    <img class="player-avatar" [src]="jugador.fotoUrl || 'https://via.placeholder.com/120'" />
+
+    <div class="player-info">
+      <h2>
+        <i class="bi bi-person-circle"></i>
+        {{ jugador.nombre }} {{ jugador.apellido1 }}
+      </h2>
+
+      <p>
+        <i class="bi bi-shield"></i>
+        {{ jugador.equipo?.nombre }}
+      </p>
+
+      <div class="badges">
+        <span class="badge">
+          <i class="bi bi-diagram-3"></i>
+          {{ jugador.posicion }}
+        </span>
+
+        <span class="badge">
+          <i class="bi bi-flag"></i>
+          {{ jugador.nacionalidad }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <i class="bi bi-activity"></i>
+      <div class="value">{{ jugador.goles }}</div>
+      <div class="label">Goles</div>
+    </div>
+
+    <div class="stat-card">
+      <i class="bi bi-people"></i>
+      <div class="value">{{ jugador.asistencias }}</div>
+      <div class="label">Asistencias</div>
+    </div>
+
+    <div class="stat-card">
+      <i class="bi bi-currency-euro"></i>
+      <div class="value">{{ jugador.valorMercado }}M</div>
+      <div class="label">Valor de mercado</div>
+    </div>
+
+    <div class="stat-card">
+      <i class="bi bi-speedometer2"></i>
+      <div class="value">{{ jugador.edad }}</div>
+      <div class="label">Edad</div>
+    </div>
+
+    <div class="stat-card">
+      <i class="bi bi-rulers"></i>
+      <div class="value">{{ jugador.estatura }} cm</div>
+      <div class="label">Altura</div>
+    </div>
+
+    <div class="stat-card">
+      <i class="bi bi-activity"></i>
+      <div class="value">{{ jugador.peso }} kg</div>
+      <div class="label">Peso</div>
+    </div>
+  </div>
+</div>
