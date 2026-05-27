@@ -20,4 +20,12 @@ export class App {
   closeSidebar() {
     this.sidebarOpen = false;
   }
+
+  ngOnInit(): void {
+    // Detecta la persistencia del tema al arrancar la aplicación de manera global
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  }
 }

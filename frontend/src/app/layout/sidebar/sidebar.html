@@ -11,27 +11,27 @@
   <!-- NAV -->
   <nav class="sidebar-nav">
 
-    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="onToggle()">
       <i class="bi bi-speedometer2"></i>
       Dashboard
     </a>
 
-    <a routerLink="/teams" routerLinkActive="active">
+    <a routerLink="/teams" routerLinkActive="active" (click)="onToggle()">
       <i class="bi bi-shield"></i>
       Equipos
     </a>
 
-    <a routerLink="/players" routerLinkActive="active">
+    <a routerLink="/players" routerLinkActive="active" (click)="onToggle()">
       <i class="bi bi-person"></i>
       Jugadores
     </a>
 
-    <a routerLink="/standings" routerLinkActive="active">
+    <a routerLink="/standings" routerLinkActive="active" (click)="onToggle()">
       <i class="bi bi-trophy"></i>
       Clasificación
     </a>
 
-    <a routerLink="/rankings" routerLinkActive="active">
+    <a routerLink="/rankings" routerLinkActive="active" (click)="onToggle()">
       <i class="bi bi-bar-chart"></i>
       Rankings
     </a>
