@@ -7,16 +7,21 @@ import { Component } from '@angular/core';
   styleUrl: './settings.css',
 })
 export class Settings {
-  setTheme(theme: 'light' | 'dark') {
-    const body = document.body;
-
-    if (theme === 'light') {
-      body.classList.add('light-theme');
+  ngOnInit(): void {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
     } else {
-      body.classList.remove('light-theme');
+      document.body.classList.remove('light-theme');
     }
+  }
 
-    // Opcional: Guardar la preferencia en el navegador del usuario
+  setTheme(theme: 'light' | 'dark'): void {
+    if (theme === 'light') {
+      document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
+    }
     localStorage.setItem('theme', theme);
   }
 }

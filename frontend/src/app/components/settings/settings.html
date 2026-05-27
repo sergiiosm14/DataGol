@@ -1,26 +1,21 @@
 <div class="settings-container">
-  
   <header class="settings-header">
     <h2><i class="bi bi-gear-fill"></i> Configuración del Sistema</h2>
-    <p>Gestiona las preferencias visuales y operativas de DATAGOL.</p>
+    <p>Gestiona las preferencias visuales y operativas globales de DATAGOL.</p>
   </header>
 
   <div class="settings-content">
-    
     <section class="settings-card">
-      <div class="card-icon">
-        <i class="bi bi-palette"></i>
-      </div>
+      <div class="card-icon"><i class="bi bi-palette"></i></div>
       <div class="card-body">
         <h3>Tema de la Aplicación</h3>
-        <p>Selecciona el aspecto visual con el que prefieres trabajar en la plataforma.</p>
+        <p>Cambia el aspecto visual de toda la suite (Paneles, barras y tablas).</p>
         
         <div class="theme-selector">
           <button class="theme-btn light" (click)="setTheme('light')">
             <i class="bi bi-sun-fill"></i>
             <span>Modo Claro</span>
           </button>
-          
           <button class="theme-btn dark" (click)="setTheme('dark')">
             <i class="bi bi-moon-stars-fill"></i>
             <span>Modo Oscuro</span>
@@ -28,20 +23,5 @@
         </div>
       </div>
     </section>
-
-    <section class="settings-card">
-      <div class="card-icon">
-        <i class="bi bi-bell"></i>
-      </div>
-      <div class="card-body">
-        <h3>Alertas y Datos</h3>
-        <p>Configura las alertas en tiempo real para partidos y analíticas en directo.</p>
-        <label class="toggle-switch">
-          <input type="checkbox" checked>
-          <span class="slider"></span>
-        </label>
-      </div>
-    </section>
-
   </div>
 </div>

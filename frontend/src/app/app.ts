@@ -22,10 +22,12 @@ export class App {
   }
 
   ngOnInit(): void {
-    // Detecta la persistencia del tema al arrancar la aplicación de manera global
+    // Esto asegura que al abrir cualquier ruta directa, el body ya sepa qué color tomar en toda la app
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
       document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
     }
   }
 }
