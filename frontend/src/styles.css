@@ -21,7 +21,7 @@ body {
 }
 
 /* =========================
-   SIDEBAR (DESKTOP)
+   LAYOUT DESKTOP
 ========================= */
 app-sidebar {
   position: fixed;
@@ -32,29 +32,15 @@ app-sidebar {
   background: var(--bg-secondary);
   border-right: 1px solid var(--border-color);
   z-index: 1000;
-
-  animation: slideLeft 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
-@keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* =========================
-   MAIN CONTENT
-========================= */
 .main-content {
   margin-left: 260px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: margin-left 0.3s ease;
 }
 
 /* =========================
@@ -64,45 +50,16 @@ app-topbar {
   position: sticky;
   top: 0;
   z-index: 900;
-
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
-
-  animation: fadeDown 0.35s ease;
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* =========================
-   PAGE CONTENT
+   CONTENT
 ========================= */
 .page-content {
   flex: 1;
   padding: 24px;
-
-  animation: pageIn 0.35s ease;
-}
-
-@keyframes pageIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
 }
 
 /* =========================
@@ -111,29 +68,17 @@ app-topbar {
 .team-card,
 .player-card {
   border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  animation: cardFade 0.4s ease both;
-}
-
-@keyframes cardFade {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  transition: all 0.3s ease;
 }
 
 .team-card:hover,
 .player-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
 /* =========================
-   BOTONES
+   BUTTONS
 ========================= */
 button {
   transition: all 0.2s ease;
@@ -162,19 +107,15 @@ app-sidebar a:hover {
 }
 
 /* =========================
-   LOADING
+   ANIMATIONS
 ========================= */
 .loading {
   animation: softPulse 1.6s ease-in-out infinite;
 }
 
 @keyframes softPulse {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 /* =========================
@@ -182,22 +123,10 @@ app-sidebar a:hover {
 ========================= */
 app-footer {
   margin-top: auto;
-  animation: fadeUp 0.4s ease;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* =========================================================
-   📱 RESPONSIVE (MÓVIL + TABLET)
+   📱 RESPONSIVE
 ========================================================= */
 
 /* TABLET */
@@ -206,28 +135,27 @@ app-footer {
     margin-left: 0;
   }
 
-  app-sidebar {
-    width: 220px;
-  }
-
   .page-content {
     padding: 18px;
   }
 }
 
-/* MÓVIL */
+/* MÓVIL (SIDEBAR TOGGLE REAL) */
 @media (max-width: 768px) {
 
-  /* Sidebar pasa a oculto (modo app) */
+  /* Sidebar oculto por defecto */
   app-sidebar {
-    position: fixed;
-    left: -100%;
+    transform: translateX(-100%);
     width: 260px;
-    transition: left 0.3s ease;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
   }
 
+  /* Cuando está activo */
   app-sidebar.active {
-    left: 0;
+    transform: translateX(0);
   }
 
   .main-content {
@@ -238,13 +166,6 @@ app-footer {
     padding: 14px;
   }
 
-  /* Cards más compactas */
-  .team-card,
-  .player-card {
-    border-radius: 10px;
-  }
-
-  /* Evita hover raro en móvil */
   .team-card:hover,
   .player-card:hover {
     transform: none;
@@ -259,9 +180,5 @@ app-footer {
 @media (max-width: 480px) {
   .page-content {
     padding: 12px;
-  }
-
-  app-topbar {
-    font-size: 14px;
   }
 }
