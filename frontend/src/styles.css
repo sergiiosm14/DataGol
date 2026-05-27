@@ -140,41 +140,7 @@ app-footer {
   }
 }
 
-/* MÓVIL (SIDEBAR TOGGLE REAL) */
-@media (max-width: 768px) {
 
-  /* Sidebar oculto por defecto */
-  app-sidebar {
-    transform: translateX(-100%);
-    width: 260px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    transition: transform 0.3s ease;
-  }
-
-  /* Cuando está activo */
-  app-sidebar.active {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
-
-  .page-content {
-    padding: 14px;
-  }
-
-  .team-card:hover,
-  .player-card:hover {
-    transform: none;
-  }
-
-  button:hover {
-    transform: none;
-  }
-}
 
 /* MÓVIL PEQUEÑO */
 @media (max-width: 480px) {

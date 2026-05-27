@@ -1,11 +1,15 @@
-<app-sidebar></app-sidebar>
+@if (sidebarOpen) {
+  <app-sidebar (closeSidebar)="sidebarOpen = false"></app-sidebar>
+}
+@if (!sidebarOpen) {
+  <button class="open-sidebar-btn" (click)="sidebarOpen = true">
+    <i class="bi bi-list"></i>
+  </button>
+}
 
-<div class="main-content">
-
+<div class="main-content" [class.sidebar-closed]="!sidebarOpen">
   <div class="page-content">
     <router-outlet></router-outlet>
   </div>
-
   <app-footer></app-footer>
-
 </div>

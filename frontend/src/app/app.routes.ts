@@ -10,6 +10,7 @@ import { PlayerModal } from './components/modals/player-modal/player-modal';
 import { TeamModal } from './components/modals/team-modal/team-modal';
 import { TeamDetails } from './components/modals/team-details/team-details';
 import { PlayerDetails } from './components/modals/player-details/player-details';
+import { Settings } from './components/settings/settings';
 
 
 export const routes: Routes = [
@@ -30,5 +31,9 @@ export const routes: Routes = [
   },{
     path: 'player-details/:id',
     component: PlayerDetails
+  },
+  {
+    path: 'settings',
+    component: Settings
   }
 ];

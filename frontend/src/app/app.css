@@ -1,13 +1,73 @@
-.app-layout {
-  display: flex;
+/* --- CONTENEDOR PRINCIPAL (MAIN CONTENT) --- */
+.main-content {
+  margin-left: 260px; /* Ancho exacto de la sidebar cuando está abierta */
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0f172a; /* Fondo oscuro a juego con la app (puedes cambiarlo a #f8fafc si prefieres contenido claro) */
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición fluida y profesional */
 }
 
-app-sidebar {
+/* Estado cuando la sidebar está oculta */
+.main-content.sidebar-closed {
+  margin-left: 0;
+}
+
+/* --- CONTENEDOR DE LAS VISTAS INTERNAS --- */
+.page-content {
+  flex-grow: 1; /* Empuja el footer hacia abajo si hay poco contenido */
+  padding: 32px; /* Margen interno generoso para tus tablas y gráficos */
+  color: #f8fafc;
+}
+
+/* --- BOTÓN FLOTANTE DE APERTURA (bi-list) --- */
+/* --- BOTÓN FLOTANTE DE APERTURA (bi-list) --- */
+.open-sidebar-btn {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 260px; /* o variable */
-  z-index: 1000;
+  top: 16px;
+  left: 16px;
+  
+  /* CRUCIAL: Mayor que el 999 del Home para que se superponga */
+  z-index: 1000; 
+  
+  width: 42px;
+  height: 42px;
+  background-color: #0f172a; /* Color oscuro */
+  color: #38bdf8;            /* Azul cyan */
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+/* Efecto Hover del botón */
+.open-sidebar-btn:hover {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+}
+
+/* Icono de hamburguesa inside el botón */
+.open-sidebar-btn i {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* --- EFECTOS INTERACTIVOS DEL BOTÓN --- */
+.open-sidebar-btn:hover {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #38bdf8;
+  transform: translateY(-1px); /* Pequeño levante */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 8px rgba(56, 189, 248, 0.2);
+}
+
+.open-sidebar-btn:active {
+  transform: translateY(1px); /* Efecto de hundido al hacer clic */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

@@ -1,90 +1,108 @@
+/* --- CONTENEDOR PRINCIPAL DE BIENVENIDA --- */
 .home {
+  /* Fuerza el 100% de la pantalla ignorando contenedores padres */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
-
+  z-index: 999; /* Se superpone a cualquier fondo oscuro del app-component */
+  
   display: flex;
   align-items: center;
   justify-content: center;
-
-  position: relative;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 
   background: url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1920")
     center/cover no-repeat;
-
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-/* OSCURECER FONDO */
+/* --- OSCURECER FONDO (OVERLAY) --- */
 .overlay {
   position: absolute;
   inset: 0;
-
   background: rgba(10, 14, 23, 0.75);
   backdrop-filter: blur(3px);
+  z-index: 1;
 }
 
-/* CARD CENTRAL */
+/* --- TARJETA CENTRAL (CARD) --- */
 .home-card {
   position: relative;
-  z-index: 2;
-
+  z-index: 2; /* Por encima de la capa overlay */
   text-align: center;
-
   background: rgba(17, 24, 39, 0.7);
   border: 1px solid #1e293b;
-
   padding: 40px;
   border-radius: 18px;
-
   width: 420px;
-
-  animation: fadeIn 0.6s ease;
+  max-width: 90%; /* Responsivo para pantallas pequeñas o móviles */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* TITULO */
+/* --- TÍTULO --- */
 .home-card h1 {
   font-size: 38px;
-  margin-bottom: 10px;
-  color: #00d26a;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #00d26a; /* Verde DATAGOL */
+  letter-spacing: -0.5px;
 }
 
-/* TEXTO */
+/* --- DESCRIPCIÓN (TEXTO) --- */
 .home-card p {
   color: #e2e8f0;
   font-size: 15px;
-  margin-bottom: 10px;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
+/* --- SLOGAN --- */
 .home-card span {
   display: block;
   color: #64748b;
   font-size: 13px;
-  margin-bottom: 25px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* BOTON */
+/* --- BOTÓN DE ENTRADA --- */
 .home-card button {
   background: #00d26a;
+  color: #0b0f19; /* Texto oscuro para contrastar con el verde brillante */
   border: none;
-  padding: 12px 20px;
+  padding: 14px 28px;
   border-radius: 10px;
-
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
-
-  transition: all 0.3s ease;
+  width: 100%; /* El botón ocupa todo el ancho de la tarjeta para mejor UI */
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 210, 106, 0.2);
 }
 
 .home-card button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(0, 210, 106, 0.4);
 }
 
-/* ANIMACIÓN */
+.home-card button:active {
+  transform: scale(0.98);
+}
+
+/* --- ANIMACIÓN ENTRADA SUAVE --- */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
