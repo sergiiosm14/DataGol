@@ -1,4 +1,8 @@
-<aside class="sidebar">
+<button class="sidebar-close" (click)="closeSidebar()">
+  <i class="bi bi-x-lg"></i>
+</button>
+
+<aside class="sidebar" [class.active]="sidebarOpen">
 
   <!-- HEADER -->
 <div class="sidebar-header" routerLink="/">

@@ -172,3 +172,48 @@
   border-color: #00d26a;
   color: #00d26a;
 }
+
+/* =========================
+   CLOSE BUTTON (MÓVIL)
+========================= */
+.sidebar-close {
+  display: none;
+
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+
+  background: #111827;
+  color: #f1f5f9;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2000;
+}
+
+/* SOLO MÓVIL */
+@media (max-width: 768px) {
+
+  .sidebar-close {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+}
