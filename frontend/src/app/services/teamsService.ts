@@ -7,7 +7,8 @@ import { Team } from '../models/team';
 })
 export class TeamsService {
 
-  private url = 'http://localhost:8080/api/equipos';
+  private url = 'https://datagol-production.up.railway.app/api/equipos';
+
   constructor(private http: HttpClient) { }
 
   getEquipos() {
@@ -22,10 +23,9 @@ export class TeamsService {
     return this.http.post<Team>(this.url, team);
   }
 
-  updateEquipo(id: number,team: Team) {
+  updateEquipo(id: number, team: Team) {
     return this.http.put<Team>(`${this.url}/${id}`, team);
   }
-
 
   deleteEquipo(id: number) {
     return this.http.delete(`${this.url}/${id}`);

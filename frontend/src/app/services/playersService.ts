@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Player } from '../models/player';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { Player } from '../models/player';
 })
 export class PlayersService {
 
-  private url = 'http://localhost:8080/api/jugadores';
+  private url = 'https://datagol-production.up.railway.app/api/jugadores';
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +27,6 @@ export class PlayersService {
   }
 
   // Actualizar un jugador existente
-  // Corregido: id: number y usamos el id del parámetro para la URL
   updateJugador(id: number, player: Player) {
     return this.http.put<Player>(`${this.url}/${id}`, player);
   }
