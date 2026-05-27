@@ -2,12 +2,16 @@
   padding: 20px;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .page-header h2 {
@@ -23,7 +27,9 @@
   color: var(--text-muted);
 }
 
-/* BOTÓN CREAR */
+/* =========================
+   BOTÓN CREAR
+========================= */
 .btn-create {
   background: var(--accent-green);
   color: white;
@@ -35,7 +41,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
 .btn-create:hover {
@@ -43,71 +49,18 @@
   transform: translateY(-2px);
 }
 
-/* LOADING */
+/* =========================
+   LOADING
+========================= */
 .loading {
   padding: 40px;
   text-align: center;
   color: var(--text-muted);
 }
 
-/* GRID */
-.players-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-/* CARD */
-.player-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 18px;
-  text-align: center;
-  transition: 0.2s;
-  position: relative;
-}
-
-.player-card:hover {
-  transform: translateY(-4px);
-  background: var(--bg-card-hover);
-}
-
-/* IMG */
-.player-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid var(--border-color);
-}
-
-/* INFO */
-.player-info h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.player-info p {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.team {
-  font-size: 12px;
-  color: var(--accent-blue);
-}
-
-/* ACTIONS */
-.player-actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-}
-
+/* =========================
+   SEARCH
+========================= */
 .search-bar {
   display: flex;
   align-items: center;
@@ -130,12 +83,81 @@
   background: transparent;
   border: none;
   outline: none;
-
   color: white;
   font-size: 14px;
 }
 
-/* BOTONES BASE */
+/* =========================
+   GRID
+========================= */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* =========================
+   CARD
+========================= */
+.player-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  transition: 0.2s ease;
+  position: relative;
+}
+
+.player-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+}
+
+/* =========================
+   IMAGE
+========================= */
+.player-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid var(--border-color);
+}
+
+/* =========================
+   INFO
+========================= */
+.player-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.player-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.team {
+  font-size: 12px;
+  color: var(--accent-blue);
+}
+
+/* =========================
+   ACTIONS
+========================= */
+.player-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* =========================
+   BOTONES
+========================= */
 .btn-view,
 .btn-edit,
 .btn-delete {
@@ -156,7 +178,7 @@
   justify-content: center;
   gap: 6px;
 
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
 /* VIEW */
@@ -189,7 +211,9 @@
   transform: translateY(-2px);
 }
 
-/* SPIN */
+/* =========================
+   SPIN
+========================= */
 .spin {
   animation: spin 1s linear infinite;
 }
@@ -197,4 +221,86 @@
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* =========================================================
+   📱 RESPONSIVE REAL
+========================================================= */
+
+/* TABLET */
+@media (max-width: 900px) {
+  .players-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-header h2 {
+    font-size: 22px;
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 600px) {
+
+  .players-page {
+    padding: 14px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-header h2 {
+    font-size: 20px;
+  }
+
+  .btn-create {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .players-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .player-card {
+    padding: 14px;
+  }
+
+  .player-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .player-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-view,
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+  }
+
+  .search-bar {
+    padding: 8px 12px;
+  }
+
+  /* quitar hover en móvil */
+  .player-card:hover {
+    transform: none;
+  }
+}
+
+/* MÓVIL PEQUEÑO */
+@media (max-width: 400px) {
+  .page-header h2 {
+    font-size: 18px;
+  }
+
+  .player-info h3 {
+    font-size: 15px;
+  }
 }
