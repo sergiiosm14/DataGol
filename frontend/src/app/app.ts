@@ -11,7 +11,7 @@ import { Sidebar } from './layout/sidebar/sidebar';
 })
 export class App {
   protected readonly title = signal('datagolV.2');
-  sidebarOpen = true;
+  sidebarOpen = false;
 
   openSidebar() {
     this.sidebarOpen = true;

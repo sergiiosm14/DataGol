@@ -6,7 +6,7 @@
   width: 260px;
   height: 100vh;
 
-  background: var(--sidebar-bg);
+  background-color: #0f172a;
   color: var(--text-primary);
 
   display: flex;
@@ -15,7 +15,11 @@
 
   box-shadow: 4px 0 25px var(--shadow);
 
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
 
   position: fixed;
   left: 0;

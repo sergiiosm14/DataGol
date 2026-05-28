@@ -6,7 +6,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 999; /* Se superpone a cualquier fondo oscuro del app-component */
+  z-index: 1; /* Se superpone a cualquier fondo oscuro del app-component */
   
   display: flex;
   align-items: center;
