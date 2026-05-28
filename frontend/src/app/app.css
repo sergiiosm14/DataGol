@@ -42,7 +42,7 @@
   left: 16px;
   
   /* CRUCIAL: Mayor que el 999 del Home para que se superponga */
-  z-index: 1000; 
+  z-index: 9999  !; 
   
   width: 42px;
   height: 42px;

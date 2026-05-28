@@ -15,6 +15,7 @@
   border-radius: 10px;
 
   padding: 8px 12px;
+  margin-top: 50px;
 
   display: flex;
   align-items: center;
@@ -45,6 +46,7 @@
 
   padding: 20px;
   margin-bottom: 20px;
+  margin-right: 100px;
 }
 
 .team-logo img {
@@ -93,6 +95,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 20px;
+  margin-right: 100px;
 }
 
 .stat-card {
@@ -136,6 +139,7 @@
   border: 1px solid var(--border-color);
   border-radius: 14px;
   overflow: hidden;
+  margin-right: 100px;
 }
 
 .card-header {
@@ -163,6 +167,7 @@
 
   padding: 10px 0;
   border-bottom: 1px solid var(--border-color);
+  margin-right: 100px;
 }
 
 .player-row:last-child {
