@@ -1,46 +1,59 @@
 /* --- CONTENEDOR PRINCIPAL DE BIENVENIDA --- */
 .home {
-  /* Fuerza el 100% de la pantalla ignorando contenedores padres */
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1; /* Se superpone a cualquier fondo oscuro del app-component */
-  
+  z-index: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 
   background: url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1920")
     center/cover no-repeat;
+
   overflow: hidden;
-  margin: 0;
-  padding: 0;
 }
 
-/* --- OSCURECER FONDO (OVERLAY) --- */
+/* --- OSCURECER FONDO --- */
 .overlay {
   position: absolute;
   inset: 0;
+
+  /* DARK MODE */
   background: rgba(10, 14, 23, 0.75);
+
   backdrop-filter: blur(3px);
   z-index: 1;
 }
 
-/* --- TARJETA CENTRAL (CARD) --- */
+/* LIGHT MODE ADAPTADO */
+body.light .overlay {
+  background: rgba(248, 250, 252, 0.75);
+}
+
+/* --- TARJETA CENTRAL --- */
 .home-card {
   position: relative;
-  z-index: 2; /* Por encima de la capa overlay */
+  z-index: 2;
+
   text-align: center;
-  background: rgba(17, 24, 39, 0.7);
-  border: 1px solid #1e293b;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+
   padding: 40px;
   border-radius: 18px;
+
   width: 420px;
-  max-width: 90%; /* Responsivo para pantallas pequeñas o móviles */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+
+  box-shadow: 0 20px 40px var(--shadow);
+
   animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -48,15 +61,14 @@
 .home-card h1 {
   font-size: 38px;
   font-weight: 800;
-  margin-top: 0;
   margin-bottom: 12px;
-  color: #00d26a; /* Verde DATAGOL */
-  letter-spacing: -0.5px;
+
+  color: var(--accent-green);
 }
 
-/* --- DESCRIPCIÓN (TEXTO) --- */
+/* --- TEXTO --- */
 .home-card p {
-  color: #e2e8f0;
+  color: var(--text-primary);
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 12px;
@@ -65,26 +77,34 @@
 /* --- SLOGAN --- */
 .home-card span {
   display: block;
-  color: #64748b;
+
+  color: var(--text-muted);
   font-size: 13px;
   font-weight: 500;
+
   margin-bottom: 28px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* --- BOTÓN DE ENTRADA --- */
+/* --- BOTÓN --- */
 .home-card button {
-  background: #00d26a;
-  color: #0b0f19; /* Texto oscuro para contrastar con el verde brillante */
+  background: var(--accent-green);
+  color: #0b0f19;
+
   border: none;
   padding: 14px 28px;
+
   border-radius: 10px;
+
   font-size: 16px;
   font-weight: 700;
+
   cursor: pointer;
-  width: 100%; /* El botón ocupa todo el ancho de la tarjeta para mejor UI */
+  width: 100%;
+
   transition: all 0.2s ease;
+
   box-shadow: 0 4px 12px rgba(0, 210, 106, 0.2);
 }
 
@@ -98,7 +118,7 @@
   transform: scale(0.98);
 }
 
-/* --- ANIMACIÓN ENTRADA SUAVE --- */
+/* --- ANIMACIÓN --- */
 @keyframes fadeIn {
   from {
     opacity: 0;

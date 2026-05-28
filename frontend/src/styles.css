@@ -19,6 +19,8 @@
   --accent-red: #ef4444;
 
   --shadow: rgba(0, 0, 0, 0.4);
+  --sidebar-bg: #0f172a;
+  
 }
 
 /* LIGHT MODE */
@@ -38,6 +40,9 @@ body.light {
   --accent-red: #dc2626;
 
   --shadow: rgba(0, 0, 0, 0.08);
+  
+  --sidebar-bg: #ffffff;
+
 }
 
 /* BASE */
