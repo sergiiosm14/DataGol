@@ -78,7 +78,7 @@
       <div class="card-body">
         @for (player of equipo.jugadores; track player.id) {
           <div class="player-row">
-            <img class="avatar" [src]="player.fotoUrl || 'https://via.placeholder.com/40'" />
+            <img class="avatar" [src]="player.fotoUrl" />
 
             <div class="info">
               <div class="name">
@@ -93,9 +93,9 @@
             </div>
 
             <div class="stats">
-              <i class="bi bi-activity"></i> {{ player.goles }}
+              <i class="bi bi-bullseye"></i> {{ player.goles }}
               &nbsp; | &nbsp;
-              <i class="bi bi-flag"></i> {{ player.asistencias }}
+              <i class="bi bi-magic"></i> {{ player.asistencias }}
             </div>
           </div>
         }

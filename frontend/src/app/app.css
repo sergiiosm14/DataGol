@@ -1,24 +1,38 @@
 /* --- CONTENEDOR PRINCIPAL (MAIN CONTENT) --- */
 .main-content {
-  margin-left: 260px; /* Ancho exacto de la sidebar cuando está abierta */
+  margin-left: 260px; /* sidebar abierta */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #0f172a; /* Fondo oscuro a juego con la app (puedes cambiarlo a #f8fafc si prefieres contenido claro) */
-  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición fluida y profesional */
+
+  background: var(--bg-primary); /* 👈 antes estaba hardcodeado */
+  color: var(--text-primary);
+
+  transition: margin-left 0.3s ease, background 0.3s ease;
+
+  width: calc(100% - 260px); /* evita overflow horizontal */
 }
 
 /* Estado cuando la sidebar está oculta */
 .main-content.sidebar-closed {
   margin-left: 0;
+  width: 100%;
 }
 
 /* --- CONTENEDOR DE LAS VISTAS INTERNAS --- */
 .page-content {
-  flex-grow: 1; /* Empuja el footer hacia abajo si hay poco contenido */
-  padding: 32px; /* Margen interno generoso para tus tablas y gráficos */
-  color: #f8fafc;
+  flex-grow: 1;
+  padding: 32px;
+
+  color: var(--text-primary);
+
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: hidden; /* anti scroll lateral */
+  transition: padding 0.3s ease;
 }
+
 
 /* --- BOTÓN FLOTANTE DE APERTURA (bi-list) --- */
 /* --- BOTÓN FLOTANTE DE APERTURA (bi-list) --- */
@@ -71,3 +85,4 @@
   transform: translateY(1px); /* Efecto de hundido al hacer clic */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+

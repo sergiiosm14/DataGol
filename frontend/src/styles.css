@@ -1,150 +1,53 @@
+/* =========================================================
+   🎨 DATAGOL THEME SYSTEM
+========================================================= */
+
 :root {
+  /* DARK MODE DEFAULT */
   --bg-primary: #0a0e17;
   --bg-secondary: #111827;
-  --border-color: #1e293b;
+  --bg-card: #0f172a;
+  --bg-card-hover: #1e293b;
 
-  --accent-green: #00d26a;
+  --border-color: #1e293b;
 
   --text-primary: #f1f5f9;
   --text-muted: #64748b;
+
+  --accent-blue: #38bdf8;
+  --accent-green: #00d26a;
+  --accent-red: #ef4444;
+
+  --shadow: rgba(0, 0, 0, 0.4);
 }
 
-/* =========================
-   BASE
-========================= */
-body {
+/* LIGHT MODE */
+body.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+
+  --border-color: #e2e8f0;
+
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+
+  --accent-blue: #2563eb;
+  --accent-green: #16a34a;
+  --accent-red: #dc2626;
+
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* BASE */
+html, body {
   margin: 0;
-  font-family: Inter, sans-serif;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Inter, system-ui, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
-  overflow-x: hidden;
-}
-
-/* =========================
-   LAYOUT DESKTOP
-========================= */
-app-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
-  background: var(--bg-secondary);
-  border-right: 1px solid var(--border-color);
-  z-index: 1000;
-  transition: transform 0.3s ease;
-}
-
-.main-content {
-  margin-left: 260px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  transition: margin-left 0.3s ease;
-}
-
-/* =========================
-   TOPBAR
-========================= */
-app-topbar {
-  position: sticky;
-  top: 0;
-  z-index: 900;
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--border-color);
-}
-
-/* =========================
-   CONTENT
-========================= */
-.page-content {
-  flex: 1;
-  padding: 24px;
-}
-
-/* =========================
-   CARDS
-========================= */
-.team-card,
-.player-card {
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.team-card:hover,
-.player-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-}
-
-/* =========================
-   BUTTONS
-========================= */
-button {
-  transition: all 0.2s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-
-button:active {
-  transform: scale(0.96);
-}
-
-/* =========================
-   SIDEBAR LINKS
-========================= */
-app-sidebar a {
-  display: block;
-  transition: all 0.25s ease;
-}
-
-app-sidebar a:hover {
-  transform: translateX(6px);
-  color: var(--accent-green);
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-.loading {
-  animation: softPulse 1.6s ease-in-out infinite;
-}
-
-@keyframes softPulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-/* =========================
-   FOOTER
-========================= */
-app-footer {
-  margin-top: auto;
-}
-
-/* =========================================================
-   📱 RESPONSIVE
-========================================================= */
-
-/* TABLET */
-@media (max-width: 992px) {
-  .main-content {
-    margin-left: 0;
-  }
-
-  .page-content {
-    padding: 18px;
-  }
-}
-
-
-
-/* MÓVIL PEQUEÑO */
-@media (max-width: 480px) {
-  .page-content {
-    padding: 12px;
-  }
+  transition: background 0.3s ease, color 0.3s ease;
 }

@@ -102,23 +102,3 @@
 /* ==========================================================================
    📱 RESPONSIVE (MÓVIL Y TABLET)
    ========================================================================== */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .footer-section {
-    min-width: 100%;
-  }
-
-  .footer-section a {
-    display: inline-block;
-    margin: 0.3rem 0.6rem;
-  }
-
-  .footer-section h2.logo {
-    justify-content: center;
-  }
-}

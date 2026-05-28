@@ -36,6 +36,7 @@
   border: none;
   padding: 10px 14px;
   border-radius: 10px;
+  margin-right: 100px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -72,10 +73,12 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 10px;
+  margin-right: 100px;
 }
 
 .search-bar i {
   color: var(--text-muted);
+  
 }
 
 .search-bar input {
@@ -94,6 +97,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
+  margin-right: 100px;
 }
 
 /* =========================
@@ -158,6 +162,9 @@
 /* =========================
    BOTONES
 ========================= */
+/* =========================
+   BOTONES (MEJORADOS)
+========================= */
 .btn-view,
 .btn-edit,
 .btn-delete {
@@ -178,37 +185,38 @@
   justify-content: center;
   gap: 6px;
 
-  transition: 0.2s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
 /* VIEW */
 .btn-view {
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
 
 .btn-view:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
 }
 
-/* EDIT */
+/* EDIT (MEJORADO) */
 .btn-edit {
-  background: var(--accent-blue);
+  background: linear-gradient(135deg, #f59e0b, #d97706);
 }
 
 .btn-edit:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.35);
 }
 
-/* DELETE */
+/* DELETE (MEJORADO) */
 .btn-delete {
-  background: var(--accent-red);
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
 }
 
 .btn-delete:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.35);
 }
 
 /* =========================

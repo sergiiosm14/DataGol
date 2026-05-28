@@ -1,3 +1,7 @@
+/* =========================================================
+   📊 DATAGOL DASHBOARD - THEME READY
+========================================================= */
+
 .dashboard-header {
   margin-bottom: 24px;
 }
@@ -8,6 +12,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--text-primary);
 }
 
 .dashboard-header p {
@@ -25,6 +30,9 @@
   color: var(--text-muted);
 }
 
+/* =========================
+   ICONOS
+========================= */
 .icon i {
   font-size: 18px;
   color: var(--accent-green);
@@ -40,7 +48,7 @@
 }
 
 /* =========================
-   STATS
+   STATS GRID
 ========================= */
 .stats-grid {
   display: grid;
@@ -52,9 +60,12 @@
 .stat-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
+
   padding: 20px;
-  transition: 0.3s ease;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px var(--shadow);
 }
 
 .stat-card:hover {
@@ -71,6 +82,7 @@
 .stat-value {
   font-size: 26px;
   font-weight: 800;
+  color: var(--text-primary);
 }
 
 .stat-label {
@@ -93,8 +105,9 @@
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 8px 20px var(--shadow);
 }
 
 .card-header {
@@ -105,6 +118,7 @@
 .card-header h3 {
   font-size: 14px;
   font-weight: 700;
+  color: var(--text-primary);
 }
 
 .card-body {
@@ -118,6 +132,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+
   padding: 10px 0;
   border-bottom: 1px solid var(--border-color);
 }
@@ -132,13 +147,16 @@
 .avatar {
   width: 36px;
   height: 36px;
+
   border-radius: 8px;
+
   background: var(--accent-blue);
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-weight: 700;
-  color: white;
+  color: #0f172a;
 }
 
 .avatar.team {
@@ -150,12 +168,14 @@
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
+
   border: 2px solid var(--border-color);
 }
 
 .item-title {
   font-weight: 600;
   font-size: 13px;
+  color: var(--text-primary);
 }
 
 .item-sub {
@@ -164,7 +184,7 @@
 }
 
 /* =========================================================
-   📱 RESPONSIVE REAL (IMPORTANTE)
+   📱 RESPONSIVE
 ========================================================= */
 
 /* TABLET */
@@ -227,7 +247,6 @@
     height: 32px;
   }
 
-  /* quitar hover en móvil */
   .stat-card:hover {
     transform: none;
   }

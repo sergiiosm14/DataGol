@@ -1,27 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-settings',
-  imports: [],
   templateUrl: './settings.html',
   styleUrl: './settings.css',
 })
-export class Settings {
+export class Settings implements OnInit {
+
   ngOnInit(): void {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-theme');
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
+
+    if (savedTheme) {
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(savedTheme);
     } else {
-      document.body.classList.remove('light-theme');
+      document.body.classList.add('dark');
     }
   }
 
   setTheme(theme: 'light' | 'dark'): void {
-    if (theme === 'light') {
-      document.body.classList.add('light-theme');
-    } else {
-      document.body.classList.remove('light-theme');
-    }
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme);
+
     localStorage.setItem('theme', theme);
   }
 }
