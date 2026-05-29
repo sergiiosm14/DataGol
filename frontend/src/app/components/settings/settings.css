@@ -1,11 +1,15 @@
-.settings-container {
+/* CONTENEDOR */
+.contenedor-configuracion {
   max-width: 800px;
   margin: 0 auto;
 }
-.settings-header {
+
+/* HEADER */
+.cabecera-configuracion {
   margin-bottom: 32px;
 }
-.settings-header h2 {
+
+.cabecera-configuracion h2 {
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--text-primary);
@@ -14,21 +18,26 @@
   gap: 12px;
   margin: 0 0 8px 0;
 }
-.settings-header h2 i {
+
+.cabecera-configuracion h2 i {
   color: var(--accent-green);
 }
-.settings-header p {
+
+.cabecera-configuracion p {
   color: var(--text-muted);
   margin: 0;
   font-size: 0.95rem;
 }
 
-.settings-content {
+/* CONTENT */
+.contenido-configuracion {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.settings-card {
+
+/* CARD */
+.tarjeta-configuracion {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -39,7 +48,9 @@
     background-color 0.3s ease,
     border-color 0.3s ease;
 }
-.card-icon {
+
+/* ICON */
+.icono-tarjeta {
   font-size: 1.5rem;
   color: var(--accent-green);
   background: rgba(0, 210, 106, 0.1);
@@ -51,22 +62,28 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.card-body h3 {
+
+/* BODY */
+.cuerpo-tarjeta h3 {
   margin: 0 0 6px 0;
   font-size: 1.1rem;
   color: var(--text-primary);
 }
-.card-body p {
+
+.cuerpo-tarjeta p {
   margin: 0 0 20px 0;
   font-size: 0.9rem;
   color: var(--text-muted);
 }
 
-.theme-selector {
+/* THEME SELECTOR */
+.selector-tema {
   display: flex;
   gap: 16px;
 }
-.theme-btn {
+
+/* BUTTONS */
+.btn-tema {
   flex: 1;
   max-width: 180px;
   padding: 14px;
@@ -79,21 +96,27 @@
   font-weight: 600;
   transition: all 0.2s ease;
 }
-.theme-btn.light {
+
+/* LIGHT */
+.btn-tema.claro {
   background-color: #f8fafc;
   border: 2px solid #e2e8f0;
   color: #0f172a;
 }
-.theme-btn.light:hover {
+
+.btn-tema.claro:hover {
   border-color: var(--accent-green);
   background-color: #f1f5f9;
 }
-.theme-btn.dark {
+
+/* DARK */
+.btn-tema.oscuro {
   background-color: #0f172a;
   border: 2px solid #1e293b;
   color: #f8fafc;
 }
-.theme-btn.dark:hover {
+
+.btn-tema.oscuro:hover {
   border-color: var(--accent-green);
   background-color: #1e293b;
 }

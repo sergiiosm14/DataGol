@@ -1,15 +1,14 @@
+<aside class="barra-lateral">
 
-
-<aside class="sidebar">
-  <button (click)="onToggle()" class="bi bi-x"></button>
+  <button (click)="onToggle()" class="btn-cerrar bi bi-x"></button>
 
   <!-- HEADER -->
-  <div class="sidebar-header" routerLink="/">
+  <div class="cabecera-sidebar" routerLink="/">
      <i class="bi bi-ball"></i>DATAGOL
   </div>
 
   <!-- NAV -->
-  <nav class="sidebar-nav">
+  <nav class="navegacion-sidebar">
 
     <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="onToggle()">
       <i class="bi bi-speedometer2"></i>
@@ -39,22 +38,9 @@
   </nav>
 
   <!-- FOOTER -->
-  <div class="sidebar-footer">
+  <div class="pie-sidebar">
 
-    <div class="sidebar-user">
-      <div class="sidebar-user-avatar">SG</div>
-      <div class="sidebar-user-info">
-        <div class="sidebar-user-name">Sergio</div>
-        <div class="sidebar-user-role">Administrador</div>
-      </div>
-    </div>
-
-    <button class="bi bi-gear" routerLink="/settings"></button>
-
-    <button class="login-btn">
-      <i class="bi bi-box-arrow-in-right"></i>
-      Logout
-    </button>
+    <button class="btn-configuracion bi bi-gear" routerLink="/settings"></button>
 
   </div>
 

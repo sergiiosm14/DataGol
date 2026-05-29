@@ -1,12 +1,9 @@
-/* =========================================================
-   📊 DATAGOL DASHBOARD - THEME READY
-========================================================= */
-
-.dashboard-header {
+/* CABECERA */
+.cabecera-dashboard {
   margin-bottom: 24px;
 }
 
-.dashboard-header h2 {
+.cabecera-dashboard h2 {
   font-size: 26px;
   font-weight: 800;
   display: flex;
@@ -16,42 +13,36 @@
   color: var(--text-primary);
 }
 
-.dashboard-header p {
+.cabecera-dashboard p {
   color: var(--text-muted);
   font-size: 13px;
   margin-top: 4px;
 }
 
-/* =========================
-   LOADING
-========================= */
-.loading-box {
+/* CARGA */
+.caja-carga {
   padding: 40px;
   text-align: center;
   color: var(--text-muted);
 }
 
-/* =========================
-   ICONOS
-========================= */
-.icon i {
-  font-size: 18px;
-  color: var(--accent-green);
+.girar {
+  animation: girar 1s linear infinite;
 }
 
-.spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
+@keyframes girar {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-/* =========================
-   STATS GRID
-========================= */
-.stats-grid {
+/* ICONOS */
+.icono i {
+  font-size: 18px;
+  color: var(--accent-green);
+}
+
+/* GRID ESTADÍSTICAS */
+.rejilla-estadisticas {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
@@ -59,7 +50,7 @@
   margin-right: 100px;
 }
 
-.stat-card {
+.tarjeta-estadistica {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -70,42 +61,38 @@
   box-shadow: 0 6px 18px var(--shadow);
 }
 
-.stat-card:hover {
+.tarjeta-estadistica:hover {
   transform: translateY(-3px);
   background: var(--bg-card-hover);
 }
 
-.icon {
+.icono {
   font-size: 18px;
   margin-bottom: 10px;
   color: var(--accent-green);
 }
 
-.stat-value {
+.valor-estadistica {
   font-size: 26px;
   font-weight: 800;
   color: var(--text-primary);
 }
 
-.stat-label {
+.etiqueta-estadistica {
   font-size: 12px;
   color: var(--text-muted);
 }
 
-/* =========================
-   GRID PRINCIPAL
-========================= */
-.dashboard-grid {
+/* GRID PRINCIPAL */
+.rejilla-dashboard {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   margin-right: 100px;
 }
 
-/* =========================
-   CARD
-========================= */
-.card {
+/* TARJETAS */
+.tarjeta {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -113,25 +100,23 @@
   box-shadow: 0 8px 20px var(--shadow);
 }
 
-.card-header {
+.cabecera-tarjeta {
   padding: 16px;
   border-bottom: 1px solid var(--border-color);
 }
 
-.card-header h3 {
+.cabecera-tarjeta h3 {
   font-size: 14px;
   font-weight: 700;
   color: var(--text-primary);
 }
 
-.card-body {
+.cuerpo-tarjeta {
   padding: 16px;
 }
 
-/* =========================
-   LISTA
-========================= */
-.list-item {
+/* LISTA */
+.item-lista {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -140,33 +125,12 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.list-item:last-child {
+.item-lista:last-child {
   border-bottom: none;
 }
 
-/* =========================
-   AVATARES
-========================= */
-.avatar {
-  width: 36px;
-  height: 36px;
-
-  border-radius: 8px;
-
-  background: var(--accent-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.avatar.team {
-  background: var(--accent-purple);
-}
-
-.avatar-img {
+/* AVATARES */
+.imagen-avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -175,94 +139,62 @@
   border: 2px solid var(--border-color);
 }
 
-.item-title {
+.titulo-item {
   font-weight: 600;
   font-size: 13px;
   color: var(--text-primary);
 }
 
-.item-sub {
+.subtitulo-item {
   font-size: 11px;
   color: var(--text-muted);
 }
 
-/* =========================================================
-   📱 RESPONSIVE
-========================================================= */
-
-/* TABLET */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-
-  .stats-grid {
+  .rejilla-estadisticas {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .dashboard-grid {
+  .rejilla-dashboard {
     grid-template-columns: 1fr;
   }
 }
 
-/* MÓVIL */
 @media (max-width: 600px) {
-
-  .dashboard-header h2 {
+  .cabecera-dashboard h2 {
     font-size: 20px;
   }
 
-  .dashboard-header p {
+  .cabecera-dashboard p {
     font-size: 12px;
   }
 
-  .stats-grid {
+  .rejilla-estadisticas {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .stat-card {
+  .tarjeta-estadistica {
     padding: 16px;
   }
 
-  .stat-value {
+  .valor-estadistica {
     font-size: 22px;
   }
 
-  .dashboard-grid {
+  .rejilla-dashboard {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-
-  .card-header h3 {
-    font-size: 13px;
-  }
-
-  .card-body {
-    padding: 12px;
-  }
-
-  .list-item {
-    gap: 10px;
-    padding: 8px 0;
-  }
-
-  .avatar,
-  .avatar-img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .stat-card:hover {
-    transform: none;
-  }
 }
 
-/* MÓVIL PEQUEÑO */
 @media (max-width: 400px) {
-
-  .dashboard-header h2 {
+  .cabecera-dashboard h2 {
     font-size: 18px;
   }
 
-  .stat-value {
+  .valor-estadistica {
     font-size: 20px;
   }
 }

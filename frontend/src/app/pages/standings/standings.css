@@ -1,17 +1,13 @@
-/* =========================
-   STANDINGS PAGE
-========================= */
-
-.standings-page {
+.pagina-clasificacion {
   padding: 20px;
 }
 
-/* ===== HEADER ===== */
-.page-header {
+/* HEADER */
+.cabecera-pagina {
   margin-bottom: 18px;
 }
 
-.page-header h2 {
+.cabecera-pagina h2 {
   font-size: 26px;
   font-weight: 800;
   display: flex;
@@ -20,31 +16,14 @@
   color: var(--text-primary);
 }
 
-.page-header p {
+.cabecera-pagina p {
   font-size: 13px;
   color: var(--text-muted);
   margin-top: 4px;
 }
 
-/* ===== LOADING ===== */
-.loading {
-  padding: 40px;
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-.spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* ===== CARD TABLE ===== */
-.standings-card {
+/* CARD TABLE */
+.tabla-clasificacion {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
@@ -52,8 +31,8 @@
   margin-right: 100px;
 }
 
-/* ===== HEADER TABLE ===== */
-.standings-header {
+/* HEADER TABLE */
+.cabecera-tabla {
   display: grid;
   grid-template-columns: 60px 1fr repeat(5, 80px);
   align-items: center;
@@ -67,8 +46,8 @@
   letter-spacing: 0.5px;
 }
 
-/* ===== ROW ===== */
-.standings-row {
+/* ROW */
+.fila-clasificacion {
   display: grid;
   grid-template-columns: 60px 1fr repeat(5, 80px);
   align-items: center;
@@ -78,36 +57,33 @@
   transition: all 0.2s ease;
 }
 
-.standings-row:hover {
+.fila-clasificacion:hover {
   background: var(--bg-card-hover);
 }
 
-/* =========================
-   🔥 CENTRADO GLOBAL
-========================= */
-
-.standings-header > div,
-.standings-row > div {
+/* CENTRADO GLOBAL */
+.cabecera-tabla > div,
+.fila-clasificacion > div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* 👈 excepción: columna equipo */
-.standings-header > div:nth-child(2),
-.standings-row > div:nth-child(2) {
+/* EXCEPCIÓN EQUIPO */
+.cabecera-tabla > div:nth-child(2),
+.fila-clasificacion > div:nth-child(2) {
   justify-content: flex-start;
 }
 
-/* ===== POSITION ===== */
-.pos {
+/* POS */
+.posicion {
   font-weight: 700;
   color: var(--text-muted);
   font-size: 13px;
 }
 
-/* ===== TEAM CELL ===== */
-.team-cell {
+/* EQUIPO */
+.celda-equipo {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -116,8 +92,8 @@
   color: var(--text-primary);
 }
 
-/* ===== LOGO ===== */
-.team-logo {
+/* LOGO */
+.logo-equipo {
   width: 28px;
   height: 28px;
   border-radius: 6px;
@@ -126,40 +102,37 @@
   padding: 2px;
 }
 
-/* ===== STATS CELLS ===== */
-.cell {
+/* CELDAS */
+.celda {
   text-align: center;
   font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-/* =========================
-   UEFA ZONES
-========================= */
-
-.standings-row.champions {
+/* ZONAS */
+.fila-clasificacion.zona-champions {
   border-left: 4px solid #22c55e;
   background: rgba(34, 197, 94, 0.06);
 }
 
-.standings-row.europa {
+.fila-clasificacion.zona-europa {
   border-left: 4px solid #3b82f6;
   background: rgba(59, 130, 246, 0.06);
 }
 
-.standings-row.conference {
+.fila-clasificacion.zona-conference {
   border-left: 4px solid #a855f7;
   background: rgba(168, 85, 247, 0.06);
 }
 
-.standings-row.relegation {
+.fila-clasificacion.zona-descenso {
   border-left: 4px solid #ef4444;
   background: rgba(239, 68, 68, 0.06);
 }
 
-/* ===== LEGEND ===== */
-.legend {
+/* LEYENDA */
+.leyenda {
   margin-top: 18px;
   display: flex;
   gap: 16px;
@@ -168,36 +141,36 @@
   color: var(--text-muted);
 }
 
-.legend div {
+.leyenda div {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.dot {
+.punto {
   width: 10px;
   height: 10px;
   border-radius: 2px;
   display: inline-block;
 }
 
-.dot.champions { background: #22c55e; }
-.dot.europa { background: #3b82f6; }
-.dot.conference { background: #a855f7; }
-.dot.relegation { background: #ef4444; }
+.punto.champions { background: #22c55e; }
+.punto.europa { background: #3b82f6; }
+.punto.conference { background: #a855f7; }
+.punto.descenso { background: #ef4444; }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .standings-header,
-  .standings-row {
+  .cabecera-tabla,
+  .fila-clasificacion {
     grid-template-columns: 50px 1fr repeat(5, 60px);
   }
 
-  .cell {
+  .celda {
     font-size: 12px;
   }
 
-  .team-cell {
+  .celda-equipo {
     font-size: 12px;
   }
 }

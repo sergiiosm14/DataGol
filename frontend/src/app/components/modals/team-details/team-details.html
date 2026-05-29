@@ -1,6 +1,7 @@
-<div class="team-details">
-  <div class="top-bar">
-    <button class="btn-back" (click)="back()">
+<div class="detalles-equipo">
+
+  <div class="barra-superior">
+    <button class="btn-volver" (click)="back()">
       <i class="bi bi-arrow-left"></i>
       Volver
     </button>
@@ -8,13 +9,15 @@
 
   <!-- CONTENIDO -->
   @if (equipo) {
+
     <!-- HEADER -->
-    <div class="team-header">
-      <div class="team-logo">
+    <div class="cabecera-equipo">
+
+      <div class="logo-equipo">
         <img [src]="equipo.escudoUrl || 'assets/default.png'" />
       </div>
 
-      <div class="team-info">
+      <div class="info-equipo">
         <h2>
           <i class="bi bi-shield"></i>
           {{ equipo.nombre }}
@@ -25,7 +28,8 @@
           {{ equipo.liga }} • {{ equipo.pais }}
         </p>
 
-        <div class="team-badges">
+        <div class="badges-equipo">
+
           <span class="badge">
             <i class="bi bi-building"></i>
             {{ equipo.estadio }}
@@ -35,71 +39,86 @@
             <i class="bi bi-calendar"></i>
             {{ equipo.fundacion }}
           </span>
+
         </div>
       </div>
     </div>
 
     <!-- STATS -->
-    <div class="stats-grid">
-      <div class="stat-card">
+    <div class="rejilla-estadisticas">
+
+      <div class="tarjeta-estadistica">
         <i class="bi bi-trophy"></i>
-        <div class="stat-value">{{ equipo.puntos }}</div>
-        <div class="stat-label">Puntos</div>
+        <div class="valor-estadistica">{{ equipo.puntos }}</div>
+        <div class="etiqueta-estadistica">Puntos</div>
       </div>
 
-      <div class="stat-card">
+      <div class="tarjeta-estadistica">
         <i class="bi bi-graph-up-arrow"></i>
-        <div class="stat-value">{{ equipo.golesFavor }}</div>
-        <div class="stat-label">Goles a favor</div>
+        <div class="valor-estadistica">{{ equipo.golesFavor }}</div>
+        <div class="etiqueta-estadistica">Goles a favor</div>
       </div>
 
-      <div class="stat-card">
+      <div class="tarjeta-estadistica">
         <i class="bi bi-graph-down-arrow"></i>
-        <div class="stat-value">{{ equipo.golesContra }}</div>
-        <div class="stat-label">Goles en contra</div>
+        <div class="valor-estadistica">{{ equipo.golesContra }}</div>
+        <div class="etiqueta-estadistica">Goles en contra</div>
       </div>
 
-      <div class="stat-card">
+      <div class="tarjeta-estadistica">
         <i class="bi bi-people"></i>
-        <div class="stat-value">{{ equipo.jugadores?.length || 0 }}</div>
-        <div class="stat-label">Jugadores</div>
+        <div class="valor-estadistica">{{ equipo.jugadores?.length || 0 }}</div>
+        <div class="etiqueta-estadistica">Jugadores</div>
       </div>
+
     </div>
 
     <!-- JUGADORES -->
-    <div class="card">
-      <div class="card-header">
+    <div class="tarjeta">
+
+      <div class="cabecera-tarjeta">
         <h3>
           <i class="bi bi-person-lines-fill"></i>
           Jugadores del equipo
         </h3>
       </div>
 
-      <div class="card-body">
-        @for (player of equipo.jugadores; track player.id) {
-          <div class="player-row">
-            <img class="avatar" [src]="player.fotoUrl" />
+      <div class="cuerpo-tarjeta">
 
-            <div class="info">
-              <div class="name">
+        @for (player of equipo.jugadores; track player.id) {
+
+          <div class="fila-jugador">
+
+            <img class="avatar-jugador" [src]="player.fotoUrl" />
+
+            <div class="info-jugador">
+
+              <div class="nombre-jugador">
                 <i class="bi bi-person"></i>
                 {{ player.nombre }} {{ player.apellido1 }}
               </div>
 
-              <div class="sub">
+              <div class="subinfo-jugador">
                 <i class="bi bi-diagram-3"></i>
                 {{ player.posicion }} • {{ player.nacionalidad }}
               </div>
+
             </div>
 
-            <div class="stats">
+            <div class="estadisticas-jugador">
               <i class="bi bi-bullseye"></i> {{ player.goles }}
               &nbsp; | &nbsp;
               <i class="bi bi-magic"></i> {{ player.asistencias }}
             </div>
+
           </div>
+
         }
+
       </div>
+
     </div>
+
   }
+
 </div>

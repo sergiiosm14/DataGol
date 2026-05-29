@@ -1,6 +1,8 @@
-<div class="players-page">
+<div class="pagina-jugadores">
+
   <!-- HEADER -->
-  <div class="page-header">
+  <div class="cabecera-pagina">
+
     <div>
       <h2>
         <i class="bi bi-people"></i>
@@ -9,14 +11,15 @@
       <p>Gestión de jugadores</p>
     </div>
 
-    <button class="btn-create" routerLink="/player/{{ -1 }}">
+    <button class="btn-crear" routerLink="/player/{{ -1 }}">
       <i class="bi bi-person-plus"></i>
       Crear jugador
     </button>
+
   </div>
 
   <!-- SEARCH -->
-  <div class="search-bar">
+  <div class="barra-busqueda">
     <i class="bi bi-search"></i>
 
     <input
@@ -28,27 +31,30 @@
 
   <!-- LOADING -->
   @if (!jugadores.length) {
-    <div class="loading">
-      <i class="bi bi-arrow-repeat spin"></i>
+    <div class="carga">
+      <i class="bi bi-arrow-repeat girar"></i>
       Cargando jugadores...
     </div>
   }
 
   <!-- GRID -->
-  <div class="players-grid">
+  <div class="rejilla-jugadores">
+
     @for (player of jugadores; track player.id) {
       @if (
         player.nombre.toLowerCase().includes(searchText.toLowerCase())
       ) {
-        <div class="player-card">
+
+        <div class="tarjeta-jugador">
 
           <img
-            class="player-img"
+            class="imagen-jugador"
             [src]="player.fotoUrl"
             alt="player"
           />
 
-          <div class="player-info">
+          <div class="info-jugador">
+
             <h3>
               <i class="bi bi-person"></i>
               {{ player.nombre }} {{ player.apellido1 }}
@@ -59,28 +65,34 @@
               {{ player.posicion }}
             </p>
 
-            <span class="team">
+            <span class="equipo">
               <i class="bi bi-shield"></i>
               {{ player.equipo?.nombre }}
             </span>
+
           </div>
 
-          <div class="player-actions">
-            <button class="btn-view" routerLink="/player-details/{{ player.id }}">
+          <div class="acciones-jugador">
+
+            <button class="btn-ver" routerLink="/player-details/{{ player.id }}">
               <i class="bi bi-eye"></i>
             </button>
 
-            <button class="btn-edit" routerLink="/player/{{ player.id }}">
+            <button class="btn-editar" routerLink="/player/{{ player.id }}">
               <i class="bi bi-pencil-square"></i>
             </button>
 
-            <button class="btn-delete" (click)="deletePlayer(player.id)">
+            <button class="btn-eliminar" (click)="deletePlayer(player.id)">
               <i class="bi bi-trash"></i>
             </button>
+
           </div>
 
         </div>
+
       }
     }
+
   </div>
+
 </div>

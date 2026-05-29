@@ -1,7 +1,7 @@
-<div class="rankings-page">
+<div class="pagina-rankings">
 
   <!-- HEADER -->
-  <div class="page-header">
+  <div class="cabecera-pagina">
 
     <div>
       <h2>
@@ -13,24 +13,21 @@
 
   </div>
 
-  <!-- ========================= -->
   <!-- GOLES -->
-  <!-- ========================= -->
-  <section class="ranking-section">
+  <section class="seccion-ranking">
 
     <h3>
       <i class="bi bi-flag-fill"></i>
       Máximos goleadores
     </h3>
 
-    <!-- TOP 3 -->
     <div class="top3">
 
       @for (player of goles.slice(0, 3); let i = $index; track player.id) {
 
-        <div class="podium-card" [ngClass]="i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze'">
+        <div class="tarjeta-podio" [ngClass]="i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze'">
 
-          <div class="rank-badge">
+          <div class="insignia-rango">
             <i class="bi bi-award-fill"></i>
             {{ i + 1 }}
           </div>
@@ -38,19 +35,19 @@
           <img class="avatar"
                [src]="player.fotoUrl || 'https://via.placeholder.com/80'">
 
-          <div class="player-name">{{ player.nombre }}</div>
+          <div class="nombre-jugador">{{ player.nombre }}</div>
 
-          <div class="player-team">
+          <div class="equipo-jugador">
             <i class="bi bi-shield-fill"></i>
             {{ player.equipo?.nombre }}
           </div>
 
-          <div class="stat-value">
+          <div class="valor-estadistica">
             <i class="bi bi-graph-up"></i>
             {{ player.goles }}
           </div>
 
-          <div class="stat-label">Goles</div>
+          <div class="etiqueta-estadistica">Goles</div>
 
         </div>
 
@@ -58,37 +55,36 @@
 
     </div>
 
-    <!-- LISTA -->
-    <div class="ranking-list">
+    <div class="lista-ranking">
 
       @for (player of goles.slice(3,10); let i = $index; track player.id) {
 
-        <div class="ranking-row">
+        <div class="fila-ranking">
 
-          <div class="pos">
+          <div class="posicion">
             <i class="bi bi-hash"></i>
             {{ i + 4 }}
           </div>
 
-          <div class="player-cell">
+          <div class="celda-jugador">
 
             <img [src]="player.fotoUrl || 'https://via.placeholder.com/40'">
 
             <span>{{ player.nombre }}</span>
           </div>
 
-          <div class="team">
+          <div class="equipo">
             <i class="bi bi-shield"></i>
             {{ player.equipo?.nombre }}
           </div>
 
-          <div class="value">
+          <div class="valor">
             <i class="bi bi-bullseye"></i>
             {{ player.goles }}
           </div>
 
-          <div class="bar">
-            <div class="fill" [style.width.%]="player.goles * 5"></div>
+          <div class="barra">
+            <div class="relleno" [style.width.%]="player.goles * 5"></div>
           </div>
 
         </div>
@@ -99,10 +95,8 @@
 
   </section>
 
-  <!-- ========================= -->
   <!-- ASISTENCIAS -->
-  <!-- ========================= -->
-  <section class="ranking-section">
+  <section class="seccion-ranking">
 
     <h3>
       <i class="bi bi-people-fill"></i>
@@ -113,9 +107,9 @@
 
       @for (player of asistencias.slice(0, 3); let i = $index; track player.id) {
 
-        <div class="podium-card" [ngClass]="i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze'">
+        <div class="tarjeta-podio" [ngClass]="i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze'">
 
-          <div class="rank-badge">
+          <div class="insignia-rango">
             <i class="bi bi-award"></i>
             {{ i + 1 }}
           </div>
@@ -123,19 +117,19 @@
           <img class="avatar"
                [src]="player.fotoUrl || 'https://via.placeholder.com/80'">
 
-          <div class="player-name">{{ player.nombre }}</div>
+          <div class="nombre-jugador">{{ player.nombre }}</div>
 
-          <div class="player-team">
+          <div class="equipo-jugador">
             <i class="bi bi-shield-fill"></i>
             {{ player.equipo?.nombre }}
           </div>
 
-          <div class="stat-value">
+          <div class="valor-estadistica">
             <i class="bi bi-magic"></i>
             {{ player.asistencias }}
           </div>
 
-          <div class="stat-label">Asistencias</div>
+          <div class="etiqueta-estadistica">Asistencias</div>
 
         </div>
 
@@ -143,34 +137,34 @@
 
     </div>
 
-    <div class="ranking-list">
+    <div class="lista-ranking">
 
       @for (player of asistencias.slice(3,10); let i = $index; track player.id) {
 
-        <div class="ranking-row">
+        <div class="fila-ranking">
 
-          <div class="pos">
+          <div class="posicion">
             <i class="bi bi-hash"></i>
             {{ i + 4 }}
           </div>
 
-          <div class="player-cell">
+          <div class="celda-jugador">
             <img [src]="player.fotoUrl || 'https://via.placeholder.com/40'">
             <span>{{ player.nombre }}</span>
           </div>
 
-          <div class="team">
+          <div class="equipo">
             <i class="bi bi-shield"></i>
             {{ player.equipo?.nombre }}
           </div>
 
-          <div class="value">
+          <div class="valor">
             <i class="bi bi-magic"></i>
             {{ player.asistencias }}
           </div>
 
-          <div class="bar">
-            <div class="fill" [style.width.%]="player.asistencias * 5"></div>
+          <div class="barra">
+            <div class="relleno" [style.width.%]="player.asistencias * 5"></div>
           </div>
 
         </div>
@@ -181,10 +175,8 @@
 
   </section>
 
-  <!-- ========================= -->
   <!-- VALOR DE MERCADO -->
-  <!-- ========================= -->
-  <section class="ranking-section">
+  <section class="seccion-ranking">
 
     <h3>
       <i class="bi bi-cash-coin"></i>
@@ -195,9 +187,9 @@
 
       @for (player of valorMercado.slice(0, 3); let i = $index; track player.id) {
 
-        <div class="podium-card" [ngClass]="i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze'">
+        <div class="tarjeta-podio" [ngClass]="i === 0 ? 'gold' : i === 1 ? 'silver' : 'bronze'">
 
-          <div class="rank-badge">
+          <div class="insignia-rango">
             <i class="bi bi-award-fill"></i>
             {{ i + 1 }}
           </div>
@@ -205,18 +197,18 @@
           <img class="avatar"
                [src]="player.fotoUrl || 'https://via.placeholder.com/80'">
 
-          <div class="player-name">{{ player.nombre }}</div>
+          <div class="nombre-jugador">{{ player.nombre }}</div>
 
-          <div class="player-team">
+          <div class="equipo-jugador">
             <i class="bi bi-shield-fill"></i>
             {{ player.equipo?.nombre }}
           </div>
 
-          <div class="stat-value">
+          <div class="valor-estadistica">
             <i class="bi bi-currency-euro"></i>{{ player.valorMercado }}M
           </div>
 
-          <div class="stat-label">Valor</div>
+          <div class="etiqueta-estadistica">Valor</div>
 
         </div>
 
@@ -224,33 +216,33 @@
 
     </div>
 
-    <div class="ranking-list">
+    <div class="lista-ranking">
 
       @for (player of valorMercado.slice(3,10); let i = $index; track player.id) {
 
-        <div class="ranking-row">
+        <div class="fila-ranking">
 
-          <div class="pos">
+          <div class="posicion">
             <i class="bi bi-hash"></i>
             {{ i + 4 }}
           </div>
 
-          <div class="player-cell">
+          <div class="celda-jugador">
             <img [src]="player.fotoUrl">
             <span>{{ player.nombre }}</span>
           </div>
 
-          <div class="team">
+          <div class="equipo">
             <i class="bi bi-shield"></i>
             {{ player.equipo?.nombre }}
           </div>
 
-          <div class="value">
+          <div class="valor">
             <i class="bi bi-currency-euro"></i>{{ player.valorMercado }}M
           </div>
 
-          <div class="bar">
-            <div class="fill" [style.width.%]="player.valorMercado * 2"></div>
+          <div class="barra">
+            <div class="relleno" [style.width.%]="player.valorMercado * 2"></div>
           </div>
 
         </div>

@@ -1,27 +1,41 @@
-<div class="settings-container">
-  <header class="settings-header">
+<div class="contenedor-configuracion">
+
+  <header class="cabecera-configuracion">
     <h2><i class="bi bi-gear-fill"></i> Configuración del Sistema</h2>
     <p>Gestiona las preferencias visuales y operativas globales de DATAGOL.</p>
   </header>
 
-  <div class="settings-content">
-    <section class="settings-card">
-      <div class="card-icon"><i class="bi bi-palette"></i></div>
-      <div class="card-body">
+  <div class="contenido-configuracion">
+
+    <section class="tarjeta-configuracion">
+
+      <div class="icono-tarjeta">
+        <i class="bi bi-palette"></i>
+      </div>
+
+      <div class="cuerpo-tarjeta">
+
         <h3>Tema de la Aplicación</h3>
         <p>Cambia el aspecto visual de toda la suite (Paneles, barras y tablas).</p>
-        
-        <div class="theme-selector">
-          <button class="theme-btn light" (click)="setTheme('light')">
+
+        <div class="selector-tema">
+
+          <button class="btn-tema claro" (click)="setTheme('light')">
             <i class="bi bi-sun-fill"></i>
             <span>Modo Claro</span>
           </button>
-          <button class="theme-btn dark" (click)="setTheme('dark')">
+
+          <button class="btn-tema oscuro" (click)="setTheme('dark')">
             <i class="bi bi-moon-stars-fill"></i>
             <span>Modo Oscuro</span>
           </button>
+
         </div>
+
       </div>
+
     </section>
+
   </div>
+
 </div>

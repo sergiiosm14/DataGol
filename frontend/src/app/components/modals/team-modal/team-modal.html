@@ -1,9 +1,9 @@
-<div class="modal-overlay">
+<div class="overlay-modal">
 
-  <div class="modal-container">
+  <div class="contenedor-modal">
 
     <!-- HEADER -->
-    <div class="modal-header">
+    <div class="cabecera-modal">
 
       <div>
         <h2>
@@ -18,7 +18,7 @@
         <p>Gestión de equipos Datagol</p>
       </div>
 
-      <button class="close-btn" (click)="back()">
+      <button class="btn-cerrar" (click)="back()">
         <i class="bi bi-x-lg"></i>
       </button>
 
@@ -27,7 +27,7 @@
     <!-- ERROR -->
     @if (errorMessage) {
 
-      <div class="error-box">
+      <div class="caja-error">
         <i class="bi bi-exclamation-triangle"></i>
         {{ errorMessage }}
       </div>
@@ -38,11 +38,11 @@
     <form
       [formGroup]="form"
       (ngSubmit)="save()"
-      class="form-grid"
+      class="rejilla-formulario"
     >
 
       <!-- NOMBRE -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-shield"></i>
@@ -58,7 +58,7 @@
       </div>
 
       <!-- PAIS -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-globe"></i>
@@ -74,7 +74,7 @@
       </div>
 
       <!-- LIGA -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-trophy"></i>
@@ -90,7 +90,7 @@
       </div>
 
       <!-- ESTADIO -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-building"></i>
@@ -106,7 +106,7 @@
       </div>
 
       <!-- FUNDACION -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-calendar"></i>
@@ -121,7 +121,7 @@
       </div>
 
       <!-- ESCUDO -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-image"></i>
@@ -137,7 +137,7 @@
       </div>
 
       <!-- PUNTOS -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-star"></i>
@@ -152,7 +152,7 @@
       </div>
 
       <!-- GOLES FAVOR -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-arrow-up-circle"></i>
@@ -167,7 +167,7 @@
       </div>
 
       <!-- GOLES CONTRA -->
-      <div class="form-group">
+      <div class="grupo-formulario">
 
         <label>
           <i class="bi bi-arrow-down-circle"></i>
@@ -184,7 +184,7 @@
       <!-- ESCUDO PREVIEW -->
       @if (form.value.escudoUrl) {
 
-        <div class="logo-preview">
+        <div class="vista-logo">
 
           <img
             [src]="form.value.escudoUrl"
@@ -196,11 +196,11 @@
       }
 
       <!-- ACTIONS -->
-      <div class="actions">
+      <div class="acciones">
 
         <button
           type="button"
-          class="btn-cancel"
+          class="btn-cancelar"
           (click)="back()"
         >
           <i class="bi bi-arrow-left"></i>
@@ -209,7 +209,7 @@
 
         <button
           type="submit"
-          class="btn-save"
+          class="btn-guardar"
         >
           <i class="bi bi-check-circle"></i>
 

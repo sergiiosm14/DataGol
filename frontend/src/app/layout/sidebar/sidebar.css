@@ -1,8 +1,5 @@
-/* =========================================================
-   SIDEBAR DATAGOL - THEME READY (LIGHT / DARK)
-========================================================= */
-
-.sidebar {
+/* SIDEBAR */
+.barra-lateral {
   width: 260px;
   height: 100vh;
 
@@ -25,10 +22,8 @@
   border-right: 1px solid var(--border-color);
 }
 
-/* =========================
-   CLOSE BUTTON
-========================= */
-.sidebar > .bi-x {
+/* CLOSE BUTTON */
+.btn-cerrar {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -52,16 +47,14 @@
   transition: all 0.2s ease;
 }
 
-.sidebar > .bi-x:hover {
+.btn-cerrar:hover {
   background: var(--accent-red);
   color: white;
   border-color: var(--accent-red);
 }
 
-/* =========================
-   HEADER
-========================= */
-.sidebar-header {
+/* HEADER */
+.cabecera-sidebar {
   padding: 32px 24px 20px 24px;
 
   font-size: 1.4rem;
@@ -77,10 +70,8 @@
   gap: 8px;
 }
 
-/* =========================
-   NAV
-========================= */
-.sidebar-nav {
+/* NAV */
+.navegacion-sidebar {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -90,7 +81,7 @@
   flex-grow: 1;
 }
 
-.sidebar-nav a {
+.navegacion-sidebar a {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -108,37 +99,33 @@
   transition: all 0.2s ease;
 }
 
-.sidebar-nav a i {
+.navegacion-sidebar a i {
   font-size: 1.2rem;
   transition: transform 0.2s ease;
 }
 
-/* HOVER */
-.sidebar-nav a:hover {
+.navegacion-sidebar a:hover {
   background: var(--bg-card-hover);
   color: var(--text-primary);
 }
 
-.sidebar-nav a:hover i {
+.navegacion-sidebar a:hover i {
   transform: translateX(2px);
 }
 
-/* ACTIVE */
-.sidebar-nav a.active {
+.navegacion-sidebar a.active {
   background: linear-gradient(135deg, var(--accent-blue), #0ea5e9);
   color: #0f172a;
   font-weight: 600;
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-.sidebar-nav a.active i {
+.navegacion-sidebar a.active i {
   color: #0f172a;
 }
 
-/* =========================
-   FOOTER
-========================= */
-.sidebar-footer {
+/* FOOTER */
+.pie-sidebar {
   padding: 20px 16px;
 
   background: var(--bg-secondary);
@@ -149,48 +136,8 @@
   gap: 16px;
 }
 
-/* USER */
-.sidebar-user {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.sidebar-user-avatar {
-  width: 38px;
-  height: 38px;
-
-  background: linear-gradient(135deg, var(--accent-blue), #0ea5e9);
-  color: #0f172a;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-weight: 700;
-  font-size: 0.85rem;
-}
-
-.sidebar-user-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar-user-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.sidebar-user-role {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
 /* SETTINGS BUTTON */
-.sidebar-footer .bi-gear {
+.btn-configuracion {
   background: transparent;
   border: none;
 
@@ -210,35 +157,7 @@
   transition: all 0.2s ease;
 }
 
-.sidebar-footer .bi-gear:hover {
+.btn-configuracion:hover {
   background: var(--bg-card-hover);
   color: var(--accent-blue);
-}
-
-/* LOGOUT */
-.login-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  background: transparent;
-  border: 1px solid var(--accent-red);
-  color: var(--accent-red);
-
-  padding: 10px;
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  font-weight: 600;
-  font-size: 0.9rem;
-
-  transition: all 0.2s ease;
-}
-
-.login-btn:hover {
-  background: var(--accent-red);
-  color: white;
-  box-shadow: 0 4px 12px var(--shadow);
 }

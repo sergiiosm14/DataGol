@@ -1,10 +1,8 @@
-/* ==========================================================================
-   🐾 FOOTER DATAGOL (ADAPTATIVO PREMIUM CON TARJETAS GLASSMORPHISM)
+/* ==========================================================================  
+   🐾 PIE DE PÁGINA DATAGOL (ADAPTATIVO PREMIUM CON TARJETAS GLASSMORPHISM)  
    ========================================================================== */
 
-.datagol-footer {
-  /* En Modo Oscuro: Degradado de Slate a Azul Profundo (Como en tu captura)
-     En Modo Claro: Degradado suave y limpio de Gris Claro a Azul Eléctrico Atentado */
+.pie-pagina {
   background: linear-gradient(135deg, var(--bg-secondary), var(--footer-bg-gradient, #1e3a8a));
   color: var(--text-primary);
   padding: 3rem 1.5rem 1rem;
@@ -14,7 +12,7 @@
 }
 
 /* CONTENEDOR */
-.footer-container {
+.contenedor-footer {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -23,42 +21,40 @@
   flex-wrap: wrap;
 }
 
-/* 🧱 CARDS (Efecto cristal translúcido que cambia según el tema) */
-.footer-section {
+/* 🧱 CARDS */
+.seccion-footer {
   flex: 1;
   min-width: 220px;
-  
-  /* En Modo Oscuro usa blanco sutil; en Modo Claro usa capas oscuras muy suaves */
+
   background: var(--footer-card-bg, rgba(255, 255, 255, 0.05));
   border: 1px solid var(--footer-card-border, rgba(255, 255, 255, 0.08));
   border-radius: 16px;
 
   padding: 1.5rem;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+  -webkit-backdrop-filter: blur(10px);
 
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease, border 0.3s ease;
 }
 
-/* Hover efecto card */
-.footer-section:hover {
+.seccion-footer:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* TITULOS */
-.footer-section h2.logo {
+.seccion-footer h2.logo {
   font-size: 1.6rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--accent-blue); /* Se adapta automáticamente (Cyan en Oscuro / Azul en Claro) */
+  color: var(--accent-blue);
   margin-bottom: 0.5rem;
   font-weight: 800;
 }
 
-.footer-section h3 {
+.seccion-footer h3 {
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
   color: var(--text-primary);
@@ -66,7 +62,7 @@
 }
 
 /* TEXTO */
-.footer-section p {
+.seccion-footer p {
   margin: 0.3rem 0;
   color: var(--text-muted);
   font-size: 0.95rem;
@@ -74,7 +70,7 @@
 }
 
 /* LINKS */
-.footer-section a {
+.seccion-footer a {
   display: block;
   color: var(--text-muted);
   text-decoration: none;
@@ -83,13 +79,13 @@
   font-size: 0.95rem;
 }
 
-.footer-section a:hover {
+.seccion-footer a:hover {
   color: var(--accent-blue);
   transform: translateX(4px);
 }
 
-/* BOTTOM (Línea final de copyright) */
-.footer-bottom {
+/* BOTTOM */
+.parte-inferior-footer {
   border-top: 1px solid var(--border-color);
   margin-top: 2rem;
   padding-top: 1rem;
@@ -99,6 +95,6 @@
   opacity: 0.8;
 }
 
-/* ==========================================================================
-   📱 RESPONSIVE (MÓVIL Y TABLET)
+/* ==========================================================================  
+   📱 RESPONSIVE  
    ========================================================================== */

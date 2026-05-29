@@ -1,9 +1,9 @@
-<div class="modal-overlay">
+<div class="overlay-modal">
 
-  <div class="modal-container">
+  <div class="contenedor-modal">
 
     <!-- HEADER -->
-    <div class="modal-header">
+    <div class="cabecera-modal">
 
       <div>
         <h2>
@@ -13,7 +13,7 @@
         <p>Gestión de jugadores del sistema</p>
       </div>
 
-      <button class="close-btn" (click)="back()">
+      <button class="btn-cerrar" (click)="back()">
         <i class="bi bi-x-lg"></i>
       </button>
 
@@ -21,45 +21,45 @@
 
     <!-- ERROR -->
     @if (errorMessage) {
-      <div class="error-box">
+      <div class="caja-error">
         <i class="bi bi-exclamation-triangle"></i>
         {{ errorMessage }}
       </div>
     }
 
     <!-- FORM -->
-    <form [formGroup]="form" (ngSubmit)="save()" class="form-grid">
+    <form [formGroup]="form" (ngSubmit)="save()" class="rejilla-formulario">
 
       <!-- NOMBRE -->
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Nombre</label>
         <input type="text" formControlName="nombre">
       </div>
 
       <!-- APELLIDO -->
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Apellido</label>
         <input type="text" formControlName="apellido1">
       </div>
 
       <!-- EDAD -->
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Edad</label>
         <input type="number" formControlName="edad">
       </div>
 
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Peso (kg)</label>
         <input type="number" formControlName="peso">
       </div>
 
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Altura (cm)</label>
         <input type="number" formControlName="estatura">
       </div>
 
       <!-- POSICIÓN -->
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Posición</label>
         <select formControlName="posicion">
           <option value="">Selecciona posición</option>
@@ -72,7 +72,7 @@
       </div>
 
       <!-- EQUIPO -->
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Equipo</label>
         <select formControlName="equipo">
           <option value="">Selecciona equipo</option>
@@ -87,25 +87,25 @@
       </div>
 
       <!-- FOTO -->
-      <div class="form-group">
+      <div class="grupo-formulario">
         <label>Foto URL</label>
         <input type="text" formControlName="fotoUrl">
       </div>
 
       <!-- STATS -->
-      <div class="stats-grid">
+      <div class="rejilla-estadisticas">
 
-        <div class="form-group">
+        <div class="grupo-formulario">
           <label>Goles</label>
           <input type="number" formControlName="goles">
         </div>
 
-        <div class="form-group">
+        <div class="grupo-formulario">
           <label>Asistencias</label>
           <input type="number" formControlName="asistencias">
         </div>
 
-        <div class="form-group">
+        <div class="grupo-formulario">
           <label>Valor (€M)</label>
           <input type="number" formControlName="valorMercado">
         </div>
@@ -113,20 +113,20 @@
       </div>
 
       <!-- NACIONALIDAD -->
-      <div class="form-group full">
+      <div class="grupo-formulario completo">
         <label>Nacionalidad</label>
         <input type="text" formControlName="nacionalidad">
       </div>
 
       <!-- BUTTONS -->
-      <div class="actions">
+      <div class="acciones">
 
-        <button type="button" class="btn-cancel" (click)="back()">
+        <button type="button" class="btn-cancelar" (click)="back()">
           <i class="bi bi-arrow-left"></i>
           Cancelar
         </button>
 
-        <button type="submit" class="btn-save" [disabled]="loading">
+        <button type="submit" class="btn-guardar" [disabled]="loading">
           <i class="bi bi-check-circle"></i>
           {{ loading ? 'Guardando...' : 'Guardar' }}
         </button>

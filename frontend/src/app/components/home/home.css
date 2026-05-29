@@ -1,5 +1,5 @@
 /* --- CONTENEDOR PRINCIPAL DE BIENVENIDA --- */
-.home {
+.inicio {
   position: fixed;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@
 }
 
 /* --- OSCURECER FONDO --- */
-.overlay {
+.superposicion {
   position: absolute;
   inset: 0;
 
@@ -32,12 +32,12 @@
 }
 
 /* LIGHT MODE ADAPTADO */
-body.light .overlay {
+body.light .superposicion {
   background: rgba(248, 250, 252, 0.75);
 }
 
 /* --- TARJETA CENTRAL --- */
-.home-card {
+.tarjeta-inicio {
   position: relative;
   z-index: 2;
 
@@ -58,7 +58,7 @@ body.light .overlay {
 }
 
 /* --- TÍTULO --- */
-.home-card h1 {
+.tarjeta-inicio h1 {
   font-size: 38px;
   font-weight: 800;
   margin-bottom: 12px;
@@ -67,7 +67,7 @@ body.light .overlay {
 }
 
 /* --- TEXTO --- */
-.home-card p {
+.tarjeta-inicio p {
   color: var(--text-primary);
   font-size: 15px;
   line-height: 1.6;
@@ -75,7 +75,7 @@ body.light .overlay {
 }
 
 /* --- SLOGAN --- */
-.home-card span {
+.tarjeta-inicio span {
   display: block;
 
   color: var(--text-muted);
@@ -88,7 +88,7 @@ body.light .overlay {
 }
 
 /* --- BOTÓN --- */
-.home-card button {
+.tarjeta-inicio button {
   background: var(--accent-green);
   color: #0b0f19;
 
@@ -108,13 +108,13 @@ body.light .overlay {
   box-shadow: 0 4px 12px rgba(0, 210, 106, 0.2);
 }
 
-.home-card button:hover {
+.tarjeta-inicio button:hover {
   transform: scale(1.02);
   filter: brightness(1.1);
   box-shadow: 0 6px 20px rgba(0, 210, 106, 0.4);
 }
 
-.home-card button:active {
+.tarjeta-inicio button:active {
   transform: scale(0.98);
 }
 

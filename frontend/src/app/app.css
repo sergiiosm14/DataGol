@@ -1,26 +1,25 @@
-/* --- CONTENEDOR PRINCIPAL (MAIN CONTENT) --- */
-.main-content {
-  margin-left: 260px; /* sidebar abierta */
+/* CONTENIDO PRINCIPAL */
+.contenido-principal {
+  margin-left: 260px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 
-  background: var(--bg-primary); /* 👈 antes estaba hardcodeado */
+  background: var(--bg-primary);
   color: var(--text-primary);
 
   transition: margin-left 0.3s ease, background 0.3s ease;
 
-  width: calc(100% - 260px); /* evita overflow horizontal */
+  width: calc(100% - 260px);
 }
 
-/* Estado cuando la sidebar está oculta */
-.main-content.sidebar-closed {
+.contenido-principal.sidebar-cerrada {
   margin-left: 0;
   width: 100%;
 }
 
-/* --- CONTENEDOR DE LAS VISTAS INTERNAS --- */
-.page-content {
+/* CONTENIDO PÁGINA */
+.contenido-pagina {
   flex-grow: 1;
   padding: 32px;
 
@@ -29,139 +28,119 @@
   width: 100%;
   max-width: 100%;
 
-  overflow-x: hidden; /* anti scroll lateral */
+  overflow-x: hidden;
   transition: padding 0.3s ease;
 }
 
-
-/* --- BOTÓN FLOTANTE DE APERTURA (bi-list) --- */
-/* --- BOTÓN FLOTANTE DE APERTURA (bi-list) --- */
-.open-sidebar-btn {
+/* BOTÓN SIDEBAR */
+.boton-sidebar {
   position: fixed;
   top: 16px;
   left: 16px;
-  
-  /* CRUCIAL: Mayor que el 999 del Home para que se superponga */
-  z-index: 9999  ; 
-  
+
+  z-index: 9999;
+
   width: 42px;
   height: 42px;
-  background-color: #0f172a; /* Color oscuro */
-  color: #38bdf8;            /* Azul cyan */
+
+  background-color: #0f172a;
+  color: #38bdf8;
+
   border: 1px solid #1e293b;
   border-radius: 8px;
+
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
   transition: all 0.2s ease;
 }
 
-/* =========================================================================
-   PANTALLA DE CARGA COMPLETA (APP-LOADER)
-   ========================================================================= */
-.app-loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100dvh; /* Evita recortes extraños por barras de navegación en móvil */
-  background-color: #0b0f19; /* El fondo oscuro característico de tu app */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  z-index: 9999; /* Por encima de absolutamente todo (navbar, sidebars, etc.) */
-  user-select: none;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-}
-
-/* =========================================================================
-   TEXTO DEL LOGO (DATAGOL)
-   ========================================================================= */
-.app-loader .logo {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); /* Brillo azul neón */
-  animation: pulse 2s infinite ease-in-out;
-}
-
-/* =========================================================================
-   EL SPINNER (ANIMACIÓN DE BALÓN / CARGA)
-   ========================================================================= */
-.app-loader .spinner {
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(255, 255, 255, 0.08); /* Línea base grisácea casi invisible */
-  border-top-color: #38bdf8; /* Tu azul celeste de DataGol */
-  border-radius: 50%;
-  animation: spin 1s cubic-bezier(0.55, 0.05, 0.22, 0.99) infinite;
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
-}
-
-/* =========================================================================
-   SUBTEXTO INFORMATIVO
-   ========================================================================= */
-.app-loader p {
-  color: #94a3b8; /* Gris azulado suave */
-  font-size: 1rem;
-  font-weight: 500;
-  margin: 0;
-  letter-spacing: 0.5px;
-  opacity: 0.8;
-}
-
-/* =========================================================================
-   ANIMACIONES (KEYFRAMES)
-   ========================================================================= */
-/* Giro ultra fluido del Spinner */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Pulsación sutil en el logo para que se sienta vivo */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(0.97);
-    opacity: 0.85;
-  }
-}
-
-/* Efecto Hover del botón */
-.open-sidebar-btn:hover {
+.boton-sidebar:hover {
   background-color: #1e293b;
   color: #ffffff;
   border-color: #38bdf8;
   transform: translateY(-1px);
-}
-
-/* Icono de hamburguesa inside el botón */
-.open-sidebar-btn i {
-  font-size: 1.4rem;
-  line-height: 1;
-}
-
-/* --- EFECTOS INTERACTIVOS DEL BOTÓN --- */
-.open-sidebar-btn:hover {
-  background-color: #1e293b;
-  color: #ffffff;
-  border-color: #38bdf8;
-  transform: translateY(-1px); /* Pequeño levante */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 8px rgba(56, 189, 248, 0.2);
 }
 
-.open-sidebar-btn:active {
-  transform: translateY(1px); /* Efecto de hundido al hacer clic */
+.boton-sidebar:active {
+  transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.boton-sidebar i {
+  font-size: 1.4rem;
+}
+
+/* LOADER */
+.pantalla-carga {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100dvh;
+
+  background-color: #0b0f19;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1.5rem;
+
+  z-index: 9999;
+
+  user-select: none;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* LOGO */
+.logo-carga {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+  animation: pulso 2s infinite ease-in-out;
+}
+
+/* SPINNER */
+.spinner-carga {
+  width: 50px;
+  height: 50px;
+
+  border: 4px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #38bdf8;
+
+  border-radius: 50%;
+
+  animation: girar 1s cubic-bezier(0.55, 0.05, 0.22, 0.99) infinite;
+
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+}
+
+/* TEXTO */
+.pantalla-carga p {
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ANIMACIONES */
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulso {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.97); opacity: 0.85; }
+}

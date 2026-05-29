@@ -1,13 +1,15 @@
-.team-details {
+/* CONTENEDOR GENERAL */
+.detalles-equipo {
   padding: 20px;
   color: var(--text-primary);
 }
 
-.top-bar {
+/* TOP BAR */
+.barra-superior {
   margin-bottom: 15px;
 }
 
-.btn-back {
+.btn-volver {
   background: #1e293b;
   color: #f1f5f9;
 
@@ -27,15 +29,13 @@
   transition: 0.2s;
 }
 
-.btn-back:hover {
+.btn-volver:hover {
   background: #334155;
   transform: translateX(-3px);
 }
 
-/* =========================
-   HEADER
-========================= */
-.team-header {
+/* HEADER */
+.cabecera-equipo {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -49,26 +49,26 @@
   margin-right: 100px;
 }
 
-.team-logo img {
+.logo-equipo img {
   width: 90px;
   height: 90px;
   object-fit: contain;
 }
 
-.team-info h2 {
+.info-equipo h2 {
   font-size: 26px;
   font-weight: 800;
   margin: 0;
 }
 
-.team-info p {
+.info-equipo p {
   color: var(--text-muted);
   margin: 4px 0 10px;
   font-size: 13px;
 }
 
 /* BADGES */
-.team-badges {
+.badges-equipo {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -87,10 +87,8 @@
   border: 1px solid var(--border-color);
 }
 
-/* =========================
-   STATS GRID
-========================= */
-.stats-grid {
+/* STATS GRID */
+.rejilla-estadisticas {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
@@ -98,7 +96,8 @@
   margin-right: 100px;
 }
 
-.stat-card {
+/* STAT CARD */
+.tarjeta-estadistica {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 14px;
@@ -109,32 +108,30 @@
   transition: 0.2s;
 }
 
-.stat-card:hover {
+.tarjeta-estadistica:hover {
   transform: translateY(-3px);
   background: var(--bg-card-hover);
 }
 
-.stat-card i {
+.tarjeta-estadistica i {
   font-size: 20px;
   color: var(--accent-green);
   margin-bottom: 8px;
   display: block;
 }
 
-.stat-value {
+.valor-estadistica {
   font-size: 24px;
   font-weight: 800;
 }
 
-.stat-label {
+.etiqueta-estadistica {
   font-size: 12px;
   color: var(--text-muted);
 }
 
-/* =========================
-   CARD GENERAL
-========================= */
-.card {
+/* CARD GENERAL */
+.tarjeta {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 14px;
@@ -142,25 +139,23 @@
   margin-right: 100px;
 }
 
-.card-header {
+.cabecera-tarjeta {
   padding: 14px 16px;
   border-bottom: 1px solid var(--border-color);
 }
 
-.card-header h3 {
+.cabecera-tarjeta h3 {
   margin: 0;
   font-size: 14px;
   font-weight: 700;
 }
 
-.card-body {
+.cuerpo-tarjeta {
   padding: 10px 16px;
 }
 
-/* =========================
-   PLAYER ROW
-========================= */
-.player-row {
+/* FILA JUGADOR */
+.fila-jugador {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -170,11 +165,11 @@
   margin-right: 100px;
 }
 
-.player-row:last-child {
+.fila-jugador:last-child {
   border-bottom: none;
 }
 
-.player-row .avatar {
+.avatar-jugador {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -182,32 +177,30 @@
   margin-right: 12px;
 }
 
-.player-row .info {
+.info-jugador {
   flex: 1;
   margin-left: 10px;
 }
 
-.player-row .name {
+.nombre-jugador {
   font-weight: 700;
   font-size: 13px;
 }
 
-.player-row .sub {
+.subinfo-jugador {
   font-size: 12px;
   color: var(--text-muted);
 }
 
-.player-row .stats {
+.estadisticas-jugador {
   font-size: 12px;
   color: var(--accent-blue);
   font-weight: 600;
   white-space: nowrap;
 }
 
-/* =========================
-   LOADING (si lo usas luego)
-========================= */
-.loading {
+/* LOADING */
+.cargando {
   padding: 40px;
   text-align: center;
   color: var(--text-muted);
