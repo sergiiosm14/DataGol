@@ -7,11 +7,12 @@ import { Sidebar } from './layout/sidebar/sidebar';
   selector: 'app-root',
   imports: [RouterOutlet, Sidebar, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('datagolV.2');
   sidebarOpen = false;
+  loading = true;
 
   openSidebar() {
     this.sidebarOpen = true;
@@ -29,5 +30,9 @@ export class App {
     } else {
       document.body.classList.remove('light-theme');
     }
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
   }
 }
