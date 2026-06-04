@@ -1,0 +1,58 @@
+/* =========================================================
+   🎨 DATAGOL THEME SYSTEM
+========================================================= */
+
+:root {
+  /* DARK MODE DEFAULT */
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #0f172a;
+  --bg-card-hover: #1e293b;
+
+  --border-color: #1e293b;
+
+  --text-primary: #f1f5f9;
+  --text-muted: #64748b;
+
+  --accent-blue: #38bdf8;
+  --accent-green: #00d26a;
+  --accent-red: #ef4444;
+
+  --shadow: rgba(0, 0, 0, 0.4);
+  --sidebar-bg: #0f172a;
+  
+}
+
+/* LIGHT MODE */
+body.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+
+  --border-color: #e2e8f0;
+
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+
+  --accent-blue: #2563eb;
+  --accent-green: #16a34a;
+  --accent-red: #dc2626;
+
+  --shadow: rgba(0, 0, 0, 0.08);
+  
+  --sidebar-bg: #ffffff;
+
+}
+
+/* BASE */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
