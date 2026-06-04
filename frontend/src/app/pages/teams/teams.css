@@ -112,7 +112,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: white;
+  color: var(--text-primary);
   font-size: 14px;
 }
 
@@ -175,7 +175,6 @@
 
 /* LOADING */
 .cargando {
-<<<<<<< HEAD
   min-height: 300px;
 
   display: flex;
@@ -207,9 +206,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-=======
-  padding: 30px;
-  text-align: center;
-  color: var(--text-muted);
-}
->>>>>>> a2b7abd973893ae5777303a936c15a1b4751d80e
