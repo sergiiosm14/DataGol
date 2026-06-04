@@ -32,9 +32,9 @@ VALUES
 
 
 
--- =====================================================
+
 -- JUGADORES LALIGA (20 equipos x 3 jugadores)
--- =====================================================
+
 
 INSERT INTO jugadores
 (apellido1, asistencias, edad, estatura, foto_url, goles, nacionalidad, nombre, peso, posicion, valor_mercado, equipo_id)

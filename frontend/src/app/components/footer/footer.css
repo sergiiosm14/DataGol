@@ -1,7 +1,3 @@
-/* ==========================================================================  
-   🐾 PIE DE PÁGINA DATAGOL (ADAPTATIVO PREMIUM CON TARJETAS GLASSMORPHISM)  
-   ========================================================================== */
-
 .pie-pagina {
   background: linear-gradient(135deg, var(--bg-secondary), var(--footer-bg-gradient, #1e3a8a));
   color: var(--text-primary);
@@ -21,7 +17,7 @@
   flex-wrap: wrap;
 }
 
-/* 🧱 CARDS */
+/* CARDS */
 .seccion-footer {
   flex: 1;
   min-width: 220px;
@@ -94,7 +90,3 @@
   color: var(--text-muted);
   opacity: 0.8;
 }
-
-/* ==========================================================================  
-   📱 RESPONSIVE  
-   ========================================================================== */

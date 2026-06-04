@@ -1,9 +1,7 @@
-/* =========================================================
-   🎨 DATAGOL THEME SYSTEM
-========================================================= */
+
 
 :root {
-  /* DARK MODE DEFAULT */
+  /* MODO OSCURO */
   --bg-primary: #0a0e17;
   --bg-secondary: #111827;
   --bg-card: #0f172a;
@@ -23,7 +21,7 @@
   
 }
 
-/* LIGHT MODE */
+/* MODO CLARO */
 body.light {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
