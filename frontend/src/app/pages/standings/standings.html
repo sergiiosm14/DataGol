@@ -1,4 +1,8 @@
 <div class="pagina-clasificacion">
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2b7abd973893ae5777303a936c15a1b4751d80e
   <!-- HEADER -->
   <div class="cabecera-pagina">
     <div>
@@ -12,6 +16,10 @@
 
   <!-- TABLE -->
   <div class="tabla-clasificacion">
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2b7abd973893ae5777303a936c15a1b4751d80e
     <!-- HEADER -->
     <div class="cabecera-tabla">
       <div>#</div>
@@ -22,6 +30,7 @@
       <div>GC</div>
       <div>DG</div>
     </div>
+<<<<<<< HEAD
     @if (!equipos.length) {
       <div class="carga">
         <i class="bi bi-arrow-repeat girar"></i>
@@ -43,6 +52,26 @@
 
         <div class="celda-equipo">
           <img class="logo-equipo" [src]="team.escudoUrl || 'assets/default-team.png'" />
+=======
+
+    <!-- ROWS -->
+    @for (team of equipos; let i = $index; track team.id) {
+
+      <div class="fila-clasificacion"
+           [ngClass]="{
+             'zona-champions': i < 4,
+             'zona-europa': i >= 4 && i < 6,
+             'zona-conference': i === 6,
+             'zona-descenso': i >= equipos.length - 3
+           }">
+
+        <div class="posicion">{{ i + 1 }}</div>
+
+        <div class="celda-equipo">
+
+          <img class="logo-equipo"
+               [src]="team.escudoUrl || 'assets/default-team.png'">
+>>>>>>> a2b7abd973893ae5777303a936c15a1b4751d80e
 
           <span>{{ team.nombre }}</span>
         </div>
@@ -52,15 +81,34 @@
         <div class="celda">{{ team.golesFavor }}</div>
         <div class="celda">{{ team.golesContra }}</div>
         <div class="celda">{{ team.golesFavor - team.golesContra }}</div>
+<<<<<<< HEAD
       </div>
     }
+=======
+
+      </div>
+
+    }
+
+>>>>>>> a2b7abd973893ae5777303a936c15a1b4751d80e
   </div>
 
   <!-- LEGEND -->
   <div class="leyenda">
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2b7abd973893ae5777303a936c15a1b4751d80e
     <div><span class="punto champions"></span> Champions League</div>
     <div><span class="punto europa"></span> Europa League</div>
     <div><span class="punto conference"></span> Conference League</div>
     <div><span class="punto descenso"></span> Descenso</div>
+<<<<<<< HEAD
   </div>
 </div>
+=======
+
+  </div>
+
+</div>
+>>>>>>> a2b7abd973893ae5777303a936c15a1b4751d80e
