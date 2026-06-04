@@ -3,6 +3,41 @@
   color: var(--text-primary);
 }
 
+
+.carga {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  text-align: center;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ICONO */
+.carga i {
+  font-size: 2rem;
+  color: var(--accent-blue);
+}
+
+.girar {
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
 /* HEADER */
 .cabecera-pagina {
   display: flex;
