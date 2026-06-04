@@ -87,6 +87,16 @@
   gap: 8px;
 }
 
+option {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 12px;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.2s;
+}
+
 /* FORM GRID */
 .rejilla-formulario {
   padding: 20px;
